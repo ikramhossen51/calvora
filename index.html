@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calvora - Profit Margin Calculator</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, Segoe UI, Roboto, sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+    padding: 20px;
+  }
+  .container {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: #38bdf8;
+  }
+  p.sub {
+    color: #94a3b8;
+    margin-bottom: 24px;
+    font-size: 14px;
+  }
+  .card {
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #cbd5e1;
+  }
+  input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    background: #0f172a;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+  button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #38bdf8;
+    color: #0f172a;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .result {
+    margin-top: 16px;
+    padding: 16px;
+    background: #0f172a;
+    border-radius: 8px;
+    display: none;
+  }
+  .result.show { display: block; }
+  .row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 15px;
+  }
+  .row span:last-child {
+    font-weight: bold;
+    color: #4ade80;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Calvora Margin Calculator</h1>
+  <p class="sub">দ্রুত প্রফিট মার্জিন বের করুন</p>
+
+  <div class="card">
+    <label>Cost Price (খরচ)</label>
+    <input type="number" id="cost" placeholder="যেমন: 100">
+
+    <label>Selling Price (বিক্রয় মূল্য)</label>
+    <input type="number" id="price" placeholder="যেমন: 150">
+
+    <button onclick="calculate()">Calculate</button>
+
+    <div class="result" id="result">
+      <div class="row"><span>Profit</span><span id="profit">-</span></div>
+      <div class="row"><span>Margin %</span><span id="margin">-</span></div>
+      <div class="row"><span>Markup %</span><span id="markup">-</span></div>
+    </div>
+  </div>
+</div>
+
+<script>
+function calculate() {
+  const cost = parseFloat(document.getElementById('cost').value);
+  const price = parseFloat(document.getElementById('price').value);
+
+  if (isNaN(cost) || isNaN(price) || cost <= 0 || price <= 0) {
+    alert("দয়া করে সঠিক সংখ্যা দিন");
+    return;
+  }
+
+  const profit = price - cost;
+  const margin = (profit / price) * 100;
+  const markup = (profit / cost) * 100;
+
+  document.getElementById('profit').textContent = profit.toFixed(2);
+  document.getElementById('margin').textContent = margin.toFixed(2) + '%';
+  document.getElementById('markup').textContent = markup.toFixed(2) + '%';
+  document.getElementById('result').classList.add('show');
+}
+</script>
+
+</body>
+  </html>
