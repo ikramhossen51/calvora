@@ -1,0 +1,1 @@
+// Calvora Global JavaScript
