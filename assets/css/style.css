@@ -36,3 +36,23 @@ body {
 .main-nav a:hover {
   color: #38bdf8;
 }
+
+#site-header {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.main-nav a {
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: #0ea5e9;
+}
