@@ -48,3 +48,14 @@ body {
 .main-nav a:hover {
   color: #0ea5e9;
 }
+.value.profit {
+  color: #22c55e;
+}
+
+.value.loss {
+  color: #ef4444;
+}
+
+.value.neutral {
+  color: #94a3b8;
+}
