@@ -2,311 +2,93 @@
 // CALVORA — GLOBAL JAVASCRIPT
 // =========================================================
 
-
-// =========================================================
-// MARGIN CALCULATOR
-// =========================================================
-
-function calculate() {
-
-  const costInput = document.getElementById("cost");
-  const priceInput = document.getElementById("price");
-
-  if (!costInput || !priceInput) {
-    return;
-  }
-
-  const cost = parseFloat(costInput.value);
-  const price = parseFloat(priceInput.value);
-
-  if (
-    isNaN(cost) ||
-    isNaN(price) ||
-    cost <= 0 ||
-    price <= 0
-  ) {
-    alert("Please enter valid numbers.");
-    return;
-  }
-
-  const profit = price - cost;
-  const margin = (profit / price) * 100;
-  const markup = (profit / cost) * 100;
-
-  const profitEl = document.getElementById("profit");
-  const marginEl = document.getElementById("margin");
-  const markupEl = document.getElementById("markup");
-  const resultEl = document.getElementById("result");
-
-  if (!profitEl || !marginEl || !markupEl || !resultEl) {
-    return;
-  }
-
-  profitEl.className = "value";
-  marginEl.className = "value";
-  markupEl.className = "value";
-
-  if (profit > 0) {
-
-    profitEl.classList.add("profit");
-    marginEl.classList.add("profit");
-    markupEl.classList.add("profit");
-
-  } else if (profit < 0) {
-
-    profitEl.classList.add("loss");
-    marginEl.classList.add("loss");
-    markupEl.classList.add("loss");
-
-  } else {
-
-    profitEl.classList.add("neutral");
-    marginEl.classList.add("neutral");
-    markupEl.classList.add("neutral");
-
-  }
-
-  profitEl.textContent = profit.toFixed(2);
-  marginEl.textContent = margin.toFixed(2) + "%";
-  markupEl.textContent = markup.toFixed(2) + "%";
-
-  resultEl.classList.add("show");
-}
-
-
-// =========================================================
-// HOMEPAGE CALCULATOR SEARCH
-// =========================================================
-
 document.addEventListener("DOMContentLoaded", function () {
 
-  const searchInput = document.getElementById("calculatorSearch");
+  // =======================================================
+  // HOMEPAGE CALCULATOR SEARCH
+  // =======================================================
 
-  if (!searchInput) {
-    return;
+  const homepageSearch =
+    document.getElementById("calculatorSearch");
+
+  if (homepageSearch) {
+
+    const homepageCards =
+      document.querySelectorAll(
+        "#popular .calculator-card"
+      );
+
+    homepageSearch.addEventListener("input", function () {
+
+      const searchTerm =
+        this.value.toLowerCase().trim();
+
+      homepageCards.forEach(function (card) {
+
+        const cardText =
+          card.textContent.toLowerCase();
+
+        if (cardText.includes(searchTerm)) {
+
+          card.style.display = "";
+
+        } else {
+
+          card.style.display = "none";
+
+        }
+
+      });
+
+    });
+
   }
 
-  const calculatorCards =
-    document.querySelectorAll(".calculator-card");
 
-  searchInput.addEventListener("input", function () {
+  // =======================================================
+  // CALCULATORS PAGE SEARCH
+  // =======================================================
 
-    const searchTerm =
-      searchInput.value.toLowerCase().trim();
+  const calculatorsPageSearch =
+    document.getElementById("calculatorSearch");
 
-    calculatorCards.forEach(function (card) {
+  if (
+    calculatorsPageSearch &&
+    document.querySelector(".calculators-page")
+  ) {
 
-      const cardText =
-        card.textContent.toLowerCase();
+    const calculatorCards =
+      document.querySelectorAll(
+        ".calculators-page .calculator-card"
+      );
 
-      if (cardText.includes(searchTerm)) {
+    calculatorsPageSearch.addEventListener(
+      "input",
+      function () {
 
-        card.style.display = "";
+        const searchTerm =
+          this.value.toLowerCase().trim();
 
-      } else {
+        calculatorCards.forEach(function (card) {
 
-        card.style.display = "none";
+          const cardText =
+            card.textContent.toLowerCase();
+
+          if (cardText.includes(searchTerm)) {
+
+            card.style.display = "";
+
+          } else {
+
+            card.style.display = "none";
+
+          }
+
+        });
 
       }
-
-    });
-
-  });
-
-});
-/* =========================================
-   CALVORA — CALCULATOR SEARCH
-========================================= */
-
-const calculatorSearch = document.getElementById("calculatorSearch");
-
-if (calculatorSearch) {
-
-  calculatorSearch.addEventListener("input", function () {
-
-    const query = this.value.toLowerCase().trim();
-
-    const cards = document.querySelectorAll(
-      ".calculators-page .calculator-card"
     );
 
-    cards.forEach(function (card) {
+  }
 
-      const text = card.textContent.toLowerCase();
-
-      if (text.includes(query)) {
-        card.style.display = "";
-      } else {
-        card.style.display = "none";
-      }
-
-    });
-
-  });
-
-}
-/* =========================================
-   CALVORA — MARGIN CALCULATOR
-========================================= */
-
-const calculateMarginButton =
-  document.getElementById("calculateMargin");
-
-const resetMarginButton =
-  document.getElementById("resetMargin");
-
-if (calculateMarginButton) {
-
-  calculateMarginButton.addEventListener("click", function () {
-
-    const costInput =
-      document.getElementById("cost");
-
-    const priceInput =
-      document.getElementById("price");
-
-    const cost =
-      parseFloat(costInput.value);
-
-    const price =
-      parseFloat(priceInput.value);
-
-    const results =
-      document.getElementById("marginResults");
-
-    const error =
-      document.getElementById("marginError");
-
-    const profitResult =
-      document.getElementById("profitResult");
-
-    const marginResult =
-      document.getElementById("marginResult");
-
-    const markupResult =
-      document.getElementById("markupResult");
-
-
-    /* Validation */
-
-    if (
-      isNaN(cost) ||
-      isNaN(price) ||
-      cost <= 0 ||
-      price <= 0
-    ) {
-
-      results.hidden = true;
-      error.hidden = false;
-
-      return;
-    }
-
-
-    /* Hide error */
-
-    error.hidden = true;
-
-
-    /* Calculations */
-
-    const profit = price - cost;
-
-    const margin =
-      (profit / price) * 100;
-
-    const markup =
-      (profit / cost) * 100;
-
-
-    /* Display results */
-
-    profitResult.textContent =
-      profit.toFixed(2);
-
-    marginResult.textContent =
-      margin.toFixed(2) + "%";
-
-    markupResult.textContent =
-      markup.toFixed(2) + "%";
-
-
-    /* Result cards */
-
-    const resultCards =
-      document.querySelectorAll(
-        ".margin-results .result-card"
-      );
-
-    resultCards.forEach(function (card) {
-
-      card.classList.remove(
-        "profit",
-        "loss",
-        "neutral"
-      );
-
-    });
-
-
-    if (profit > 0) {
-
-      resultCards.forEach(function (card) {
-
-        card.classList.add("profit");
-
-      });
-
-    } else if (profit < 0) {
-
-      resultCards.forEach(function (card) {
-
-        card.classList.add("loss");
-
-      });
-
-    } else {
-
-      resultCards.forEach(function (card) {
-
-        card.classList.add("neutral");
-
-      });
-
-    }
-
-
-    /* Show results */
-
-    results.hidden = false;
-
-  });
-
-}
-
-
-/* =========================================
-   RESET
-========================================= */
-
-if (resetMarginButton) {
-
-  resetMarginButton.addEventListener("click", function () {
-
-    document.getElementById("cost").value = "";
-
-    document.getElementById("price").value = "";
-
-    document.getElementById("marginResults").hidden = true;
-
-    document.getElementById("marginError").hidden = true;
-
-    document.getElementById("profitResult").textContent = "—";
-
-    document.getElementById("marginResult").textContent = "—";
-
-    document.getElementById("markupResult").textContent = "—";
-
-  });
-
-}
+});
