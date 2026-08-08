@@ -778,3 +778,346 @@
   outline: 2px solid #38bdf8;
   outline-offset: 2px;
 }
+/* =========================================================
+   CALVORA — MOBILE COMPACT OVERRIDE
+   FORCE SMALL MOBILE LAYOUT
+========================================================= */
+
+@media screen and (max-width: 600px) {
+
+  /* PAGE */
+  .margin-page {
+    width: 100% !important;
+    padding: 18px 10px 35px !important;
+    margin: 0 !important;
+  }
+
+  /* MAIN CALCULATOR BOX */
+  .margin-calculator {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    margin: 0 !important;
+    padding: 18px 14px !important;
+
+    border-radius: 12px !important;
+
+    box-shadow: none !important;
+  }
+
+  /* HEADER */
+  .margin-header {
+    display: flex !important;
+
+    gap: 10px !important;
+
+    margin-bottom: 20px !important;
+  }
+
+  .margin-icon-box {
+    width: 42px !important;
+    height: 42px !important;
+
+    min-width: 42px !important;
+
+    border-radius: 10px !important;
+  }
+
+  .margin-icon-box svg {
+    width: 23px !important;
+    height: 23px !important;
+  }
+
+  .calculator-label {
+    margin-bottom: 3px !important;
+
+    font-size: 8px !important;
+
+    letter-spacing: 1px !important;
+  }
+
+  .margin-header h1 {
+    margin: 0 0 3px !important;
+
+    font-size: 21px !important;
+
+    line-height: 1.15 !important;
+
+    letter-spacing: -0.3px !important;
+  }
+
+  .margin-header p {
+    font-size: 10px !important;
+
+    line-height: 1.4 !important;
+  }
+
+
+  /* FORM */
+  .margin-form {
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    gap: 12px !important;
+
+    margin: 0 0 14px !important;
+  }
+
+  .input-group {
+    width: 100% !important;
+
+    margin: 0 !important;
+  }
+
+  .input-group label {
+    margin-bottom: 5px !important;
+
+    font-size: 12px !important;
+
+    line-height: 1.3 !important;
+  }
+
+
+  /* INPUT BOX */
+  .input-wrapper {
+    width: 100% !important;
+
+    height: 42px !important;
+  }
+
+  .input-wrapper input {
+    width: 100% !important;
+
+    height: 42px !important;
+
+    min-height: 42px !important;
+
+    padding: 0 12px 0 36px !important;
+
+    border-radius: 8px !important;
+
+    font-size: 13px !important;
+  }
+
+  .currency-symbol {
+    left: 12px !important;
+
+    font-size: 15px !important;
+  }
+
+
+  /* ERROR */
+  .margin-error {
+    margin: 0 0 12px !important;
+
+    padding: 9px 11px !important;
+
+    border-radius: 7px !important;
+
+    font-size: 10px !important;
+  }
+
+
+  /* BUTTON AREA */
+  .margin-actions {
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    gap: 7px !important;
+
+    width: 100% !important;
+
+    margin: 0 !important;
+  }
+
+
+  /* BOTH BUTTONS */
+  .margin-button {
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+    min-height: 42px !important;
+
+    height: 42px !important;
+
+    padding: 0 12px !important;
+
+    border-radius: 8px !important;
+
+    gap: 7px !important;
+
+    font-size: 13px !important;
+
+    line-height: 1 !important;
+  }
+
+  .margin-button svg {
+    width: 17px !important;
+
+    height: 17px !important;
+  }
+
+
+  /* RESULTS */
+  .margin-results {
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    gap: 7px !important;
+
+    margin-top: 16px !important;
+  }
+
+  .margin-results[hidden] {
+    display: none !important;
+  }
+
+  .result-card {
+    width: 100% !important;
+
+    min-height: 65px !important;
+
+    height: 65px !important;
+
+    padding: 10px !important;
+
+    border-radius: 8px !important;
+  }
+
+  .result-label {
+    margin-bottom: 3px !important;
+
+    font-size: 10px !important;
+  }
+
+  .result-value {
+    font-size: 17px !important;
+
+    line-height: 1.1 !important;
+  }
+
+
+  /* INFORMATION */
+  .margin-info {
+    margin-top: 22px !important;
+
+    padding-top: 20px !important;
+  }
+
+  .margin-info h2 {
+    margin-bottom: 6px !important;
+
+    font-size: 17px !important;
+  }
+
+  .margin-info > p {
+    margin-bottom: 12px !important;
+
+    font-size: 10px !important;
+
+    line-height: 1.5 !important;
+  }
+
+  .formula-box {
+    display: flex !important;
+
+    padding: 9px 10px !important;
+
+    margin-top: 6px !important;
+
+    border-radius: 7px !important;
+  }
+
+  .formula-box span {
+    font-size: 9px !important;
+  }
+
+  .formula-box strong {
+    font-size: 9px !important;
+  }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL PHONE
+========================================================= */
+
+@media screen and (max-width: 380px) {
+
+  .margin-page {
+    padding: 14px 8px 30px !important;
+  }
+
+  .margin-calculator {
+    padding: 15px 11px !important;
+
+    border-radius: 10px !important;
+  }
+
+  .margin-header {
+    gap: 8px !important;
+
+    margin-bottom: 17px !important;
+  }
+
+  .margin-icon-box {
+    width: 36px !important;
+    height: 36px !important;
+
+    min-width: 36px !important;
+
+    border-radius: 9px !important;
+  }
+
+  .margin-icon-box svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .margin-header h1 {
+    font-size: 19px !important;
+  }
+
+  .margin-header p {
+    font-size: 9px !important;
+  }
+
+  .input-wrapper,
+  .input-wrapper input {
+    height: 39px !important;
+
+    min-height: 39px !important;
+  }
+
+  .input-wrapper input {
+    font-size: 12px !important;
+
+    padding-left: 33px !important;
+  }
+
+  .currency-symbol {
+    left: 10px !important;
+
+    font-size: 14px !important;
+  }
+
+  .margin-button {
+    height: 39px !important;
+
+    min-height: 39px !important;
+
+    font-size: 12px !important;
+  }
+
+  .margin-button svg {
+    width: 16px !important;
+
+    height: 16px !important;
+  }
+
+}
