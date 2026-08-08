@@ -1370,3 +1370,536 @@ a {
   }
 
 }
+/* =========================================================
+   CALVORA — GLOBAL MOBILE COMPACT SYSTEM
+   Desktop: UNCHANGED
+   Mobile: Compact / Professional
+========================================================= */
+
+@media screen and (max-width: 600px) {
+
+  /* =======================================================
+     GLOBAL
+  ======================================================= */
+
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    overflow-x: hidden;
+    line-height: 1.45;
+  }
+
+
+  /* =======================================================
+     HEADER
+  ======================================================= */
+
+  #site-header {
+    width: 100% !important;
+
+    padding: 11px 12px !important;
+
+    gap: 9px !important;
+  }
+
+  .logo a {
+    font-size: 20px !important;
+  }
+
+  .main-nav {
+    gap: 9px !important;
+  }
+
+  .main-nav a {
+    font-size: 10px !important;
+  }
+
+
+  /* =======================================================
+     HERO — HOMEPAGE
+  ======================================================= */
+
+  .hero {
+    min-height: 390px !important;
+
+    padding: 55px 14px !important;
+  }
+
+  .hero-content {
+    max-width: 100% !important;
+  }
+
+  .hero-badge {
+    margin-bottom: 13px !important;
+
+    padding: 5px 10px !important;
+
+    font-size: 9px !important;
+  }
+
+  .hero-content h1 {
+    margin-bottom: 15px !important;
+
+    font-size: 34px !important;
+
+    line-height: 1.05 !important;
+
+    letter-spacing: -1px !important;
+  }
+
+  .hero-content p {
+    margin-bottom: 22px !important;
+
+    font-size: 12px !important;
+
+    line-height: 1.55 !important;
+  }
+
+  .hero-actions {
+    gap: 8px !important;
+  }
+
+  .hero-btn,
+  .hero-secondary-btn {
+    min-height: 40px !important;
+
+    padding: 0 18px !important;
+
+    border-radius: 7px !important;
+
+    font-size: 11px !important;
+  }
+
+
+  /* =======================================================
+     SEARCH
+  ======================================================= */
+
+  .calculator-search {
+    max-width: 100% !important;
+
+    margin: -18px auto 35px !important;
+
+    padding: 0 12px !important;
+  }
+
+  .search-box {
+    min-height: 44px !important;
+
+    padding: 0 12px !important;
+
+    border-radius: 9px !important;
+  }
+
+  .search-icon {
+    margin-right: 7px !important;
+
+    font-size: 17px !important;
+  }
+
+  .search-box input {
+    font-size: 12px !important;
+  }
+
+
+  /* =======================================================
+     GENERAL SECTIONS
+  ======================================================= */
+
+  .section {
+    width: 100% !important;
+
+    padding: 35px 12px !important;
+  }
+
+  .section-heading {
+    gap: 8px !important;
+
+    margin-bottom: 20px !important;
+  }
+
+  .section-label {
+    margin-bottom: 5px !important;
+
+    font-size: 8px !important;
+
+    letter-spacing: 1.2px !important;
+  }
+
+  .section-heading h2 {
+    margin-bottom: 5px !important;
+
+    font-size: 24px !important;
+  }
+
+  .section-heading p {
+    font-size: 11px !important;
+  }
+
+  .view-all {
+    font-size: 11px !important;
+  }
+
+
+  /* =======================================================
+     CALCULATOR CARDS — WHOLE WEBSITE
+  ======================================================= */
+
+  .calculator-grid {
+    grid-template-columns: 1fr !important;
+
+    gap: 10px !important;
+  }
+
+  .calculator-card,
+  .calculators-page .calculator-card {
+    width: 100% !important;
+
+    min-height: 105px !important;
+
+    height: auto !important;
+
+    padding: 14px !important;
+
+    gap: 11px !important;
+
+    border-radius: 11px !important;
+  }
+
+  .calculator-icon,
+  .calculators-page .calculator-icon {
+    width: 43px !important;
+
+    height: 43px !important;
+
+    min-width: 43px !important;
+
+    border-radius: 10px !important;
+
+    margin-right: 0 !important;
+  }
+
+  .calculator-icon svg {
+    width: 22px !important;
+
+    height: 22px !important;
+  }
+
+  .calculator-card-content {
+    padding-right: 18px !important;
+  }
+
+  .calculator-card h3,
+  .calculators-page .calculator-card-content h3 {
+    margin-bottom: 3px !important;
+
+    font-size: 15px !important;
+
+    line-height: 1.25 !important;
+  }
+
+  .calculator-card p,
+  .calculators-page .calculator-card-content p {
+    font-size: 10px !important;
+
+    line-height: 1.45 !important;
+  }
+
+  .calculator-category {
+    margin-bottom: 4px !important;
+
+    font-size: 8px !important;
+
+    letter-spacing: 0.8px !important;
+  }
+
+  .card-arrow,
+  .calculators-page .card-arrow {
+    right: 12px !important;
+
+    font-size: 16px !important;
+  }
+
+
+  /* =======================================================
+     CATEGORIES — WHOLE WEBSITE
+  ======================================================= */
+
+  .categories-section {
+    padding-top: 20px !important;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+
+    gap: 9px !important;
+  }
+
+  .category-card {
+    min-height: 145px !important;
+
+    padding: 13px !important;
+
+    border-radius: 10px !important;
+  }
+
+  .category-icon {
+    width: 35px !important;
+
+    height: 35px !important;
+
+    margin-bottom: 10px !important;
+
+    border-radius: 8px !important;
+
+    font-size: 15px !important;
+  }
+
+  .category-card h3 {
+    margin-bottom: 4px !important;
+
+    font-size: 14px !important;
+  }
+
+  .category-card p {
+    font-size: 9px !important;
+
+    line-height: 1.45 !important;
+  }
+
+  .category-link {
+    padding-top: 9px !important;
+
+    font-size: 9px !important;
+  }
+
+
+  /* =======================================================
+     WHY CALVORA
+  ======================================================= */
+
+  .why-calvora {
+    width: 100% !important;
+
+    margin: 25px 0 !important;
+
+    padding: 38px 12px !important;
+
+    gap: 22px !important;
+  }
+
+  .why-content h2 {
+    margin-bottom: 12px !important;
+
+    font-size: 30px !important;
+  }
+
+  .why-content p {
+    font-size: 11px !important;
+
+    line-height: 1.55 !important;
+  }
+
+  .features-grid {
+    gap: 9px !important;
+  }
+
+  .feature {
+    padding: 14px !important;
+
+    border-radius: 10px !important;
+  }
+
+  .feature strong {
+    margin-bottom: 14px !important;
+
+    font-size: 9px !important;
+  }
+
+  .feature h3 {
+    margin-bottom: 5px !important;
+
+    font-size: 14px !important;
+  }
+
+  .feature p {
+    font-size: 9px !important;
+
+    line-height: 1.5 !important;
+  }
+
+
+  /* =======================================================
+     CALCULATORS PAGE HERO
+  ======================================================= */
+
+  .calculators-hero {
+    padding: 55px 14px 40px !important;
+  }
+
+  .calculators-hero h1 {
+    margin: 12px 0 13px !important;
+
+    font-size: 32px !important;
+
+    line-height: 1.08 !important;
+  }
+
+  .calculators-hero p {
+    font-size: 12px !important;
+
+    line-height: 1.55 !important;
+  }
+
+  .calculators-search-page {
+    margin-top: -5px !important;
+
+    margin-bottom: 20px !important;
+  }
+
+
+  /* =======================================================
+     FINAL CTA
+  ======================================================= */
+
+  .final-cta {
+    width: 100% !important;
+
+    padding: 50px 14px !important;
+  }
+
+  .final-cta h2 {
+    margin-bottom: 12px !important;
+
+    font-size: 32px !important;
+  }
+
+  .final-cta p {
+    margin-bottom: 20px !important;
+
+    font-size: 11px !important;
+  }
+
+
+  /* =======================================================
+     FOOTER
+  ======================================================= */
+
+  #site-footer {
+    width: 100% !important;
+
+    margin-top: 20px !important;
+
+    padding: 32px 14px 22px !important;
+
+    gap: 25px !important;
+  }
+
+  .footer-logo {
+    margin-bottom: 7px !important;
+
+    font-size: 20px !important;
+  }
+
+  .footer-brand p {
+    max-width: 240px !important;
+
+    font-size: 10px !important;
+  }
+
+  .footer-links {
+    gap: 30px !important;
+  }
+
+  .footer-links div {
+    gap: 6px !important;
+  }
+
+  .footer-links h4 {
+    margin-bottom: 4px !important;
+
+    font-size: 11px !important;
+  }
+
+  .footer-links a {
+    font-size: 9px !important;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media screen and (max-width: 380px) {
+
+  .hero {
+    min-height: 350px !important;
+
+    padding: 45px 11px !important;
+  }
+
+  .hero-content h1 {
+    font-size: 30px !important;
+  }
+
+  .section {
+    padding: 30px 10px !important;
+  }
+
+  .calculator-card,
+  .calculators-page .calculator-card {
+    min-height: 92px !important;
+
+    padding: 11px !important;
+
+    gap: 9px !important;
+  }
+
+  .calculator-icon,
+  .calculators-page .calculator-icon {
+    width: 38px !important;
+
+    height: 38px !important;
+
+    min-width: 38px !important;
+  }
+
+  .calculator-icon svg {
+    width: 20px !important;
+
+    height: 20px !important;
+  }
+
+  .calculator-card h3,
+  .calculators-page .calculator-card-content h3 {
+    font-size: 14px !important;
+  }
+
+  .calculator-card p,
+  .calculators-page .calculator-card-content p {
+    font-size: 9px !important;
+  }
+
+  .category-grid {
+    gap: 7px !important;
+  }
+
+  .category-card {
+    min-height: 130px !important;
+
+    padding: 11px !important;
+  }
+
+  .category-card h3 {
+    font-size: 13px !important;
+  }
+
+  .category-card p {
+    font-size: 8px !important;
+  }
+
+}
