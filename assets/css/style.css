@@ -1,4 +1,6 @@
-/* Calvora Global Styles */
+/* =========================================================
+   CALVORA — PREMIUM GLOBAL STYLES
+========================================================= */
 
 * {
   margin: 0;
@@ -6,183 +8,968 @@
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  padding: 20px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: #0f172a;
-  color: #e2e8f0;
+html {
+  scroll-behavior: smooth;
 }
 
-/* Header */
+body {
+  margin: 0;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 #site-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 16px 20px;
+  padding: 18px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
   background: #111827;
   border-bottom: 1px solid #1f2937;
 }
 
 .logo a {
   color: #38bdf8;
-  text-decoration: none;
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
 }
 
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 28px;
 }
 
 .main-nav a {
-  color: #e2e8f0;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  color: #cbd5e1;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.25s ease;
 }
 
 .main-nav a:hover {
-  color: #0ea5e9;
-}
-
-/* Calculator */
-
-.container {
-  max-width: 480px;
-  margin: 0 auto;
-}
-
-h1 {
-  font-size: 24px;
-  margin-bottom: 8px;
   color: #38bdf8;
 }
 
-p.sub {
-  color: #94a3b8;
-  margin-bottom: 24px;
-  font-size: 14px;
-}
 
-.card {
-  background: #1e293b;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 16px;
-}
-
-label {
-  display: block;
-  font-size: 14px;
-  margin-bottom: 6px;
-  color: #cbd5e1;
-}
-
-input {
-  width: 100%;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #334155;
-  background: #0f172a;
-  color: #fff;
-  font-size: 16px;
-  margin-bottom: 16px;
-}
-
-button {
-  width: 100%;
-  padding: 14px;
-  border: none;
-  border-radius: 8px;
-  background: #38bdf8;
-  color: #0f172a;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.result {
-  margin-top: 16px;
-  padding: 16px;
-  background: #0f172a;
-  border-radius: 8px;
-  display: none;
-}
-
-.result.show {
-  display: block;
-}
-
-.row {
-  display: flex;
-  justify-content: space-between;
-  padding: 6px 0;
-  font-size: 15px;
-}
-
-.row span:last-child {
-  font-weight: bold;
-}
-
-/* Profit / Loss Colors */
-
-.value.profit {
-  color: #22c55e;
-}
-
-.value.loss {
-  color: #ef4444;
-}
-
-.value.neutral {
-  color: #94a3b8;
-}
-/* ===========================
-   Hero Section
-=========================== */
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero {
+  position: relative;
+  overflow: hidden;
+
   max-width: 1200px;
-  margin: 60px auto;
-  padding: 80px 20px;
+  min-height: 560px;
+
+  margin: 0 auto;
+  padding: 110px 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   text-align: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 30%,
+      rgba(56, 189, 248, 0.16),
+      transparent 45%
+    ),
+    linear-gradient(
+      135deg,
+      #111827 0%,
+      #0f172a 55%,
+      #020617 100%
+    );
+
+  border-bottom: 1px solid #1e293b;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  top: -180px;
+  left: -150px;
+
+  border-radius: 50%;
+
+  background: rgba(56, 189, 248, 0.07);
+
+  filter: blur(50px);
+
+  pointer-events: none;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+
+  width: 350px;
+  height: 350px;
+
+  right: -120px;
+  bottom: -150px;
+
+  border-radius: 50%;
+
+  background: rgba(14, 165, 233, 0.07);
+
+  filter: blur(45px);
+
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 850px;
+}
+
+.hero-badge {
+  display: inline-block;
+
+  margin-bottom: 22px;
+  padding: 7px 14px;
+
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 999px;
+
+  background: rgba(56, 189, 248, 0.08);
+
+  color: #7dd3fc;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
 }
 
 .hero-content h1 {
-  font-size: 52px;
-  font-weight: 700;
+  margin-bottom: 25px;
+
+  color: #f8fafc;
+
+  font-size: clamp(42px, 7vw, 72px);
+  line-height: 1.05;
+  font-weight: 800;
+
+  letter-spacing: -2px;
+}
+
+.hero-content h1 span {
   color: #38bdf8;
-  margin-bottom: 20px;
 }
 
 .hero-content p {
   max-width: 700px;
-  margin: 0 auto 35px;
-  font-size: 20px;
-  line-height: 1.7;
+
+  margin: 0 auto 36px;
+
   color: #94a3b8;
+
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero-btn,
+.hero-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 52px;
+
+  padding: 0 28px;
+
+  border-radius: 10px;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .hero-btn {
-  display: inline-block;
-  padding: 16px 36px;
   background: #38bdf8;
-  color: #0f172a;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: 700;
-  border-radius: 10px;
-  transition: all 0.3s ease;
+  color: #082f49;
+
+  box-shadow:
+    0 10px 30px rgba(56, 189, 248, 0.15);
 }
 
 .hero-btn:hover {
-  background: #0ea5e9;
-  transform: translateY(-2px);
+  background: #7dd3fc;
+  transform: translateY(-3px);
+}
+
+.hero-secondary-btn {
+  border: 1px solid #334155;
+  background: rgba(15, 23, 42, 0.6);
+  color: #e2e8f0;
+}
+
+.hero-secondary-btn:hover {
+  border-color: #38bdf8;
+  color: #38bdf8;
+  transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   CALCULATOR SEARCH
+========================================================= */
+
+.calculator-search {
+  max-width: 900px;
+  margin: -28px auto 80px;
+
+  padding: 0 20px;
+
+  position: relative;
+  z-index: 5;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+
+  min-height: 64px;
+
+  padding: 0 20px;
+
+  background: #1e293b;
+
+  border: 1px solid #334155;
+  border-radius: 14px;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.search-icon {
+  margin-right: 12px;
+
+  color: #38bdf8;
+
+  font-size: 25px;
+}
+
+.search-box input {
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #f8fafc;
+
+  font-size: 16px;
+}
+
+.search-box input::placeholder {
+  color: #64748b;
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
+
+.section {
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 80px 24px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 35px;
+}
+
+.section-label {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: #38bdf8;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1.8px;
+}
+
+.section-heading h2 {
+  margin-bottom: 8px;
+
+  color: #f8fafc;
+
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.2;
+}
+
+.section-heading p {
+  color: #64748b;
+  font-size: 15px;
+}
+
+.view-all {
+  flex-shrink: 0;
+
+  color: #38bdf8;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.view-all:hover {
+  color: #7dd3fc;
+}
+
+
+/* =========================================================
+   CALCULATOR CARDS
+========================================================= */
+
+.calculator-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+.calculator-card {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  min-height: 150px;
+
+  padding: 24px;
+
+  background: #111827;
+
+  border: 1px solid #1f2937;
+  border-radius: 16px;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.calculator-card:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(56, 189, 248, 0.5);
+
+  background: #172033;
+}
+
+.calculator-icon {
+  width: 52px;
+  height: 52px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 18px;
+
+  border-radius: 13px;
+
+  background: rgba(56, 189, 248, 0.1);
+
+  color: #38bdf8;
+
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.calculator-card-content {
+  padding-right: 25px;
+}
+
+.calculator-card h3 {
+  margin-bottom: 5px;
+
+  color: #f8fafc;
+
+  font-size: 18px;
+}
+
+.calculator-card p {
+  color: #64748b;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.card-arrow {
+  position: absolute;
+
+  right: 22px;
+  top: 50%;
+
+  color: #475569;
+
+  font-size: 20px;
+
+  transform: translateY(-50%);
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.calculator-card:hover .card-arrow {
+  color: #38bdf8;
+  transform: translate(4px, -50%);
+}
+
+
+/* =========================================================
+   CATEGORIES
+========================================================= */
+
+.categories-section {
+  padding-top: 40px;
+}
+
+.category-grid {
+  display: grid;
+
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  gap: 15px;
+}
+
+.category-card {
+  min-height: 220px;
+
+  padding: 22px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #111827;
+
+  border: 1px solid #1f2937;
+  border-radius: 15px;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(56, 189, 248, 0.45);
+}
+
+.category-icon {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 18px;
+
+  border-radius: 11px;
+
+  background: rgba(56, 189, 248, 0.09);
+
+  color: #38bdf8;
+
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.category-card h3 {
+  margin-bottom: 7px;
+
+  color: #f8fafc;
+
+  font-size: 17px;
+}
+
+.category-card p {
+  color: #64748b;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+.category-link {
+  margin-top: auto;
+  padding-top: 18px;
+
+  color: #38bdf8;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   WHY CALVORA
+========================================================= */
+
+.why-calvora {
+  max-width: 1200px;
+
+  margin: 60px auto;
+
+  padding: 75px 24px;
+
+  display: grid;
+
+  grid-template-columns: 0.9fr 1.1fr;
+
+  gap: 70px;
+
+  border-top: 1px solid #1f2937;
+  border-bottom: 1px solid #1f2937;
+}
+
+.why-content h2 {
+  margin-bottom: 20px;
+
+  color: #f8fafc;
+
+  font-size: clamp(34px, 5vw, 52px);
+
+  line-height: 1.1;
+}
+
+.why-content p {
+  max-width: 500px;
+
+  color: #64748b;
+
+  font-size: 16px;
+}
+
+.features-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 18px;
+}
+
+.feature {
+  padding: 25px;
+
+  background: #111827;
+
+  border: 1px solid #1f2937;
+  border-radius: 15px;
+}
+
+.feature strong {
+  display: block;
+
+  margin-bottom: 30px;
+
+  color: #38bdf8;
+
+  font-size: 12px;
+}
+
+.feature h3 {
+  margin-bottom: 8px;
+
+  color: #f8fafc;
+
+  font-size: 18px;
+}
+
+.feature p {
+  color: #64748b;
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.final-cta {
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 100px 24px;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(56, 189, 248, 0.1),
+      transparent 55%
+    );
+}
+
+.final-cta h2 {
+  margin-bottom: 18px;
+
+  color: #f8fafc;
+
+  font-size: clamp(36px, 6vw, 58px);
+  line-height: 1.1;
+}
+
+.final-cta p {
+  margin-bottom: 30px;
+
+  color: #64748b;
+
+  font-size: 16px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+#site-footer {
+  max-width: 1200px;
+
+  margin: 40px auto 0;
+
+  padding: 55px 24px 35px;
+
+  display: flex;
+  justify-content: space-between;
+
+  gap: 50px;
+
+  border-top: 1px solid #1f2937;
+}
+
+.footer-logo {
+  display: inline-block;
+
+  margin-bottom: 10px;
+
+  color: #38bdf8;
+
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.footer-brand p {
+  max-width: 280px;
+
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+.footer-links {
+  display: flex;
+
+  gap: 80px;
+}
+
+.footer-links div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+.footer-links h4 {
+  margin-bottom: 7px;
+
+  color: #f8fafc;
+
+  font-size: 14px;
+}
+
+.footer-links a {
+  color: #64748b;
+
+  font-size: 13px;
+
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #38bdf8;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  #site-header {
+    padding: 16px 20px;
+  }
+
+  .main-nav {
+    gap: 15px;
+  }
+
+  .main-nav a {
+    font-size: 13px;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .why-calvora {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  #site-header {
+    flex-direction: column;
+
+    gap: 15px;
+
+    padding: 18px 15px;
+
+    text-align: center;
+  }
+
+  .main-nav {
+    width: 100%;
+
+    justify-content: center;
+
+    gap: 13px;
+
+    flex-wrap: wrap;
+  }
+
+  .main-nav a {
+    font-size: 12px;
+  }
+
+
+  /* Hero */
+
+  .hero {
+    min-height: 520px;
+
+    padding: 80px 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 43px;
+
+    letter-spacing: -1.5px;
+  }
+
+  .hero-content p {
+    font-size: 15px;
+
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+  .hero-btn,
+  .hero-secondary-btn {
+    width: 100%;
+
+    max-width: 300px;
+  }
+
+
+  /* Search */
+
+  .calculator-search {
+    margin-bottom: 50px;
+  }
+
+  .search-box {
+    min-height: 58px;
+  }
+
+
+  /* Sections */
+
+  .section {
+    padding: 55px 18px;
+  }
+
+  .section-heading {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 15px;
+  }
+
+
+  /* Calculator cards */
+
+  .calculator-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calculator-card {
+    min-height: 135px;
+
+    padding: 20px;
+  }
+
+
+  /* Categories */
+
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+  }
+
+  .category-card {
+    min-height: 200px;
+
+    padding: 18px;
+  }
+
+
+  /* Why */
+
+  .why-calvora {
+    margin: 30px 0;
+
+    padding: 60px 18px;
+
+    gap: 35px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* CTA */
+
+  .final-cta {
+    padding: 75px 20px;
+  }
+
+
+  /* Footer */
+
+  #site-footer {
+    flex-direction: column;
+
+    padding: 45px 20px 30px;
+  }
+
+  .footer-links {
+    gap: 50px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .hero-content h1 {
+    font-size: 36px;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .main-nav {
+    gap: 10px;
+  }
+
 }
