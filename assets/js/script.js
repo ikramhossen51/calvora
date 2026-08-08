@@ -114,3 +114,34 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+/* =========================================
+   CALVORA — CALCULATOR SEARCH
+========================================= */
+
+const calculatorSearch = document.getElementById("calculatorSearch");
+
+if (calculatorSearch) {
+
+  calculatorSearch.addEventListener("input", function () {
+
+    const query = this.value.toLowerCase().trim();
+
+    const cards = document.querySelectorAll(
+      ".calculators-page .calculator-card"
+    );
+
+    cards.forEach(function (card) {
+
+      const text = card.textContent.toLowerCase();
+
+      if (text.includes(query)) {
+        card.style.display = "";
+      } else {
+        card.style.display = "none";
+      }
+
+    });
+
+  });
+
+}
