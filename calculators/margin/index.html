@@ -17,13 +17,19 @@
     content="Calculate profit, profit margin, and markup instantly with Calvora's free Margin Calculator."
   >
 
-  <!-- Global CSS -->
+  <!-- =====================================================
+       GLOBAL CSS
+  ====================================================== -->
+
   <link
     rel="stylesheet"
     href="../../assets/css/style.css"
   >
 
-  <!-- Margin Calculator CSS -->
+  <!-- =====================================================
+       MARGIN CALCULATOR CSS
+  ====================================================== -->
+
   <link
     rel="stylesheet"
     href="./margin.css"
@@ -79,16 +85,22 @@
 
 
 <!-- =====================================================
-     MARGIN CALCULATOR
+     MAIN
 ===================================================== -->
 
 <main class="margin-page">
 
 
+  <!-- ===================================================
+       MARGIN CALCULATOR
+  ==================================================== -->
+
   <section class="margin-calculator">
 
 
-    <!-- HEADER -->
+    <!-- =================================================
+         CALCULATOR HEADER
+    ================================================== -->
 
     <div class="margin-header">
 
@@ -135,7 +147,7 @@
       </div>
 
 
-      <div>
+      <div class="margin-header-text">
 
         <span class="calculator-label">
           BUSINESS CALCULATOR
@@ -155,12 +167,14 @@
 
 
 
-    <!-- INPUTS -->
+    <!-- =================================================
+         INPUT FORM
+    ================================================== -->
 
     <div class="margin-form">
 
 
-      <!-- COST -->
+      <!-- COST PRICE -->
 
       <div class="input-group">
 
@@ -182,6 +196,7 @@
             min="0"
             step="0.01"
             inputmode="decimal"
+            autocomplete="off"
           >
 
         </div>
@@ -212,6 +227,7 @@
             min="0"
             step="0.01"
             inputmode="decimal"
+            autocomplete="off"
           >
 
         </div>
@@ -223,22 +239,31 @@
 
 
 
-    <!-- ERROR -->
+    <!-- =================================================
+         ERROR MESSAGE
+    ================================================== -->
 
     <div
       id="marginError"
       class="margin-error"
       hidden
+      role="alert"
     >
+
       Please enter valid positive numbers for both prices.
+
     </div>
 
 
 
-    <!-- BUTTONS -->
+    <!-- =================================================
+         ACTION BUTTONS
+    ================================================== -->
 
     <div class="margin-actions">
 
+
+      <!-- CALCULATE -->
 
       <button
         type="button"
@@ -321,6 +346,8 @@
 
 
 
+      <!-- RESET -->
+
       <button
         type="button"
         id="resetMargin"
@@ -377,7 +404,9 @@
 
 
 
-    <!-- RESULTS -->
+    <!-- =================================================
+         RESULTS
+    ================================================== -->
 
     <section
       id="marginResults"
@@ -386,7 +415,7 @@
     >
 
 
-      <!-- PROFIT -->
+      <!-- PROFIT / LOSS -->
 
       <div class="result-card">
 
@@ -405,7 +434,7 @@
 
 
 
-      <!-- MARGIN -->
+      <!-- PROFIT MARGIN -->
 
       <div class="result-card">
 
@@ -445,7 +474,10 @@
     </section>
 
 
-    <!-- FORMULA -->
+
+    <!-- =================================================
+         INFORMATION / FORMULA
+    ================================================== -->
 
     <div class="margin-info">
 
@@ -458,6 +490,7 @@
         remains as profit after subtracting the cost.
       </p>
 
+
       <div class="formula-box">
 
         <span>
@@ -469,6 +502,7 @@
         </strong>
 
       </div>
+
 
       <div class="formula-box">
 
@@ -497,6 +531,7 @@
 
 <footer id="site-footer">
 
+
   <div class="footer-brand">
 
     <a
@@ -513,7 +548,11 @@
   </div>
 
 
+
   <div class="footer-links">
+
+
+    <!-- EXPLORE -->
 
     <div>
 
@@ -532,6 +571,9 @@
     </div>
 
 
+
+    <!-- COMPANY -->
+
     <div>
 
       <h4>
@@ -548,6 +590,7 @@
 
     </div>
 
+
   </div>
 
 </footer>
@@ -562,4 +605,5 @@
 
 
 </body>
+
 </html>
