@@ -973,3 +973,35 @@ a {
   }
 
 }
+
+/* =========================
+   PREMIUM CALCULATOR ICONS
+========================= */
+
+.calculator-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.calculator-icon svg {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
+.margin-icon,
+.percentage-icon,
+.discount-icon,
+.profit-icon {
+  color: #38bdf8;
+}
+
+.calculator-card:hover .calculator-icon {
+  transform: translateY(-2px);
+}
+
+.calculator-icon {
+  transition: transform 0.3s ease;
+}
