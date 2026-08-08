@@ -1,1 +1,565 @@
-.
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Margin Calculator – Calvora</title>
+
+  <meta
+    name="description"
+    content="Calculate profit, profit margin, and markup instantly with Calvora's free Margin Calculator."
+  >
+
+  <!-- Global CSS -->
+  <link
+    rel="stylesheet"
+    href="../../assets/css/style.css"
+  >
+
+  <!-- Margin Calculator CSS -->
+  <link
+    rel="stylesheet"
+    href="./margin.css"
+  >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header id="site-header">
+
+  <div class="logo">
+
+    <a href="../../">
+      Calvora
+    </a>
+
+  </div>
+
+
+  <nav class="main-nav">
+
+    <a href="../../">
+      Home
+    </a>
+
+    <a href="../">
+      Calculators
+    </a>
+
+    <a href="../../categories/">
+      Categories
+    </a>
+
+    <a href="../../pages/about.html">
+      About
+    </a>
+
+    <a href="../../pages/contact.html">
+      Contact
+    </a>
+
+  </nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     MARGIN CALCULATOR
+===================================================== -->
+
+<main class="margin-page">
+
+
+  <section class="margin-calculator">
+
+
+    <!-- HEADER -->
+
+    <div class="margin-header">
+
+
+      <div class="margin-icon-box">
+
+        <svg
+          viewBox="0 0 48 48"
+          fill="none"
+          aria-hidden="true"
+        >
+
+          <circle
+            cx="24"
+            cy="24"
+            r="15"
+            stroke="currentColor"
+            stroke-width="3"
+          />
+
+          <path
+            d="M24 24L34 17"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"
+          />
+
+          <circle
+            cx="24"
+            cy="24"
+            r="3"
+            fill="currentColor"
+          />
+
+          <path
+            d="M13 32C16 37 20 39 24 39"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+
+        </svg>
+
+      </div>
+
+
+      <div>
+
+        <span class="calculator-label">
+          BUSINESS CALCULATOR
+        </span>
+
+        <h1>
+          Calculate Your Margin
+        </h1>
+
+        <p>
+          Enter your cost and selling price.
+        </p>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- INPUTS -->
+
+    <div class="margin-form">
+
+
+      <!-- COST -->
+
+      <div class="input-group">
+
+        <label for="cost">
+          Cost Price
+        </label>
+
+        <div class="input-wrapper">
+
+          <span class="currency-symbol">
+            $
+          </span>
+
+          <input
+            type="number"
+            id="cost"
+            name="cost"
+            placeholder="Enter cost price"
+            min="0"
+            step="0.01"
+            inputmode="decimal"
+          >
+
+        </div>
+
+      </div>
+
+
+
+      <!-- SELLING PRICE -->
+
+      <div class="input-group">
+
+        <label for="price">
+          Selling Price
+        </label>
+
+        <div class="input-wrapper">
+
+          <span class="currency-symbol">
+            $
+          </span>
+
+          <input
+            type="number"
+            id="price"
+            name="price"
+            placeholder="Enter selling price"
+            min="0"
+            step="0.01"
+            inputmode="decimal"
+          >
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- ERROR -->
+
+    <div
+      id="marginError"
+      class="margin-error"
+      hidden
+    >
+      Please enter valid positive numbers for both prices.
+    </div>
+
+
+
+    <!-- BUTTONS -->
+
+    <div class="margin-actions">
+
+
+      <button
+        type="button"
+        id="calculateMargin"
+        class="margin-button calculate-button"
+      >
+
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
+
+          <rect
+            x="4"
+            y="3"
+            width="16"
+            height="18"
+            rx="2"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+
+          <path
+            d="M8 7H16"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+
+          <path
+            d="M8 11H8.01"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          />
+
+          <path
+            d="M12 11H12.01"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          />
+
+          <path
+            d="M16 11H16.01"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          />
+
+          <path
+            d="M8 15H8.01"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          />
+
+          <path
+            d="M12 15H12.01"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          />
+
+          <path
+            d="M16 15H16.01"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          />
+
+        </svg>
+
+        <span>
+          Calculate Margin
+        </span>
+
+      </button>
+
+
+
+      <button
+        type="button"
+        id="resetMargin"
+        class="margin-button reset-button"
+      >
+
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
+
+          <path
+            d="M20 11A8 8 0 0 0 6.2 5.4L4 8"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+
+          <path
+            d="M4 4V8H8"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+
+          <path
+            d="M4 13A8 8 0 0 0 17.8 18.6L20 16"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+
+          <path
+            d="M20 20V16H16"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+
+        </svg>
+
+        <span>
+          Reset
+        </span>
+
+      </button>
+
+    </div>
+
+
+
+    <!-- RESULTS -->
+
+    <section
+      id="marginResults"
+      class="margin-results"
+      hidden
+    >
+
+
+      <!-- PROFIT -->
+
+      <div class="result-card">
+
+        <span class="result-label">
+          Profit / Loss
+        </span>
+
+        <strong
+          id="profitResult"
+          class="result-value"
+        >
+          —
+        </strong>
+
+      </div>
+
+
+
+      <!-- MARGIN -->
+
+      <div class="result-card">
+
+        <span class="result-label">
+          Profit Margin
+        </span>
+
+        <strong
+          id="marginResult"
+          class="result-value"
+        >
+          —
+        </strong>
+
+      </div>
+
+
+
+      <!-- MARKUP -->
+
+      <div class="result-card">
+
+        <span class="result-label">
+          Markup
+        </span>
+
+        <strong
+          id="markupResult"
+          class="result-value"
+        >
+          —
+        </strong>
+
+      </div>
+
+
+    </section>
+
+
+    <!-- FORMULA -->
+
+    <div class="margin-info">
+
+      <h2>
+        How Margin Is Calculated
+      </h2>
+
+      <p>
+        Profit margin shows how much of your selling price
+        remains as profit after subtracting the cost.
+      </p>
+
+      <div class="formula-box">
+
+        <span>
+          Profit Margin
+        </span>
+
+        <strong>
+          (Profit ÷ Selling Price) × 100
+        </strong>
+
+      </div>
+
+      <div class="formula-box">
+
+        <span>
+          Markup
+        </span>
+
+        <strong>
+          (Profit ÷ Cost Price) × 100
+        </strong>
+
+      </div>
+
+    </div>
+
+
+  </section>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer id="site-footer">
+
+  <div class="footer-brand">
+
+    <a
+      href="../../"
+      class="footer-logo"
+    >
+      Calvora
+    </a>
+
+    <p>
+      Simple, fast, and free online calculators.
+    </p>
+
+  </div>
+
+
+  <div class="footer-links">
+
+    <div>
+
+      <h4>
+        Explore
+      </h4>
+
+      <a href="../">
+        Calculators
+      </a>
+
+      <a href="../../categories/">
+        Categories
+      </a>
+
+    </div>
+
+
+    <div>
+
+      <h4>
+        Company
+      </h4>
+
+      <a href="../../pages/about.html">
+        About
+      </a>
+
+      <a href="../../pages/contact.html">
+        Contact
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     MARGIN JAVASCRIPT
+===================================================== -->
+
+<script src="./margin.js"></script>
+
+
+</body>
+</html>
