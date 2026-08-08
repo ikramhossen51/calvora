@@ -1,6 +1,6 @@
 /* =========================================================
    CALVORA — MARGIN CALCULATOR
-   FINAL PROFESSIONAL DESKTOP + MOBILE CSS
+   FINAL PROFESSIONAL RESPONSIVE CSS
 ========================================================= */
 
 
@@ -10,61 +10,43 @@
 
 .margin-page {
   width: 100%;
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 55px 24px 80px;
+  padding: 70px 20px 90px;
 }
 
-
-/* =========================================================
-   MAIN CALCULATOR
-========================================================= */
-
 .margin-calculator {
-  position: relative;
-
   width: 100%;
-  max-width: 980px;
-
+  max-width: 900px;
   margin: 0 auto;
 
-  padding: 52px;
+  padding: 48px;
 
-  background:
-    radial-gradient(
-      circle at 15% 5%,
-      rgba(56, 189, 248, 0.06),
-      transparent 32%
-    ),
-    #111827;
+  background: rgba(15, 23, 42, 0.88);
 
-  border: 1px solid #263449;
-  border-radius: 24px;
+  border: 1px solid rgba(51, 65, 85, 0.65);
+  border-radius: 22px;
 
   box-shadow:
-    0 25px 70px rgba(0, 0, 0, 0.22);
+    0 25px 70px rgba(0, 0, 0, 0.25);
 
   overflow: hidden;
 }
 
 
 /* =========================================================
-   CALCULATOR HEADER
+   HEADER
 ========================================================= */
 
 .margin-header {
   display: flex;
   align-items: center;
-
   gap: 22px;
 
-  margin-bottom: 45px;
+  margin-bottom: 42px;
 }
 
-
 .margin-icon-box {
-  width: 82px;
-  height: 82px;
+  width: 72px;
+  height: 72px;
 
   flex-shrink: 0;
 
@@ -72,29 +54,19 @@
   align-items: center;
   justify-content: center;
 
-  border-radius: 20px;
+  border-radius: 18px;
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(56, 189, 248, 0.15),
-      rgba(14, 165, 233, 0.06)
-    );
+  background: rgba(56, 189, 248, 0.10);
 
   border: 1px solid rgba(56, 189, 248, 0.18);
 
   color: #38bdf8;
-
-  box-shadow:
-    0 12px 35px rgba(14, 165, 233, 0.08);
 }
-
 
 .margin-icon-box svg {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
 }
-
 
 .calculator-label {
   display: block;
@@ -106,24 +78,20 @@
   font-size: 12px;
   font-weight: 800;
 
-  letter-spacing: 1.8px;
+  letter-spacing: 2px;
 }
 
-
 .margin-header h1 {
-  margin: 0 0 8px;
+  margin: 0 0 7px;
 
   color: #f8fafc;
 
-  font-size: clamp(32px, 4vw, 46px);
-
-  line-height: 1.12;
-
+  font-size: 38px;
+  line-height: 1.15;
   font-weight: 800;
 
-  letter-spacing: -1.2px;
+  letter-spacing: -1px;
 }
-
 
 .margin-header p {
   margin: 0;
@@ -131,8 +99,6 @@
   color: #64748b;
 
   font-size: 16px;
-
-  line-height: 1.6;
 }
 
 
@@ -143,18 +109,16 @@
 .margin-form {
   display: grid;
 
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr 1fr;
 
-  gap: 22px;
+  gap: 24px;
 
-  margin-bottom: 30px;
+  margin-bottom: 28px;
 }
-
 
 .input-group {
-  min-width: 0;
+  width: 100%;
 }
-
 
 .input-group label {
   display: block;
@@ -167,14 +131,14 @@
   font-weight: 700;
 }
 
-
 .input-wrapper {
   position: relative;
 
   display: flex;
   align-items: center;
-}
 
+  width: 100%;
+}
 
 .currency-symbol {
   position: absolute;
@@ -183,23 +147,20 @@
 
   color: #38bdf8;
 
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
 
   pointer-events: none;
 }
 
-
 .input-wrapper input {
   width: 100%;
-
-  min-height: 58px;
+  height: 58px;
 
   padding: 0 18px 0 48px;
 
   border: 1px solid #334155;
-
-  border-radius: 13px;
+  border-radius: 12px;
 
   outline: none;
 
@@ -207,10 +168,8 @@
 
   color: #f8fafc;
 
-  font-family: inherit;
-
-  font-size: 17px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 500;
 
   transition:
     border-color 0.25s ease,
@@ -218,22 +177,14 @@
     background 0.25s ease;
 }
 
-
 .input-wrapper input::placeholder {
   color: #475569;
-  font-weight: 400;
 }
-
-
-.input-wrapper input:hover {
-  border-color: #475569;
-}
-
 
 .input-wrapper input:focus {
   border-color: #38bdf8;
 
-  background: #111c30;
+  background: #111c31;
 
   box-shadow:
     0 0 0 3px rgba(56, 189, 248, 0.10);
@@ -244,8 +195,8 @@
 
 .input-wrapper input::-webkit-outer-spin-button,
 .input-wrapper input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
   margin: 0;
+  -webkit-appearance: none;
 }
 
 .input-wrapper input[type="number"] {
@@ -259,12 +210,11 @@
 ========================================================= */
 
 .margin-error {
-  margin: -8px 0 20px;
+  margin-bottom: 20px;
 
-  padding: 13px 15px;
+  padding: 12px 15px;
 
   border: 1px solid rgba(239, 68, 68, 0.25);
-
   border-radius: 10px;
 
   background: rgba(239, 68, 68, 0.08);
@@ -272,7 +222,6 @@
   color: #fca5a5;
 
   font-size: 13px;
-  line-height: 1.5;
 }
 
 
@@ -283,26 +232,25 @@
 .margin-actions {
   display: grid;
 
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
 
-  gap: 15px;
+  gap: 14px;
 
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
-
 .margin-button {
-  min-height: 60px;
+  min-height: 58px;
 
-  padding: 0 24px;
+  padding: 0 22px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  gap: 11px;
+  gap: 10px;
 
-  border-radius: 13px;
+  border-radius: 12px;
 
   font-family: inherit;
 
@@ -312,16 +260,15 @@
   cursor: pointer;
 
   transition:
-    transform 0.22s ease,
-    box-shadow 0.22s ease,
-    background 0.22s ease,
-    border-color 0.22s ease;
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-
 .margin-button svg {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
 
   flex-shrink: 0;
 }
@@ -332,34 +279,22 @@
 .calculate-button {
   border: 1px solid #38bdf8;
 
-  background:
-    linear-gradient(
-      135deg,
-      #38bdf8,
-      #0ea5e9
-    );
+  background: #38bdf8;
 
   color: #082f49;
 
   box-shadow:
-    0 10px 30px rgba(14, 165, 233, 0.15);
+    0 10px 28px rgba(56, 189, 248, 0.14);
 }
-
 
 .calculate-button:hover {
+  background: #7dd3fc;
+
   transform: translateY(-2px);
 
-  background:
-    linear-gradient(
-      135deg,
-      #7dd3fc,
-      #38bdf8
-    );
-
   box-shadow:
-    0 15px 35px rgba(14, 165, 233, 0.22);
+    0 14px 32px rgba(56, 189, 248, 0.20);
 }
-
 
 .calculate-button:active {
   transform: translateY(0);
@@ -371,23 +306,20 @@
 .reset-button {
   border: 1px solid #334155;
 
-  background: #1a2639;
+  background: #172033;
 
-  color: #e2e8f0;
+  color: #cbd5e1;
 }
-
 
 .reset-button:hover {
+  border-color: #64748b;
+
+  background: #1e293b;
+
+  color: #f8fafc;
+
   transform: translateY(-2px);
-
-  border-color: #475569;
-
-  background: #223047;
-
-  box-shadow:
-    0 10px 25px rgba(0, 0, 0, 0.18);
 }
-
 
 .reset-button:active {
   transform: translateY(0);
@@ -401,18 +333,21 @@
 .margin-results {
   display: grid;
 
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, 1fr);
 
-  gap: 15px;
+  gap: 16px;
 
   margin-top: 28px;
 }
 
+.margin-results[hidden] {
+  display: none;
+}
 
 .result-card {
-  min-height: 135px;
+  min-height: 125px;
 
-  padding: 24px 18px;
+  padding: 22px 18px;
 
   display: flex;
   flex-direction: column;
@@ -422,27 +357,19 @@
 
   text-align: center;
 
-  background: #0f172a;
+  background: rgba(17, 24, 39, 0.75);
 
-  border: 1px solid #263449;
+  border: 1px solid #1f2937;
 
-  border-radius: 16px;
+  border-radius: 14px;
 
   transition:
     border-color 0.25s ease,
-    transform 0.25s ease;
+    background 0.25s ease;
 }
-
-
-.result-card:hover {
-  transform: translateY(-2px);
-
-  border-color: #334155;
-}
-
 
 .result-label {
-  margin-bottom: 10px;
+  margin-bottom: 9px;
 
   color: #64748b;
 
@@ -450,94 +377,69 @@
   font-weight: 600;
 }
 
-
 .result-value {
-  color: #f8fafc;
+  color: #e2e8f0;
 
-  font-size: 28px;
-
-  line-height: 1;
+  font-size: 25px;
+  line-height: 1.2;
 
   font-weight: 800;
-
-  letter-spacing: -0.5px;
 }
-
-
-/* Result states */
 
 .result-card.profit {
   border-color: rgba(34, 197, 94, 0.30);
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(34, 197, 94, 0.07),
-      #0f172a
-    );
+  background: rgba(34, 197, 94, 0.06);
 }
-
 
 .result-card.profit .result-value {
   color: #4ade80;
 }
 
-
 .result-card.loss {
   border-color: rgba(239, 68, 68, 0.30);
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(239, 68, 68, 0.07),
-      #0f172a
-    );
+  background: rgba(239, 68, 68, 0.06);
 }
-
 
 .result-card.loss .result-value {
   color: #f87171;
 }
 
-
 .result-card.neutral {
-  border-color: rgba(148, 163, 184, 0.25);
+  border-color: rgba(148, 163, 184, 0.20);
 }
 
-
 .result-card.neutral .result-value {
-  color: #cbd5e1;
+  color: #94a3b8;
 }
 
 
 /* =========================================================
-   INFORMATION / FORMULA
+   INFORMATION
 ========================================================= */
 
 .margin-info {
-  margin-top: 55px;
+  margin-top: 48px;
 
   padding-top: 38px;
 
   border-top: 1px solid #1f2937;
 }
 
-
 .margin-info h2 {
-  margin: 0 0 14px;
+  margin-bottom: 12px;
 
   color: #f8fafc;
 
-  font-size: 25px;
-
-  line-height: 1.25;
+  font-size: 24px;
+  line-height: 1.3;
 }
 
-
 .margin-info > p {
-  max-width: 720px;
+  max-width: 680px;
 
-  margin: 0 0 25px;
+  margin-bottom: 24px;
 
   color: #64748b;
 
@@ -546,25 +448,23 @@
   line-height: 1.7;
 }
 
-
 .formula-box {
-  margin-top: 12px;
-
-  padding: 18px 20px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   gap: 20px;
 
-  background: #0f172a;
+  margin-top: 12px;
+
+  padding: 17px 20px;
+
+  background: rgba(17, 24, 39, 0.70);
 
   border: 1px solid #1f2937;
 
-  border-radius: 12px;
+  border-radius: 11px;
 }
-
 
 .formula-box span {
   color: #94a3b8;
@@ -573,11 +473,11 @@
   font-weight: 600;
 }
 
-
 .formula-box strong {
   color: #38bdf8;
 
   font-size: 14px;
+  font-weight: 700;
 
   text-align: right;
 }
@@ -590,31 +490,15 @@
 @media (max-width: 800px) {
 
   .margin-page {
-    padding: 40px 18px 60px;
+    padding: 50px 18px 70px;
   }
 
   .margin-calculator {
-    padding: 38px 30px;
-
-    border-radius: 20px;
-  }
-
-  .margin-header {
-    margin-bottom: 35px;
+    padding: 35px;
   }
 
   .margin-header h1 {
-    font-size: 34px;
-  }
-
-  .margin-form {
-    grid-template-columns: 1fr;
-
-    gap: 18px;
-  }
-
-  .margin-actions {
-    grid-template-columns: 1fr 1fr;
+    font-size: 32px;
   }
 
 }
@@ -627,80 +511,71 @@
 @media (max-width: 600px) {
 
   .margin-page {
-    padding: 24px 12px 45px;
+    padding: 28px 12px 50px;
   }
 
-
   .margin-calculator {
-    padding: 25px 16px 30px;
+    max-width: 100%;
 
-    border-radius: 17px;
+    padding: 24px 18px;
+
+    border-radius: 16px;
 
     box-shadow:
-      0 15px 40px rgba(0, 0, 0, 0.18);
+      0 15px 40px rgba(0, 0, 0, 0.20);
   }
 
 
   /* Header */
 
   .margin-header {
-    align-items: flex-start;
-
     gap: 13px;
 
     margin-bottom: 27px;
   }
 
-
   .margin-icon-box {
-    width: 52px;
-    height: 52px;
+    width: 48px;
+    height: 48px;
 
-    border-radius: 14px;
+    border-radius: 13px;
   }
-
 
   .margin-icon-box svg {
-    width: 29px;
-    height: 29px;
+    width: 27px;
+    height: 27px;
   }
-
 
   .calculator-label {
     margin-bottom: 4px;
 
     font-size: 9px;
 
-    letter-spacing: 1.3px;
+    letter-spacing: 1.4px;
   }
 
-
   .margin-header h1 {
-    margin-bottom: 5px;
+    margin-bottom: 4px;
 
     font-size: 25px;
 
-    line-height: 1.15;
-
-    letter-spacing: -0.6px;
+    letter-spacing: -0.5px;
   }
-
 
   .margin-header p {
     font-size: 12px;
-
-    line-height: 1.5;
   }
 
 
   /* Inputs */
 
   .margin-form {
-    gap: 15px;
+    grid-template-columns: 1fr;
 
-    margin-bottom: 20px;
+    gap: 16px;
+
+    margin-bottom: 18px;
   }
-
 
   .input-group label {
     margin-bottom: 7px;
@@ -708,33 +583,20 @@
     font-size: 13px;
   }
 
-
   .input-wrapper input {
-    min-height: 50px;
+    height: 48px;
 
-    padding-left: 41px;
+    padding-left: 40px;
 
-    border-radius: 11px;
+    border-radius: 10px;
 
-    font-size: 15px;
+    font-size: 14px;
   }
-
 
   .currency-symbol {
     left: 14px;
 
-    font-size: 19px;
-  }
-
-
-  /* Error */
-
-  .margin-error {
-    margin: -2px 0 15px;
-
-    padding: 10px 12px;
-
-    font-size: 11px;
+    font-size: 17px;
   }
 
 
@@ -745,26 +607,24 @@
 
     gap: 9px;
 
-    margin-top: 2px;
+    margin-top: 5px;
   }
 
-
   .margin-button {
-    width: 100%;
+    min-height: 48px;
 
-    min-height: 52px;
+    padding: 0 16px;
 
-    padding: 0 18px;
+    border-radius: 10px;
 
-    border-radius: 11px;
+    gap: 8px;
 
     font-size: 14px;
   }
 
-
   .margin-button svg {
-    width: 21px;
-    height: 21px;
+    width: 19px;
+    height: 19px;
   }
 
 
@@ -773,102 +633,88 @@
   .margin-results {
     grid-template-columns: 1fr;
 
-    gap: 10px;
+    gap: 9px;
 
     margin-top: 20px;
   }
 
-
   .result-card {
-    min-height: 88px;
+    min-height: 82px;
 
-    padding: 16px 14px;
+    padding: 14px;
 
-    border-radius: 12px;
+    border-radius: 11px;
   }
 
-
   .result-label {
-    margin-bottom: 6px;
+    margin-bottom: 5px;
 
     font-size: 11px;
   }
 
-
   .result-value {
-    font-size: 23px;
+    font-size: 20px;
   }
 
 
   /* Information */
 
   .margin-info {
-    margin-top: 35px;
+    margin-top: 30px;
 
-    padding-top: 27px;
+    padding-top: 25px;
   }
-
 
   .margin-info h2 {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 
-    font-size: 20px;
+    font-size: 19px;
   }
 
-
   .margin-info > p {
-    margin-bottom: 18px;
+    margin-bottom: 17px;
 
     font-size: 12px;
 
     line-height: 1.6;
   }
 
-
   .formula-box {
-    padding: 13px 14px;
+    gap: 10px;
 
-    flex-direction: column;
+    margin-top: 8px;
 
-    align-items: flex-start;
+    padding: 12px 13px;
 
-    gap: 5px;
-
-    border-radius: 10px;
+    border-radius: 9px;
   }
-
 
   .formula-box span {
     font-size: 11px;
   }
 
-
   .formula-box strong {
-    font-size: 12px;
-
-    text-align: left;
+    font-size: 11px;
   }
 
 }
 
 
 /* =========================================================
-   SMALL MOBILE
+   VERY SMALL PHONES
 ========================================================= */
 
 @media (max-width: 380px) {
 
   .margin-page {
-    padding: 18px 9px 35px;
+    padding: 22px 9px 40px;
   }
-
 
   .margin-calculator {
-    padding: 21px 13px 25px;
+    padding: 20px 14px;
 
-    border-radius: 15px;
+    border-radius: 14px;
   }
-
 
   .margin-header {
     gap: 10px;
@@ -876,52 +722,59 @@
     margin-bottom: 23px;
   }
 
-
   .margin-icon-box {
-    width: 46px;
-    height: 46px;
+    width: 43px;
+    height: 43px;
 
-    border-radius: 12px;
+    border-radius: 11px;
   }
-
 
   .margin-icon-box svg {
-    width: 25px;
-    height: 25px;
+    width: 24px;
+    height: 24px;
   }
-
 
   .margin-header h1 {
     font-size: 22px;
   }
 
-
   .margin-header p {
     font-size: 11px;
   }
 
-
   .input-wrapper input {
-    min-height: 47px;
-
-    font-size: 14px;
-  }
-
-
-  .margin-button {
-    min-height: 49px;
+    height: 45px;
 
     font-size: 13px;
   }
 
+  .margin-button {
+    min-height: 45px;
+
+    font-size: 13px;
+  }
 
   .result-card {
-    min-height: 82px;
+    min-height: 76px;
   }
-
 
   .result-value {
-    font-size: 21px;
+    font-size: 18px;
   }
 
+  .margin-info h2 {
+    font-size: 17px;
+  }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.margin-button:focus-visible,
+.input-wrapper input:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 2px;
 }
