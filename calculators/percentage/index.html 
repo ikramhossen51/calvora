@@ -84,14 +84,14 @@
 
 <main class="percentage-page">
 
-
   <section class="percentage-calculator">
 
 
-    <!-- HEADER -->
+    <!-- =================================================
+         CALCULATOR HEADER
+    ================================================== -->
 
     <div class="percentage-header">
-
 
       <div class="percentage-icon-box">
 
@@ -149,7 +149,9 @@
 
 
 
-    <!-- CALCULATION TYPE -->
+    <!-- =================================================
+         CALCULATION TYPE
+    ================================================== -->
 
     <div class="percentage-type">
 
@@ -183,7 +185,9 @@
 
 
 
-    <!-- FORM -->
+    <!-- =================================================
+         INPUT FORM
+    ================================================== -->
 
     <div class="percentage-form">
 
@@ -205,6 +209,7 @@
           <input
             type="number"
             id="percentageValue"
+            name="percentageValue"
             placeholder="Enter percentage"
             step="0.01"
             inputmode="decimal"
@@ -233,6 +238,7 @@
           <input
             type="number"
             id="baseValue"
+            name="baseValue"
             placeholder="Enter number"
             step="0.01"
             inputmode="decimal"
@@ -264,6 +270,7 @@
           <input
             type="number"
             id="secondValue"
+            name="secondValue"
             placeholder="Enter second number"
             step="0.01"
             inputmode="decimal"
@@ -273,12 +280,13 @@
 
       </div>
 
-
     </div>
 
 
 
-    <!-- ERROR -->
+    <!-- =================================================
+         ERROR MESSAGE
+    ================================================== -->
 
     <div
       id="percentageError"
@@ -290,10 +298,14 @@
 
 
 
-    <!-- BUTTONS -->
+    <!-- =================================================
+         ACTION BUTTONS
+    ================================================== -->
 
     <div class="percentage-actions">
 
+
+      <!-- CALCULATE -->
 
       <button
         type="button"
@@ -376,6 +388,8 @@
 
 
 
+      <!-- RESET -->
+
       <button
         type="button"
         id="resetPercentage"
@@ -432,13 +446,18 @@
 
 
 
-    <!-- RESULTS -->
+    <!-- =================================================
+         RESULTS
+    ================================================== -->
 
     <section
       id="percentageResults"
       class="percentage-results"
       hidden
     >
+
+
+      <!-- RESULT -->
 
       <div class="percentage-result-card">
 
@@ -455,6 +474,9 @@
 
       </div>
 
+
+
+      <!-- CALCULATION -->
 
       <div class="percentage-result-card">
 
@@ -475,7 +497,9 @@
 
 
 
-    <!-- INFORMATION -->
+    <!-- =================================================
+         INFORMATION
+    ================================================== -->
 
     <div class="percentage-info">
 
@@ -548,6 +572,7 @@
 
   <div class="footer-links">
 
+
     <div>
 
       <h4>
@@ -580,6 +605,7 @@
       </a>
 
     </div>
+
 
   </div>
 
