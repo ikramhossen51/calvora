@@ -4,43 +4,24 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  // =======================================================
-  // ELEMENTS
-  // =======================================================
+  const calculateButton = document.getElementById("calculatePercentage");
+  const resetButton = document.getElementById("resetPercentage");
+
+  const percentageInput = document.getElementById("percentageValue");
+  const baseInput = document.getElementById("baseValue");
+  const secondInput = document.getElementById("secondValue");
+
+  const secondValueGroup = document.getElementById("secondValueGroup");
+
+  const results = document.getElementById("percentageResults");
+  const error = document.getElementById("percentageError");
+
+  const result = document.getElementById("percentageResult");
+  const calculation = document.getElementById("percentageCalculation");
 
   const typeButtons = document.querySelectorAll(
     ".percentage-type-button"
   );
-
-  const calculateButton =
-    document.getElementById("calculatePercentage");
-
-  const resetButton =
-    document.getElementById("resetPercentage");
-
-  const percentageInput =
-    document.getElementById("percentageValue");
-
-  const baseInput =
-    document.getElementById("baseValue");
-
-  const secondInput =
-    document.getElementById("secondValue");
-
-  const secondValueGroup =
-    document.getElementById("secondValueGroup");
-
-  const results =
-    document.getElementById("percentageResults");
-
-  const error =
-    document.getElementById("percentageError");
-
-  const result =
-    document.getElementById("percentageResult");
-
-  const calculation =
-    document.getElementById("percentageCalculation");
 
 
   // =======================================================
@@ -59,10 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
     !result ||
     !calculation
   ) {
-    console.error(
-      "Calvora Percentage Calculator: Required element missing."
-    );
-
+    console.error("Calvora Percentage Calculator: Missing HTML element.");
     return;
   }
 
@@ -78,149 +56,49 @@ document.addEventListener("DOMContentLoaded", function () {
   // UPDATE INPUTS
   // =======================================================
 
-  function updateInputFields() {
+  function updateInputs() {
 
     error.hidden = true;
     results.hidden = true;
 
     if (currentType === "percent-of") {
 
-      /*
-       * What is X% of Y?
-       *
-       * Percentage = X
-       * Number     = Y
-       */
+      percentageInput.disabled = false;
+      baseInput.disabled = false;
+      secondInput.disabled = true;
 
-      percentageInput.parentElement.parentElement.style.display =
-        "block";
-
-      baseInput.parentElement.parentElement.style.display =
-        "block";
+      percentageInput.placeholder = "Enter percentage";
+      baseInput.placeholder = "Enter number";
 
       secondValueGroup.style.display = "none";
 
     }
-
 
     else if (currentType === "what-percent") {
 
-      /*
-       * X is what % of Y?
-       *
-       * X = first number
-       * Y = second number
-       */
+      percentageInput.disabled = false;
+      baseInput.disabled = false;
+      secondInput.disabled = true;
 
-      percentageInput.parentElement.parentElement.style.display =
-        "block";
-
-      baseInput.parentElement.parentElement.style.display =
-        "block";
+      percentageInput.placeholder = "Enter first number";
+      baseInput.placeholder = "Enter whole number";
 
       secondValueGroup.style.display = "none";
 
-
-      /*
-       * Change labels
-       */
-
-      const percentageLabel =
-        percentageInput
-          .parentElement
-          .parentElement
-          .querySelector("label");
-
-      const baseLabel =
-        baseInput
-          .parentElement
-          .parentElement
-          .querySelector("label");
-
-      if (percentageLabel) {
-        percentageLabel.textContent = "Part";
-      }
-
-      if (baseLabel) {
-        baseLabel.textContent = "Whole";
-      }
-
     }
-
 
     else if (currentType === "percent-change") {
 
-      /*
-       * Percentage Change
-       *
-       * First Number
-       * Second Number
-       */
+      percentageInput.disabled = true;
+      baseInput.disabled = false;
+      secondInput.disabled = false;
 
-      percentageInput.parentElement.parentElement.style.display =
-        "block";
+      baseInput.placeholder = "Enter original value";
+      secondInput.placeholder = "Enter new value";
 
-      baseInput.parentElement.parentElement.style.display =
-        "block";
-
-      secondValueGroup.style.display = "none";
-
-
-      /*
-       * Change labels
-       */
-
-      const percentageLabel =
-        percentageInput
-          .parentElement
-          .parentElement
-          .querySelector("label");
-
-      const baseLabel =
-        baseInput
-          .parentElement
-          .parentElement
-          .querySelector("label");
-
-      if (percentageLabel) {
-        percentageLabel.textContent = "Original Value";
-      }
-
-      if (baseLabel) {
-        baseLabel.textContent = "New Value";
-      }
+      secondValueGroup.style.display = "block";
 
     }
-
-
-    /*
-     * Restore original labels for first mode
-     */
-
-    if (currentType === "percent-of") {
-
-      const percentageLabel =
-        percentageInput
-          .parentElement
-          .parentElement
-          .querySelector("label");
-
-      const baseLabel =
-        baseInput
-          .parentElement
-          .parentElement
-          .querySelector("label");
-
-      if (percentageLabel) {
-        percentageLabel.textContent = "Percentage";
-      }
-
-      if (baseLabel) {
-        baseLabel.textContent = "Number";
-      }
-
-    }
-
   }
 
 
@@ -233,34 +111,14 @@ document.addEventListener("DOMContentLoaded", function () {
     button.addEventListener("click", function () {
 
       typeButtons.forEach(function (btn) {
-
         btn.classList.remove("active");
-
       });
-
 
       button.classList.add("active");
 
+      currentType = button.dataset.type;
 
-      currentType =
-        button.getAttribute("data-type") ||
-        "percent-of";
-
-
-      /*
-       * Clear previous values
-       */
-
-      percentageInput.value = "";
-      baseInput.value = "";
-      secondInput.value = "";
-
-
-      result.textContent = "—";
-      calculation.textContent = "—";
-
-
-      updateInputFields();
+      updateInputs();
 
     });
 
@@ -271,27 +129,32 @@ document.addEventListener("DOMContentLoaded", function () {
   // CALCULATE
   // =======================================================
 
-  calculateButton.addEventListener(
-    "click",
-    function () {
+  calculateButton.addEventListener("click", function () {
 
-      const first =
-        parseFloat(percentageInput.value);
-
-      const second =
-        parseFloat(baseInput.value);
+    error.hidden = true;
+    results.hidden = true;
 
 
-      // ---------------------------------------------------
-      // VALIDATION
-      // ---------------------------------------------------
+    // -----------------------------------------------------
+    // WHAT IS X% OF Y?
+    // -----------------------------------------------------
+
+    if (currentType === "percent-of") {
+
+      const percentage = parseFloat(
+        percentageInput.value
+      );
+
+      const number = parseFloat(
+        baseInput.value
+      );
+
 
       if (
-        isNaN(first) ||
-        isNaN(second)
+        isNaN(percentage) ||
+        isNaN(number)
       ) {
 
-        results.hidden = true;
         error.textContent =
           "Please enter valid numbers.";
 
@@ -301,205 +164,155 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
 
-      // ===================================================
-      // WHAT IS X% OF Y?
-      // ===================================================
-
-      if (currentType === "percent-of") {
-
-        const answer =
-          (first / 100) * second;
+      const answer =
+        (percentage / 100) * number;
 
 
-        result.textContent =
-          formatNumber(answer);
+      result.textContent =
+        formatNumber(answer);
 
+      calculation.textContent =
+        `(${percentage} ÷ 100) × ${number} = ${formatNumber(answer)}`;
 
-        calculation.textContent =
-          "(" +
-          formatNumber(first) +
-          " ÷ 100) × " +
-          formatNumber(second) +
-          " = " +
-          formatNumber(answer);
-
-
-        error.hidden = true;
-        results.hidden = false;
-
-        return;
-      }
-
-
-      // ===================================================
-      // X IS WHAT % OF Y?
-      // ===================================================
-
-      if (currentType === "what-percent") {
-
-        if (second === 0) {
-
-          results.hidden = true;
-
-          error.textContent =
-            "The whole number cannot be zero.";
-
-          error.hidden = false;
-
-          return;
-        }
-
-
-        const answer =
-          (first / second) * 100;
-
-
-        result.textContent =
-          formatNumber(answer) + "%";
-
-
-        calculation.textContent =
-          "(" +
-          formatNumber(first) +
-          " ÷ " +
-          formatNumber(second) +
-          ") × 100 = " +
-          formatNumber(answer) +
-          "%";
-
-
-        error.hidden = true;
-        results.hidden = false;
-
-        return;
-      }
-
-
-      // ===================================================
-      // PERCENTAGE CHANGE
-      // ===================================================
-
-      if (currentType === "percent-change") {
-
-        if (first === 0) {
-
-          results.hidden = true;
-
-          error.textContent =
-            "The original value cannot be zero.";
-
-          error.hidden = false;
-
-          return;
-        }
-
-
-        const change =
-          ((second - first) / Math.abs(first)) * 100;
-
-
-        result.textContent =
-          formatNumber(change) + "%";
-
-
-        calculation.textContent =
-          "((" +
-          formatNumber(second) +
-          " − " +
-          formatNumber(first) +
-          ") ÷ " +
-          formatNumber(first) +
-          ") × 100 = " +
-          formatNumber(change) +
-          "%";
-
-
-        error.hidden = true;
-        results.hidden = false;
-
-      }
+      results.hidden = false;
 
     }
-  );
+
+
+    // -----------------------------------------------------
+    // X IS WHAT % OF Y?
+    // -----------------------------------------------------
+
+    else if (currentType === "what-percent") {
+
+      const value = parseFloat(
+        percentageInput.value
+      );
+
+      const total = parseFloat(
+        baseInput.value
+      );
+
+
+      if (
+        isNaN(value) ||
+        isNaN(total) ||
+        total === 0
+      ) {
+
+        error.textContent =
+          "Please enter valid numbers. The second number cannot be zero.";
+
+        error.hidden = false;
+
+        return;
+      }
+
+
+      const answer =
+        (value / total) * 100;
+
+
+      result.textContent =
+        formatNumber(answer) + "%";
+
+      calculation.textContent =
+        `(${value} ÷ ${total}) × 100 = ${formatNumber(answer)}%`;
+
+      results.hidden = false;
+
+    }
+
+
+    // -----------------------------------------------------
+    // PERCENTAGE CHANGE
+    // -----------------------------------------------------
+
+    else if (currentType === "percent-change") {
+
+      const original = parseFloat(
+        baseInput.value
+      );
+
+      const newValue = parseFloat(
+        secondInput.value
+      );
+
+
+      if (
+        isNaN(original) ||
+        isNaN(newValue) ||
+        original === 0
+      ) {
+
+        error.textContent =
+          "Please enter valid numbers. The original value cannot be zero.";
+
+        error.hidden = false;
+
+        return;
+      }
+
+
+      const change =
+        ((newValue - original) / original) * 100;
+
+
+      result.textContent =
+        formatNumber(change) + "%";
+
+
+      calculation.textContent =
+        `((${newValue} − ${original}) ÷ ${original}) × 100 = ${formatNumber(change)}%`;
+
+
+      results.hidden = false;
+
+    }
+
+  });
 
 
   // =======================================================
   // RESET
   // =======================================================
 
-  resetButton.addEventListener(
-    "click",
-    function () {
+  resetButton.addEventListener("click", function () {
 
-      percentageInput.value = "";
-      baseInput.value = "";
-      secondInput.value = "";
+    percentageInput.value = "";
+    baseInput.value = "";
+    secondInput.value = "";
 
+    result.textContent = "—";
+    calculation.textContent = "—";
 
-      result.textContent = "—";
-      calculation.textContent = "—";
+    error.hidden = true;
+    results.hidden = true;
 
-
-      results.hidden = true;
-      error.hidden = true;
-
-
-      /*
-       * Return to first calculation type
-       */
-
-      currentType = "percent-of";
-
-
-      typeButtons.forEach(function (button) {
-
-        button.classList.remove("active");
-
-      });
-
-
-      const firstButton =
-        document.querySelector(
-          '.percentage-type-button[data-type="percent-of"]'
-        );
-
-
-      if (firstButton) {
-        firstButton.classList.add("active");
-      }
-
-
-      updateInputFields();
-
-    }
-  );
+  });
 
 
   // =======================================================
-  // FORMAT NUMBER
+  // NUMBER FORMAT
   // =======================================================
 
   function formatNumber(number) {
 
     if (!Number.isFinite(number)) {
-      return "—";
+      return "0";
     }
 
-
-    return number.toLocaleString(
-      "en-US",
-      {
-        maximumFractionDigits: 2
-      }
+    return Number(number.toFixed(2)).toLocaleString(
+      "en-US"
     );
 
   }
 
 
   // =======================================================
-  // INITIALIZE
+  // INITIAL STATE
   // =======================================================
 
-  updateInputFields();
+  updateInputs();
 
 });
