@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
   <meta charset="UTF-8">
@@ -10,23 +9,17 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>Margin Calculator – Calvora</title>
+  <title>Calculators – Calvora</title>
 
   <meta
     name="description"
-    content="Calculate profit, profit margin, and markup instantly with Calvora's free Margin Calculator."
+    content="Explore Calvora's free online calculators for finance, business, math, health, and everyday calculations."
   >
 
-  <!-- Global CSS -->
+  <!-- GLOBAL CSS -->
   <link
     rel="stylesheet"
-    href="../../assets/css/style.css"
-  >
-
-  <!-- Margin Calculator CSS -->
-  <link
-    rel="stylesheet"
-    href="./margin.css"
+    href="../assets/css/style.css"
   >
 
 </head>
@@ -35,15 +28,15 @@
 <body>
 
 
-<!-- =====================================================
+<!-- =========================================================
      HEADER
-===================================================== -->
+========================================================= -->
 
 <header id="site-header">
 
   <div class="logo">
 
-    <a href="../../">
+    <a href="../">
       Calvora
     </a>
 
@@ -52,24 +45,28 @@
 
   <nav class="main-nav">
 
-    <a href="../../">
+    <a href="../">
       Home
     </a>
 
-    <a href="../">
+    <a href="./">
       Calculators
     </a>
 
-    <a href="../../categories/">
+    <a href="../categories/">
       Categories
     </a>
 
-    <a href="../../pages/about.html">
+    <a href="../pages/about.html">
       About
     </a>
 
-    <a href="../../pages/contact.html">
+    <a href="../pages/contact.html">
       Contact
+    </a>
+
+    <a href="../search.html">
+      Search
     </a>
 
   </nav>
@@ -78,75 +75,91 @@
 
 
 
-<!-- =====================================================
-     MARGIN CALCULATOR
-===================================================== -->
+<!-- =========================================================
+     CALCULATORS HERO
+========================================================= -->
 
-<main class="margin-page">
+<section class="calculators-hero">
 
+  <div class="calculators-hero-content">
 
-  <section class="margin-calculator">
-
-
-    <!-- HEADER -->
-
-    <div class="margin-header">
+    <span class="section-label">
+      CALVORA CALCULATORS
+    </span>
 
 
-      <div class="margin-icon-box">
+    <h1>
+      Smart Calculators.<br>
+      <span>Simple Answers.</span>
+    </h1>
 
-        <svg
-          viewBox="0 0 48 48"
-          fill="none"
-          aria-hidden="true"
-        >
 
-          <circle
-            cx="24"
-            cy="24"
-            r="15"
-            stroke="currentColor"
-            stroke-width="3"
-          />
+    <p>
+      Explore our growing collection of free,
+      fast, and accurate online calculators
+      designed for everyday use.
+    </p>
 
-          <path
-            d="M24 24L34 17"
-            stroke="currentColor"
-            stroke-width="3"
-            stroke-linecap="round"
-          />
+  </div>
 
-          <circle
-            cx="24"
-            cy="24"
-            r="3"
-            fill="currentColor"
-          />
+</section>
 
-          <path
-            d="M13 32C16 37 20 39 24 39"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-          />
 
-        </svg>
 
-      </div>
+<!-- =========================================================
+     CALCULATOR SEARCH
+========================================================= -->
 
+<section class="calculator-search calculators-search-page">
+
+  <div class="search-box">
+
+    <span
+      class="search-icon"
+      aria-hidden="true"
+    >
+      ⌕
+    </span>
+
+
+    <input
+      type="search"
+      id="calculatorSearch"
+      placeholder="Search calculators..."
+      aria-label="Search calculators"
+      autocomplete="off"
+    >
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CALCULATORS
+========================================================= -->
+
+<main class="calculators-page">
+
+
+  <section class="section">
+
+    <div class="section-heading">
 
       <div>
 
-        <span class="calculator-label">
-          BUSINESS CALCULATOR
+        <span class="section-label">
+          ALL CALCULATORS
         </span>
 
-        <h1>
-          Calculate Your Margin
-        </h1>
+        <h2>
+          Choose a calculator
+        </h2>
 
         <p>
-          Enter your cost and selling price.
+          Select the tool you need and get
+          accurate results instantly.
         </p>
 
       </div>
@@ -155,335 +168,635 @@
 
 
 
-    <!-- INPUTS -->
-
-    <div class="margin-form">
+    <div class="calculator-grid">
 
 
-      <!-- COST -->
+      <!-- =================================================
+           MARGIN CALCULATOR
+      ================================================== -->
 
-      <div class="input-group">
-
-        <label for="cost">
-          Cost Price
-        </label>
-
-        <div class="input-wrapper">
-
-          <span class="currency-symbol">
-            $
-          </span>
-
-          <input
-            type="number"
-            id="cost"
-            name="cost"
-            placeholder="Enter cost price"
-            min="0"
-            step="0.01"
-            inputmode="decimal"
-          >
-
-        </div>
-
-      </div>
-
-
-
-      <!-- SELLING PRICE -->
-
-      <div class="input-group">
-
-        <label for="price">
-          Selling Price
-        </label>
-
-        <div class="input-wrapper">
-
-          <span class="currency-symbol">
-            $
-          </span>
-
-          <input
-            type="number"
-            id="price"
-            name="price"
-            placeholder="Enter selling price"
-            min="0"
-            step="0.01"
-            inputmode="decimal"
-          >
-
-        </div>
-
-      </div>
-
-
-    </div>
-
-
-
-    <!-- ERROR -->
-
-    <div
-      id="marginError"
-      class="margin-error"
-      hidden
-    >
-      Please enter valid positive numbers for both prices.
-    </div>
-
-
-
-    <!-- BUTTONS -->
-
-    <div class="margin-actions">
-
-
-      <button
-        type="button"
-        id="calculateMargin"
-        class="margin-button calculate-button"
+      <a
+        href="./margin/"
+        class="calculator-card"
       >
 
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
+        <div
+          class="calculator-icon calculator-icon-margin"
           aria-hidden="true"
         >
 
-          <rect
-            x="4"
-            y="3"
-            width="16"
-            height="18"
-            rx="2"
-            stroke="currentColor"
-            stroke-width="2"
-          />
+          <svg
+            viewBox="0 0 48 48"
+            fill="none"
+          >
 
-          <path
-            d="M8 7H16"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-          />
+            <circle
+              cx="24"
+              cy="24"
+              r="15"
+              stroke="currentColor"
+              stroke-width="3"
+            />
 
-          <path
-            d="M8 11H8.01"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-          />
+            <path
+              d="M24 24L34 17"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
 
-          <path
-            d="M12 11H12.01"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-          />
+            <circle
+              cx="24"
+              cy="24"
+              r="3"
+              fill="currentColor"
+            />
 
-          <path
-            d="M16 11H16.01"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-          />
+            <path
+              d="M13 32C16 37 20 39 24 39"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
 
-          <path
-            d="M8 15H8.01"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-          />
+          </svg>
 
-          <path
-            d="M12 15H12.01"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-          />
+        </div>
 
-          <path
-            d="M16 15H16.01"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-          />
 
-        </svg>
+        <div class="calculator-card-content">
 
-        <span>
-          Calculate Margin
+          <span class="calculator-category">
+            BUSINESS
+          </span>
+
+          <h3>
+            Margin Calculator
+          </h3>
+
+          <p>
+            Calculate profit, margin, and markup
+            instantly.
+          </p>
+
+        </div>
+
+
+        <span class="card-arrow">
+          →
         </span>
 
-      </button>
+      </a>
 
 
 
-      <button
-        type="button"
-        id="resetMargin"
-        class="margin-button reset-button"
+      <!-- =================================================
+           PERCENTAGE CALCULATOR
+      ================================================== -->
+
+      <a
+        href="./percentage/"
+        class="calculator-card"
       >
 
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
+        <div
+          class="calculator-icon calculator-icon-percentage"
           aria-hidden="true"
         >
 
-          <path
-            d="M20 11A8 8 0 0 0 6.2 5.4L4 8"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
+          <svg
+            viewBox="0 0 48 48"
+            fill="none"
+          >
 
-          <path
-            d="M4 4V8H8"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
+            <circle
+              cx="15"
+              cy="15"
+              r="5"
+              stroke="currentColor"
+              stroke-width="3"
+            />
 
-          <path
-            d="M4 13A8 8 0 0 0 17.8 18.6L20 16"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
+            <circle
+              cx="33"
+              cy="33"
+              r="5"
+              stroke="currentColor"
+              stroke-width="3"
+            />
 
-          <path
-            d="M20 20V16H16"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
+            <path
+              d="M35 13L13 35"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
 
-        </svg>
+          </svg>
 
-        <span>
-          Reset
+        </div>
+
+
+        <div class="calculator-card-content">
+
+          <span class="calculator-category">
+            MATH
+          </span>
+
+          <h3>
+            Percentage Calculator
+          </h3>
+
+          <p>
+            Calculate percentages quickly
+            and accurately.
+          </p>
+
+        </div>
+
+
+        <span class="card-arrow">
+          →
         </span>
 
-      </button>
+      </a>
+
+
+
+      <!-- =================================================
+           DISCOUNT CALCULATOR
+      ================================================== -->
+
+      <a
+        href="./discount/"
+        class="calculator-card"
+      >
+
+        <div
+          class="calculator-icon calculator-icon-discount"
+          aria-hidden="true"
+        >
+
+          <svg
+            viewBox="0 0 48 48"
+            fill="none"
+          >
+
+            <path
+              d="M9 18L18 9H34L39 14V30L30 39H14L9 34V18Z"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linejoin="round"
+            />
+
+            <circle
+              cx="19"
+              cy="19"
+              r="2.5"
+              fill="currentColor"
+            />
+
+            <path
+              d="M20 30H31"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+
+            <path
+              d="M25.5 24.5V35.5"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+
+          </svg>
+
+        </div>
+
+
+        <div class="calculator-card-content">
+
+          <span class="calculator-category">
+            FINANCE
+          </span>
+
+          <h3>
+            Discount Calculator
+          </h3>
+
+          <p>
+            Find sale prices and savings
+            instantly.
+          </p>
+
+        </div>
+
+
+        <span class="card-arrow">
+          →
+        </span>
+
+      </a>
+
+
+
+      <!-- =================================================
+           PROFIT CALCULATOR
+      ================================================== -->
+
+      <a
+        href="./profit/"
+        class="calculator-card"
+      >
+
+        <div
+          class="calculator-icon calculator-icon-profit"
+          aria-hidden="true"
+        >
+
+          <svg
+            viewBox="0 0 48 48"
+            fill="none"
+          >
+
+            <rect
+              x="9"
+              y="27"
+              width="6"
+              height="12"
+              rx="2"
+              fill="currentColor"
+            />
+
+            <rect
+              x="21"
+              y="21"
+              width="6"
+              height="18"
+              rx="2"
+              fill="currentColor"
+            />
+
+            <rect
+              x="33"
+              y="13"
+              width="6"
+              height="26"
+              rx="2"
+              fill="currentColor"
+            />
+
+            <path
+              d="M9 20L18 17L25 19L38 8"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+
+            <path
+              d="M31 8H38V15"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+
+          </svg>
+
+        </div>
+
+
+        <div class="calculator-card-content">
+
+          <span class="calculator-category">
+            BUSINESS
+          </span>
+
+          <h3>
+            Profit Calculator
+          </h3>
+
+          <p>
+            Calculate revenue, cost,
+            and profit.
+          </p>
+
+        </div>
+
+
+        <span class="card-arrow">
+          →
+        </span>
+
+      </a>
+
+
+
+      <!-- =================================================
+           BMI CALCULATOR
+      ================================================== -->
+
+      <a
+        href="./bmi/"
+        class="calculator-card"
+      >
+
+        <div
+          class="calculator-icon calculator-icon-bmi"
+          aria-hidden="true"
+        >
+
+          <svg
+            viewBox="0 0 48 48"
+            fill="none"
+          >
+
+            <circle
+              cx="24"
+              cy="24"
+              r="16"
+              stroke="currentColor"
+              stroke-width="3"
+            />
+
+            <path
+              d="M24 24L32 17"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+
+            <path
+              d="M16 31H32"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+
+          </svg>
+
+        </div>
+
+
+        <div class="calculator-card-content">
+
+          <span class="calculator-category">
+            HEALTH
+          </span>
+
+          <h3>
+            BMI Calculator
+          </h3>
+
+          <p>
+            Calculate your body mass index
+            quickly and easily.
+          </p>
+
+        </div>
+
+
+        <span class="card-arrow">
+          →
+        </span>
+
+      </a>
+
+
+
+      <!-- =================================================
+           AGE CALCULATOR
+      ================================================== -->
+
+      <a
+        href="./age/"
+        class="calculator-card"
+      >
+
+        <div
+          class="calculator-icon calculator-icon-age"
+          aria-hidden="true"
+        >
+
+          <svg
+            viewBox="0 0 48 48"
+            fill="none"
+          >
+
+            <rect
+              x="9"
+              y="11"
+              width="30"
+              height="27"
+              rx="4"
+              stroke="currentColor"
+              stroke-width="3"
+            />
+
+            <path
+              d="M16 8V15"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+
+            <path
+              d="M32 8V15"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+
+            <path
+              d="M15 22H33"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+
+            <circle
+              cx="24"
+              cy="29"
+              r="3"
+              fill="currentColor"
+            />
+
+          </svg>
+
+        </div>
+
+
+        <div class="calculator-card-content">
+
+          <span class="calculator-category">
+            EVERYDAY
+          </span>
+
+          <h3>
+            Age Calculator
+          </h3>
+
+          <p>
+            Calculate your exact age from
+            your date of birth.
+          </p>
+
+        </div>
+
+
+        <span class="card-arrow">
+          →
+        </span>
+
+      </a>
+
+
+
+      <!-- =================================================
+           LOAN CALCULATOR
+      ================================================== -->
+
+      <a
+        href="./loan/"
+        class="calculator-card"
+      >
+
+        <div
+          class="calculator-icon calculator-icon-loan"
+          aria-hidden="true"
+        >
+
+          <svg
+            viewBox="0 0 48 48"
+            fill="none"
+          >
+
+            <path
+              d="M8 21L24 10L40 21"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+
+            <path
+              d="M12 21V36H36V21"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linejoin="round"
+            />
+
+            <path
+              d="M18 36V27H30V36"
+              stroke="currentColor"
+              stroke-width="3"
+            />
+
+          </svg>
+
+        </div>
+
+
+        <div class="calculator-card-content">
+
+          <span class="calculator-category">
+            FINANCE
+          </span>
+
+          <h3>
+            Loan Calculator
+          </h3>
+
+          <p>
+            Estimate monthly payments,
+            interest, and loan costs.
+          </p>
+
+        </div>
+
+
+        <span class="card-arrow">
+          →
+        </span>
+
+      </a>
+
+
+
+      <!-- =================================================
+           INTEREST CALCULATOR
+      ================================================== -->
+
+      <a
+        href="./interest/"
+        class="calculator-card"
+      >
+
+        <div
+          class="calculator-icon calculator-icon-interest"
+          aria-hidden="true"
+        >
+
+          <svg
+            viewBox="0 0 48 48"
+            fill="none"
+          >
+
+            <circle
+              cx="24"
+              cy="24"
+              r="16"
+              stroke="currentColor"
+              stroke-width="3"
+            />
+
+            <path
+              d="M29 17C27.5 15.5 25.5 15 23.5 15C20.5 15 18 17 18 19.5C18 22 20 23 24 24C28 25 30 26 30 28.5C30 31 27.5 33 24.5 33C22 33 19.5 32 18 30"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            />
+
+            <path
+              d="M24 12V36"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            />
+
+          </svg>
+
+        </div>
+
+
+        <div class="calculator-card-content">
+
+          <span class="calculator-category">
+            FINANCE
+          </span>
+
+          <h3>
+            Interest Calculator
+          </h3>
+
+          <p>
+            Calculate interest and understand
+            your money growth.
+          </p>
+
+        </div>
+
+
+        <span class="card-arrow">
+          →
+        </span>
+
+      </a>
+
 
     </div>
-
-
-
-    <!-- RESULTS -->
-
-    <section
-      id="marginResults"
-      class="margin-results"
-      hidden
-    >
-
-
-      <!-- PROFIT -->
-
-      <div class="result-card">
-
-        <span class="result-label">
-          Profit / Loss
-        </span>
-
-        <strong
-          id="profitResult"
-          class="result-value"
-        >
-          —
-        </strong>
-
-      </div>
-
-
-
-      <!-- MARGIN -->
-
-      <div class="result-card">
-
-        <span class="result-label">
-          Profit Margin
-        </span>
-
-        <strong
-          id="marginResult"
-          class="result-value"
-        >
-          —
-        </strong>
-
-      </div>
-
-
-
-      <!-- MARKUP -->
-
-      <div class="result-card">
-
-        <span class="result-label">
-          Markup
-        </span>
-
-        <strong
-          id="markupResult"
-          class="result-value"
-        >
-          —
-        </strong>
-
-      </div>
-
-
-    </section>
-
-
-    <!-- FORMULA -->
-
-    <div class="margin-info">
-
-      <h2>
-        How Margin Is Calculated
-      </h2>
-
-      <p>
-        Profit margin shows how much of your selling price
-        remains as profit after subtracting the cost.
-      </p>
-
-      <div class="formula-box">
-
-        <span>
-          Profit Margin
-        </span>
-
-        <strong>
-          (Profit ÷ Selling Price) × 100
-        </strong>
-
-      </div>
-
-      <div class="formula-box">
-
-        <span>
-          Markup
-        </span>
-
-        <strong>
-          (Profit ÷ Cost Price) × 100
-        </strong>
-
-      </div>
-
-    </div>
-
 
   </section>
 
@@ -491,20 +804,60 @@
 
 
 
-<!-- =====================================================
+<!-- =========================================================
+     FINAL CTA
+========================================================= -->
+
+<section class="final-cta">
+
+  <div>
+
+    <span class="section-label">
+      CALVORA
+    </span>
+
+
+    <h2>
+      Calculate smarter.<br>
+      Get results faster.
+    </h2>
+
+
+    <p>
+      Free, simple, and accurate calculators
+      for everyday needs.
+    </p>
+
+
+    <a
+      href="../"
+      class="hero-btn"
+    >
+      Back to Home →
+    </a>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
      FOOTER
-===================================================== -->
+========================================================= -->
 
 <footer id="site-footer">
+
 
   <div class="footer-brand">
 
     <a
-      href="../../"
+      href="../"
       class="footer-logo"
     >
       Calvora
     </a>
+
 
     <p>
       Simple, fast, and free online calculators.
@@ -513,7 +866,9 @@
   </div>
 
 
+
   <div class="footer-links">
+
 
     <div>
 
@@ -521,15 +876,20 @@
         Explore
       </h4>
 
-      <a href="../">
+      <a href="./">
         Calculators
       </a>
 
-      <a href="../../categories/">
+      <a href="../categories/">
         Categories
       </a>
 
+      <a href="../search.html">
+        Search
+      </a>
+
     </div>
+
 
 
     <div>
@@ -538,15 +898,16 @@
         Company
       </h4>
 
-      <a href="../../pages/about.html">
+      <a href="../pages/about.html">
         About
       </a>
 
-      <a href="../../pages/contact.html">
+      <a href="../pages/contact.html">
         Contact
       </a>
 
     </div>
+
 
   </div>
 
@@ -554,11 +915,11 @@
 
 
 
-<!-- =====================================================
-     MARGIN JAVASCRIPT
-===================================================== -->
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
 
-<script src="./margin.js"></script>
+<script src="../assets/js/script.js"></script>
 
 
 </body>
