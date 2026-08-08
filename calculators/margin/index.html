@@ -1,1 +1,360 @@
-.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Margin Calculator – Calvora</title>
+
+  <meta
+    name="description"
+    content="Calculate profit margin, markup, and profit instantly with Calvora's free online Margin Calculator."
+  >
+
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+
+<body>
+
+<header id="site-header">
+
+  <div class="logo">
+    <a href="../../">Calvora</a>
+  </div>
+
+  <nav class="main-nav">
+
+    <a href="../../">Home</a>
+
+    <a href="../">Calculators</a>
+
+    <a href="../../categories/">Categories</a>
+
+    <a href="../../pages/about.html">About</a>
+
+    <a href="../../pages/contact.html">Contact</a>
+
+    <a href="../../search.html">Search</a>
+
+  </nav>
+
+</header>
+
+
+<!-- =========================
+     MARGIN CALCULATOR
+========================= -->
+
+<main class="calculator-page">
+
+  <section class="calculator-hero">
+
+    <span class="section-label">
+      BUSINESS CALCULATOR
+    </span>
+
+    <h1>
+      Margin Calculator
+    </h1>
+
+    <p>
+      Calculate profit, profit margin, and markup quickly and accurately.
+    </p>
+
+  </section>
+
+
+  <section class="calculator-tool">
+
+    <div class="calculator-tool-card">
+
+      <div class="calculator-tool-header">
+
+        <div class="calculator-tool-icon">
+
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+
+            <circle
+              cx="24"
+              cy="24"
+              r="15"
+              stroke="currentColor"
+              stroke-width="3"
+            />
+
+            <path
+              d="M24 24L34 17"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+
+            <circle
+              cx="24"
+              cy="24"
+              r="3"
+              fill="currentColor"
+            />
+
+            <path
+              d="M13 32C16 37 20 39 24 39"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+
+          </svg>
+
+        </div>
+
+        <div>
+
+          <h2>
+            Calculate Your Margin
+          </h2>
+
+          <p>
+            Enter your cost and selling price.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="calculator-inputs">
+
+        <div class="input-group">
+
+          <label for="cost">
+            Cost Price
+          </label>
+
+          <input
+            type="number"
+            id="cost"
+            placeholder="e.g. 100"
+            min="0"
+            step="0.01"
+          >
+
+        </div>
+
+
+        <div class="input-group">
+
+          <label for="price">
+            Selling Price
+          </label>
+
+          <input
+            type="number"
+            id="price"
+            placeholder="e.g. 150"
+            min="0"
+            step="0.01"
+          >
+
+        </div>
+
+
+        <div class="calculator-actions">
+
+          <button
+            type="button"
+            id="calculateMargin"
+          >
+            Calculate Margin
+          </button>
+
+          <button
+            type="button"
+            id="resetMargin"
+            class="calculator-reset"
+          >
+            Reset
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- RESULTS -->
+
+      <div
+        class="margin-results"
+        id="marginResults"
+        hidden
+      >
+
+        <div class="result-card">
+
+          <span>
+            Profit / Loss
+          </span>
+
+          <strong id="profitResult">
+            —
+          </strong>
+
+        </div>
+
+
+        <div class="result-card">
+
+          <span>
+            Profit Margin
+          </span>
+
+          <strong id="marginResult">
+            —
+          </strong>
+
+        </div>
+
+
+        <div class="result-card">
+
+          <span>
+            Markup
+          </span>
+
+          <strong id="markupResult">
+            —
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <p
+        class="calculator-error"
+        id="marginError"
+        hidden
+      >
+        Please enter valid Cost Price and Selling Price.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       EXPLANATION
+  ========================= -->
+
+  <section class="calculator-info">
+
+    <div>
+
+      <span class="section-label">
+        ABOUT THIS CALCULATOR
+      </span>
+
+      <h2>
+        What is a profit margin?
+      </h2>
+
+      <p>
+        Profit margin shows how much of your selling price remains
+        as profit after the cost of the product or service is deducted.
+      </p>
+
+    </div>
+
+
+    <div class="formula-card">
+
+      <h3>
+        Margin Formula
+      </h3>
+
+      <p>
+        Profit = Selling Price − Cost Price
+      </p>
+
+      <p>
+        Margin = Profit ÷ Selling Price × 100
+      </p>
+
+      <p>
+        Markup = Profit ÷ Cost Price × 100
+      </p>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer id="site-footer">
+
+  <div class="footer-brand">
+
+    <a href="../../" class="footer-logo">
+      Calvora
+    </a>
+
+    <p>
+      Simple, fast, and free online calculators.
+    </p>
+
+  </div>
+
+
+  <div class="footer-links">
+
+    <div>
+
+      <h4>
+        Explore
+      </h4>
+
+      <a href="../">
+        Calculators
+      </a>
+
+      <a href="../../categories/">
+        Categories
+      </a>
+
+      <a href="../../search.html">
+        Search
+      </a>
+
+    </div>
+
+
+    <div>
+
+      <h4>
+        Company
+      </h4>
+
+      <a href="../../pages/about.html">
+        About
+      </a>
+
+      <a href="../../pages/contact.html">
+        Contact
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script src="../../assets/js/script.js"></script>
+
+</body>
+</html>
