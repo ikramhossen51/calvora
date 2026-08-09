@@ -25,7 +25,7 @@
 
   <meta
     name="keywords"
-    content="margin calculator, profit margin calculator, markup calculator, gross margin calculator, profit calculator, calculate profit margin, margin calculator online, selling price calculator"
+    content="margin calculator, profit margin calculator, markup calculator, gross margin calculator, profit calculator, calculate profit margin, selling price calculator, business margin calculator"
   >
 
   <meta
@@ -75,7 +75,7 @@
 
   <meta
     property="og:description"
-    content="Calculate profit, profit margin, and markup instantly with Calvora's free online Margin Calculator."
+    content="Calculate profit, profit margin, and markup instantly with Calvora's free Margin Calculator."
   >
 
   <meta
@@ -140,7 +140,7 @@
 
 
   <!-- =====================================================
-       STRUCTURED DATA — WEB APPLICATION
+       WEB APPLICATION SCHEMA
   ====================================================== -->
 
   <script type="application/ld+json">
@@ -148,12 +148,9 @@
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Margin Calculator",
-    "alternateName": [
-      "Profit Margin Calculator",
-      "Markup Calculator"
-    ],
+    "alternateName": "Profit Margin Calculator",
     "url": "https://calvora.net/calculators/margin/",
-    "description": "Free online margin calculator for calculating profit, profit margin, and markup from cost price and selling price.",
+    "description": "Free online margin calculator for calculating profit, profit margin, and markup.",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "All",
     "browserRequirements": "Requires JavaScript",
@@ -168,7 +165,7 @@
 
 
   <!-- =====================================================
-       STRUCTURED DATA — BREADCRUMB
+       BREADCRUMB SCHEMA
   ====================================================== -->
 
   <script type="application/ld+json">
@@ -200,7 +197,7 @@
 
 
   <!-- =====================================================
-       STRUCTURED DATA — FAQ
+       FAQ SCHEMA
   ====================================================== -->
 
   <script type="application/ld+json">
@@ -226,18 +223,18 @@
       },
       {
         "@type": "Question",
-        "name": "What is the difference between margin and markup?",
+        "name": "What is markup?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Profit margin measures profit as a percentage of selling price, while markup measures profit as a percentage of cost price."
+          "text": "Markup is the profit expressed as a percentage of the cost price. It is calculated by dividing profit by cost price and multiplying by 100."
         }
       },
       {
         "@type": "Question",
-        "name": "Can I use this margin calculator for a business?",
+        "name": "What is the difference between margin and markup?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. The calculator can be used by businesses, retailers, ecommerce sellers, freelancers, and service providers to estimate profit margin and markup."
+          "text": "Profit margin uses selling price as the base, while markup uses cost price as the base."
         }
       }
     ]
@@ -304,7 +301,7 @@
 
 
   <!-- ===================================================
-       MARGIN CALCULATOR
+       CALCULATOR
   ==================================================== -->
 
   <section
@@ -313,70 +310,33 @@
   >
 
 
-    <!-- =================================================
-         CALCULATOR HEADER
-    ================================================== -->
+    <!-- HEADER -->
 
     <div class="margin-header">
 
 
       <div
-        class="margin-icon-box"
+        class="margin-icon"
         aria-hidden="true"
       >
-
-        <svg
-          viewBox="0 0 48 48"
-          fill="none"
-        >
-
-          <circle
-            cx="24"
-            cy="24"
-            r="15"
-            stroke="currentColor"
-            stroke-width="3"
-          />
-
-          <path
-            d="M24 24L34 17"
-            stroke="currentColor"
-            stroke-width="3"
-            stroke-linecap="round"
-          />
-
-          <circle
-            cx="24"
-            cy="24"
-            r="3"
-            fill="currentColor"
-          />
-
-          <path
-            d="M13 32C16 37 20 39 24 39"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-          />
-
-        </svg>
-
+        %
       </div>
 
 
-      <div class="margin-header-text">
+      <div>
 
         <span class="calculator-label">
           BUSINESS CALCULATOR
         </span>
 
+
         <h1 id="margin-calculator-title">
           Margin Calculator
         </h1>
 
+
         <p>
-          Calculate profit, profit margin, and markup from your
-          cost and selling price.
+          Calculate profit, profit margin, and markup quickly and accurately.
         </p>
 
       </div>
@@ -386,316 +346,221 @@
 
 
     <!-- =================================================
-         INPUT FORM
+         CALCULATOR BOX
     ================================================== -->
 
-    <div class="margin-form">
+    <div class="calculator-box">
 
 
-      <!-- COST PRICE -->
+      <!-- INPUTS -->
 
-      <div class="input-group">
+      <div class="margin-form">
 
-        <label for="cost">
-          Cost Price
-        </label>
 
-        <div class="input-wrapper">
+        <!-- COST -->
 
-          <span
-            class="currency-symbol"
-            aria-hidden="true"
-          >
-            $
-          </span>
+        <div class="input-group">
 
-          <input
-            type="number"
-            id="cost"
-            name="cost"
-            placeholder="Enter cost price"
-            min="0"
-            step="0.01"
-            inputmode="decimal"
-            autocomplete="off"
-          >
+          <label for="cost">
+            Cost Price
+          </label>
+
+
+          <div class="input-wrapper">
+
+            <span class="currency-symbol">
+              $
+            </span>
+
+
+            <input
+              type="number"
+              id="cost"
+              name="cost"
+              placeholder="Enter cost price"
+              min="0"
+              step="0.01"
+              inputmode="decimal"
+              autocomplete="off"
+            >
+
+          </div>
 
         </div>
+
+
+
+        <!-- SELLING PRICE -->
+
+        <div class="input-group">
+
+          <label for="price">
+            Selling Price
+          </label>
+
+
+          <div class="input-wrapper">
+
+            <span class="currency-symbol">
+              $
+            </span>
+
+
+            <input
+              type="number"
+              id="price"
+              name="price"
+              placeholder="Enter selling price"
+              min="0"
+              step="0.01"
+              inputmode="decimal"
+              autocomplete="off"
+            >
+
+          </div>
+
+        </div>
+
 
       </div>
 
 
 
-      <!-- SELLING PRICE -->
+      <!-- ERROR -->
 
-      <div class="input-group">
-
-        <label for="price">
-          Selling Price
-        </label>
-
-        <div class="input-wrapper">
-
-          <span
-            class="currency-symbol"
-            aria-hidden="true"
-          >
-            $
-          </span>
-
-          <input
-            type="number"
-            id="price"
-            name="price"
-            placeholder="Enter selling price"
-            min="0"
-            step="0.01"
-            inputmode="decimal"
-            autocomplete="off"
-          >
-
-        </div>
-
-      </div>
-
-
-    </div>
+      <div
+        id="marginError"
+        class="margin-error"
+        hidden
+        role="alert"
+      ></div>
 
 
 
-    <!-- =================================================
-         ERROR
-    ================================================== -->
+      <!-- BUTTONS -->
 
-    <div
-      id="marginError"
-      class="margin-error"
-      hidden
-      role="alert"
-    >
-      Please enter valid positive numbers for both prices.
-    </div>
+      <div class="margin-actions">
 
 
-
-    <!-- =================================================
-         ACTION BUTTONS
-    ================================================== -->
-
-    <div class="margin-actions">
-
-
-      <!-- CALCULATE -->
-
-      <button
-        type="button"
-        id="calculateMargin"
-        class="margin-button calculate-button"
-      >
-
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          aria-hidden="true"
+        <button
+          type="button"
+          id="calculateMargin"
+          class="margin-btn calculate-btn"
         >
 
-          <rect
-            x="4"
-            y="3"
-            width="16"
-            height="18"
-            rx="2"
-            stroke="currentColor"
-            stroke-width="2"
-          />
+          <span aria-hidden="true">
+            🧮
+          </span>
 
-          <path
-            d="M8 7H16"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-          />
-
-          <path
-            d="M8 11H8.01"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-          />
-
-          <path
-            d="M12 11H12.01"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-          />
-
-          <path
-            d="M16 11H16.01"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-          />
-
-          <path
-            d="M8 15H8.01"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-          />
-
-          <path
-            d="M12 15H12.01"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-          />
-
-          <path
-            d="M16 15H16.01"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-          />
-
-        </svg>
-
-        <span>
           Calculate Margin
-        </span>
 
-      </button>
-
+        </button>
 
 
-      <!-- RESET -->
+        <button
+          type="button"
+          id="resetMargin"
+          class="margin-btn reset-btn"
+        >
 
-      <button
-        type="button"
-        id="resetMargin"
-        class="margin-button reset-button"
+          <span aria-hidden="true">
+            ↻
+          </span>
+
+          Reset
+
+        </button>
+
+
+      </div>
+
+
+
+      <!-- =================================================
+           RESULTS
+      ================================================== -->
+
+      <section
+        id="marginResults"
+        class="margin-results"
+        hidden
+        aria-live="polite"
+        aria-label="Margin calculation result"
       >
 
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          aria-hidden="true"
-        >
 
-          <path
-            d="M20 11A8 8 0 0 0 6.2 5.4L4 8"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
+        <div class="result-heading">
+          Margin Calculation Results
+        </div>
 
-          <path
-            d="M4 4V8H8"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
 
-          <path
-            d="M4 13A8 8 0 0 0 17.8 18.6L20 16"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
 
-          <path
-            d="M20 20V16H16"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
+        <div class="result-grid">
 
-        </svg>
 
-        <span>
-          Reset
-        </span>
+          <!-- PROFIT -->
 
-      </button>
+          <div class="result-card">
+
+            <span class="result-label">
+              Profit / Loss
+            </span>
+
+            <strong
+              id="profitResult"
+              class="result-value"
+            >
+              —
+            </strong>
+
+          </div>
+
+
+
+          <!-- MARGIN -->
+
+          <div class="result-card">
+
+            <span class="result-label">
+              Profit Margin
+            </span>
+
+            <strong
+              id="marginResult"
+              class="result-value"
+            >
+              —
+            </strong>
+
+          </div>
+
+
+
+          <!-- MARKUP -->
+
+          <div class="result-card">
+
+            <span class="result-label">
+              Markup
+            </span>
+
+            <strong
+              id="markupResult"
+              class="result-value"
+            >
+              —
+            </strong>
+
+          </div>
+
+
+        </div>
+
+
+      </section>
+
 
     </div>
-
-
-
-    <!-- =================================================
-         RESULTS
-    ================================================== -->
-
-    <section
-      id="marginResults"
-      class="margin-results"
-      hidden
-      aria-live="polite"
-      aria-label="Margin calculation results"
-    >
-
-
-      <!-- PROFIT / LOSS -->
-
-      <div class="result-card">
-
-        <span class="result-label">
-          Profit / Loss
-        </span>
-
-        <strong
-          id="profitResult"
-          class="result-value"
-        >
-          —
-        </strong>
-
-      </div>
-
-
-
-      <!-- PROFIT MARGIN -->
-
-      <div class="result-card">
-
-        <span class="result-label">
-          Profit Margin
-        </span>
-
-        <strong
-          id="marginResult"
-          class="result-value"
-        >
-          —
-        </strong>
-
-      </div>
-
-
-
-      <!-- MARKUP -->
-
-      <div class="result-card">
-
-        <span class="result-label">
-          Markup
-        </span>
-
-        <strong
-          id="markupResult"
-          class="result-value"
-        >
-          —
-        </strong>
-
-      </div>
-
-
-    </section>
 
 
   </section>
@@ -703,7 +568,7 @@
 
 
   <!-- =====================================================
-       SEARCH INTENT SEO CONTENT
+       SEO CONTENT
   ====================================================== -->
 
   <section
@@ -719,34 +584,30 @@
 
     <p>
       Use Calvora's free Margin Calculator to calculate profit,
-      profit margin, and markup from your cost price and selling
-      price. This online margin calculator is useful for businesses,
-      retailers, ecommerce sellers, freelancers, and anyone who
-      wants to understand the profitability of a sale.
+      profit margin, and markup from your cost price and selling price.
+      This online margin calculator is useful for businesses,
+      retailers, ecommerce sellers, freelancers, and service providers.
     </p>
 
 
     <p>
-      Enter your cost price and selling price to instantly see how
-      much profit you make, what percentage of the selling price is
-      profit, and how much you have marked up the original cost.
+      Simply enter your cost price and selling price to instantly see
+      how much profit you make, your profit margin percentage, and your
+      markup percentage.
     </p>
 
 
 
-    <!-- =================================================
-         FORMULA
-    ================================================== -->
+    <!-- FORMULA -->
 
     <h2>
-      Margin Calculator Formula
+      How to Calculate Profit Margin
     </h2>
 
 
     <p>
-      The margin calculation starts by finding the difference between
-      the selling price and the cost price. The resulting profit is
-      then used to calculate profit margin and markup.
+      Profit is the difference between the selling price and the cost price.
+      Profit margin shows profit as a percentage of the selling price.
     </p>
 
 
@@ -790,38 +651,26 @@
 
 
 
-    <!-- =================================================
-         MARGIN VS MARKUP
-    ================================================== -->
+    <!-- SEARCH INTENT -->
 
     <h2>
-      Margin vs. Markup
+      When Should You Use a Margin Calculator?
     </h2>
 
 
     <p>
-      Margin and markup are not the same measurement. Profit margin
-      shows profit as a percentage of the selling price, while markup
-      shows profit as a percentage of the original cost. Knowing both
-      numbers can help you understand pricing and profitability.
+      A margin calculator can help you understand product profitability,
+      check pricing decisions, compare selling prices, and determine
+      how much profit remains after costs. It can be useful when pricing
+      products for an online store, retail business, marketplace, or
+      service business.
     </p>
 
 
-
-    <!-- =================================================
-         USE CASE
-    ================================================== -->
-
-    <h2>
-      When to Use a Margin Calculator
-    </h2>
-
-
     <p>
-      A margin calculator can help when setting product prices,
-      checking ecommerce profits, comparing selling prices,
-      reviewing business pricing, or estimating the profitability
-      of products and services.
+      For example, if a product costs $40 and sells for $60, the profit
+      is $20. The profit margin is based on the $60 selling price, while
+      markup is based on the $40 cost price.
     </p>
 
 
@@ -830,7 +679,7 @@
 
 
   <!-- =====================================================
-       MARGIN CALCULATOR FAQ
+       FAQ
   ====================================================== -->
 
   <section
@@ -844,61 +693,61 @@
     </h2>
 
 
-    <div class="faq-item">
+
+    <div class="faq-card">
 
       <h3>
         What is a margin calculator?
       </h3>
 
       <p>
-        A margin calculator calculates profit, profit margin, and
-        markup using your cost price and selling price.
+        A margin calculator helps you calculate profit,
+        profit margin, and markup from cost and selling price.
       </p>
 
     </div>
 
 
 
-    <div class="faq-item">
+    <div class="faq-card">
 
       <h3>
         How do you calculate profit margin?
       </h3>
 
       <p>
-        Subtract the cost price from the selling price to find profit.
-        Then divide the profit by the selling price and multiply by 100.
+        Subtract cost from selling price, divide the profit by
+        selling price, and multiply by 100.
       </p>
 
     </div>
 
 
 
-    <div class="faq-item">
+    <div class="faq-card">
 
       <h3>
         What is markup?
       </h3>
 
       <p>
-        Markup measures profit compared with the original cost price.
-        It is calculated by dividing profit by cost price and multiplying
-        by 100.
+        Markup is profit expressed as a percentage of the original
+        cost price.
       </p>
 
     </div>
 
 
 
-    <div class="faq-item">
+    <div class="faq-card">
 
       <h3>
         What is the difference between margin and markup?
       </h3>
 
       <p>
-        Margin uses the selling price as the base, while markup uses
-        the cost price as the base.
+        Margin uses selling price as the base, while markup uses
+        cost price as the base.
       </p>
 
     </div>
@@ -928,14 +777,13 @@
     </p>
 
 
-    <div class="related-calculator-grid">
 
+    <div class="related-grid">
 
-      <!-- PERCENTAGE -->
 
       <a
         href="../percentage/"
-        class="related-calculator-card"
+        class="related-card"
       >
 
         <strong>
@@ -950,11 +798,9 @@
 
 
 
-      <!-- DISCOUNT -->
-
       <a
         href="../discount/"
-        class="related-calculator-card"
+        class="related-card"
       >
 
         <strong>
@@ -962,18 +808,16 @@
         </strong>
 
         <span>
-          Calculate discounts, sale prices, and savings.
+          Calculate discounts and final selling prices.
         </span>
 
       </a>
 
 
 
-      <!-- PROFIT -->
-
       <a
         href="../profit/"
-        class="related-calculator-card"
+        class="related-card"
       >
 
         <strong>
@@ -987,18 +831,105 @@
       </a>
 
 
+    </div>
 
-      <!-- ALL CALCULATORS -->
 
-      <a
-        href="../"
-        class="related-calculator-card"
-      >
+    <a
+      href="../"
+      class="all-calculators-link"
+    >
+      View All Calculators →
+    </a>
 
-        <strong>
-          All Calculators
-        </strong>
 
-        <span>
-          Browse all free calculators available on Calvora.
-        </span>
+  </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer id="site-footer">
+
+
+  <div class="footer-brand">
+
+    <a
+      href="../../"
+      class="footer-logo"
+    >
+      Calvora
+    </a>
+
+
+    <p>
+      Simple, fast, and free online calculators.
+    </p>
+
+  </div>
+
+
+
+  <div class="footer-links">
+
+
+    <div>
+
+      <h4>
+        Explore
+      </h4>
+
+
+      <a href="../">
+        Calculators
+      </a>
+
+
+      <a href="../../categories/">
+        Categories
+      </a>
+
+    </div>
+
+
+
+    <div>
+
+      <h4>
+        Company
+      </h4>
+
+
+      <a href="../../pages/about.html">
+        About
+      </a>
+
+
+      <a href="../../pages/contact.html">
+        Contact
+      </a>
+
+    </div>
+
+
+  </div>
+
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="./margin.js"></script>
+
+
+</body>
+
+</html>
