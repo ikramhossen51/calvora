@@ -1231,3 +1231,156 @@
   }
 
 }
+/* =====================================================
+   CALVORA MARGIN CALCULATOR
+   BUTTON FINAL FIX
+===================================================== */
+
+.margin-calculator .margin-actions {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 14px !important;
+  margin: 24px 0 0 !important;
+  padding: 0 !important;
+}
+
+.margin-calculator .margin-actions .margin-button {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+
+  box-sizing: border-box !important;
+
+  width: 100% !important;
+  flex: 1 1 0 !important;
+
+  min-height: 54px !important;
+  height: 54px !important;
+
+  margin: 0 !important;
+  padding: 0 20px !important;
+
+  border-radius: 12px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 9px !important;
+
+  font-family: inherit !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+
+  cursor: pointer !important;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease !important;
+}
+
+
+/* =====================================================
+   CALCULATE
+===================================================== */
+
+.margin-calculator .margin-calculate-btn {
+  background: #0f172a !important;
+  color: #ffffff !important;
+
+  border: 1px solid #0f172a !important;
+
+  box-shadow:
+    0 6px 16px rgba(15, 23, 42, 0.18) !important;
+}
+
+.margin-calculator .margin-calculate-btn:hover {
+  background: #1e293b !important;
+
+  transform: translateY(-1px) !important;
+
+  box-shadow:
+    0 8px 20px rgba(15, 23, 42, 0.24) !important;
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+.margin-calculator .margin-reset-btn {
+  background: #f8fafc !important;
+  color: #334155 !important;
+
+  border: 1px solid #cbd5e1 !important;
+
+  box-shadow: none !important;
+}
+
+.margin-calculator .margin-reset-btn:hover {
+  background: #e2e8f0 !important;
+
+  transform: translateY(-1px) !important;
+}
+
+
+/* =====================================================
+   ICON
+===================================================== */
+
+.margin-calculator .margin-button-icon {
+  width: 22px !important;
+  height: 22px !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  flex: 0 0 22px !important;
+
+  font-size: 18px !important;
+  font-weight: 800 !important;
+
+  line-height: 1 !important;
+}
+
+
+/* =====================================================
+   ACTIVE
+===================================================== */
+
+.margin-calculator .margin-button:active {
+  transform: translateY(0) !important;
+}
+
+
+/* =====================================================
+   FOCUS
+===================================================== */
+
+.margin-calculator .margin-button:focus-visible {
+  outline: 3px solid rgba(59, 130, 246, 0.35) !important;
+  outline-offset: 3px !important;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .margin-calculator .margin-actions {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .margin-calculator .margin-actions .margin-button {
+    width: 100% !important;
+    flex: none !important;
+    min-height: 54px !important;
+    height: 54px !important;
+  }
+
+}‌
