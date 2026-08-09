@@ -1,218 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Percentage Calculator – Calvora</title>
 
   <meta
     name="description"
-    content="Calculate percentages quickly and accurately with Calvora's free Percentage Calculator."
+    content="Free percentage calculator. Calculate percentage of a number, what percentage one number is of another, and percentage change."
   >
 
-  <!-- Global CSS -->
-  <link
-    rel="stylesheet"
-    href="../../assets/css/style.css"
-  >
-
-  <!-- Percentage Calculator CSS -->
-  <link
-    rel="stylesheet"
-    href="./percentage.css"
-  >
-
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="./percentage.css">
 </head>
 
-
 <body>
-
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
 
 <header id="site-header">
 
   <div class="logo">
-
-    <a href="../../">
-      Calvora
-    </a>
-
+    <a href="../../">Calvora</a>
   </div>
 
-
   <nav class="main-nav">
-
-    <a href="../../">
-      Home
-    </a>
-
-    <a href="../">
-      Calculators
-    </a>
-
-    <a href="../../categories/">
-      Categories
-    </a>
-
-    <a href="../../pages/about.html">
-      About
-    </a>
-
-    <a href="../../pages/contact.html">
-      Contact
-    </a>
-
+    <a href="../../">Home</a>
+    <a href="../">Calculators</a>
+    <a href="../../categories/">Categories</a>
+    <a href="../../pages/about.html">About</a>
+    <a href="../../pages/contact.html">Contact</a>
   </nav>
 
 </header>
 
 
-
-<!-- =====================================================
-     PERCENTAGE CALCULATOR
-===================================================== -->
-
 <main class="percentage-page">
 
   <section class="percentage-calculator">
 
-
-    <!-- =================================================
-         CALCULATOR HEADER
-    ================================================== -->
-
     <div class="percentage-header">
 
       <div class="percentage-icon-box">
-
-        <svg
-          viewBox="0 0 48 48"
-          fill="none"
-          aria-hidden="true"
-        >
-
-          <circle
-            cx="15"
-            cy="15"
-            r="5"
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <circle cx="15" cy="15" r="5"
+            stroke="currentColor" stroke-width="3"/>
+          <circle cx="33" cy="33" r="5"
+            stroke="currentColor" stroke-width="3"/>
+          <path d="M35 13L13 35"
             stroke="currentColor"
             stroke-width="3"
-          />
-
-          <circle
-            cx="33"
-            cy="33"
-            r="5"
-            stroke="currentColor"
-            stroke-width="3"
-          />
-
-          <path
-            d="M35 13L13 35"
-            stroke="currentColor"
-            stroke-width="3"
-            stroke-linecap="round"
-          />
-
+            stroke-linecap="round"/>
         </svg>
-
       </div>
 
-
       <div>
+        <span class="calculator-label">MATH CALCULATOR</span>
 
-        <span class="calculator-label">
-          MATH CALCULATOR
-        </span>
+        <h1>Percentage Calculator</h1>
 
-        <h1>
-          Percentage Calculator
-        </h1>
-
-        <p>
-          Calculate percentages quickly and accurately.
-        </p>
-
+        <p>Calculate percentages quickly and accurately.</p>
       </div>
 
     </div>
 
 
-
-    <!-- =================================================
-         CALCULATION TYPE
-    ================================================== -->
+    <!-- CALCULATION TYPES -->
 
     <div class="percentage-type">
 
       <button
         type="button"
         class="percentage-type-button active"
-        data-type="percent-of"
-      >
+        data-type="percent-of">
         What is X% of Y?
       </button>
 
-
       <button
         type="button"
         class="percentage-type-button"
-        data-type="what-percent"
-      >
+        data-type="what-percent">
         X is what % of Y?
       </button>
 
-
       <button
         type="button"
         class="percentage-type-button"
-        data-type="percent-change"
-      >
+        data-type="percent-change">
         Percentage Change
       </button>
 
     </div>
 
 
-
-    <!-- =================================================
-         INPUT FORM
-    ================================================== -->
+    <!-- INPUTS -->
 
     <div class="percentage-form">
 
+      <div class="input-group" id="percentageGroup">
 
-      <!-- FIRST INPUT -->
-
-      <div class="input-group">
-
-        <label for="percentageValue">
+        <label id="firstLabel" for="percentageValue">
           Percentage
         </label>
 
         <div class="input-wrapper">
 
-          <span class="input-prefix">
-            %
-          </span>
+          <span class="input-prefix" id="firstPrefix">%</span>
 
           <input
             type="number"
             id="percentageValue"
-            name="percentageValue"
             placeholder="Enter percentage"
-            step="0.01"
+            step="any"
             inputmode="decimal"
+            autocomplete="off"
           >
 
         </div>
@@ -220,28 +120,23 @@
       </div>
 
 
-
-      <!-- SECOND INPUT -->
-
       <div class="input-group">
 
-        <label for="baseValue">
+        <label id="secondLabel" for="baseValue">
           Number
         </label>
 
         <div class="input-wrapper">
 
-          <span class="input-prefix">
-            #
-          </span>
+          <span class="input-prefix">#</span>
 
           <input
             type="number"
             id="baseValue"
-            name="baseValue"
             placeholder="Enter number"
-            step="0.01"
+            step="any"
             inputmode="decimal"
+            autocomplete="off"
           >
 
         </div>
@@ -249,31 +144,27 @@
       </div>
 
 
-
-      <!-- THIRD INPUT -->
-
       <div
-        class="input-group percentage-second-value"
+        class="input-group percentage-third-input"
         id="secondValueGroup"
+        hidden
       >
 
         <label for="secondValue">
-          Second Number
+          New Number
         </label>
 
         <div class="input-wrapper">
 
-          <span class="input-prefix">
-            #
-          </span>
+          <span class="input-prefix">#</span>
 
           <input
             type="number"
             id="secondValue"
-            name="secondValue"
-            placeholder="Enter second number"
-            step="0.01"
+            placeholder="Enter new number"
+            step="any"
             inputmode="decimal"
+            autocomplete="off"
           >
 
         </div>
@@ -283,211 +174,68 @@
     </div>
 
 
-
-    <!-- =================================================
-         ERROR MESSAGE
-    ================================================== -->
+    <!-- ERROR -->
 
     <div
       id="percentageError"
       class="percentage-error"
       hidden
-    >
-      Please enter valid numbers.
+      role="alert">
     </div>
 
 
-
-    <!-- =================================================
-         ACTION BUTTONS
-    ================================================== -->
+    <!-- BUTTONS -->
 
     <div class="percentage-actions">
-
-
-      <!-- CALCULATE -->
 
       <button
         type="button"
         id="calculatePercentage"
-        class="percentage-button calculate-percentage-button"
-      >
+        class="percentage-button calculate-percentage-button">
 
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          aria-hidden="true"
-        >
-
-          <rect
-            x="4"
-            y="3"
-            width="16"
-            height="18"
-            rx="2"
-            stroke="currentColor"
-            stroke-width="2"
-          />
-
-          <path
-            d="M8 7H16"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-          />
-
-          <path
-            d="M8 11H8.01"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-          />
-
-          <path
-            d="M12 11H12.01"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-          />
-
-          <path
-            d="M16 11H16.01"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-          />
-
-          <path
-            d="M8 15H8.01"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-          />
-
-          <path
-            d="M12 15H12.01"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-          />
-
-          <path
-            d="M16 15H16.01"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-          />
-
-        </svg>
-
-        <span>
-          Calculate Percentage
-        </span>
+        <span>Calculate</span>
 
       </button>
-
-
-
-      <!-- RESET -->
 
       <button
         type="button"
         id="resetPercentage"
-        class="percentage-button reset-percentage-button"
-      >
+        class="percentage-button reset-percentage-button">
 
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          aria-hidden="true"
-        >
-
-          <path
-            d="M20 11A8 8 0 0 0 6.2 5.4L4 8"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-
-          <path
-            d="M4 4V8H8"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-
-          <path
-            d="M4 13A8 8 0 0 0 17.8 18.6L20 16"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-
-          <path
-            d="M20 20V16H16"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-
-        </svg>
-
-        <span>
-          Reset
-        </span>
+        <span>Reset</span>
 
       </button>
 
     </div>
 
 
-
-    <!-- =================================================
-         RESULTS
-    ================================================== -->
+    <!-- RESULTS -->
 
     <section
       id="percentageResults"
       class="percentage-results"
-      hidden
-    >
-
-
-      <!-- RESULT -->
+      hidden>
 
       <div class="percentage-result-card">
 
-        <span class="result-label">
-          Result
-        </span>
+        <span class="result-label">Result</span>
 
         <strong
           id="percentageResult"
-          class="result-value"
-        >
+          class="result-value">
           —
         </strong>
 
       </div>
 
 
-
-      <!-- CALCULATION -->
-
       <div class="percentage-result-card">
 
-        <span class="result-label">
-          Calculation
-        </span>
+        <span class="result-label">Calculation</span>
 
         <strong
           id="percentageCalculation"
-          class="result-value calculation-result"
-        >
+          class="result-value calculation-result">
           —
         </strong>
 
@@ -496,29 +244,21 @@
     </section>
 
 
-
-    <!-- =================================================
-         INFORMATION
-    ================================================== -->
+    <!-- INFORMATION -->
 
     <div class="percentage-info">
 
-      <h2>
-        How Percentage Is Calculated
-      </h2>
+      <h2>How Percentage Is Calculated</h2>
 
       <p>
         Percentages express a number as a fraction of 100.
-        Use this calculator to quickly find percentages,
-        compare values, and calculate percentage changes.
+        Use Calvora to calculate percentages, compare values,
+        and find percentage changes.
       </p>
-
 
       <div class="percentage-formula">
 
-        <span>
-          Basic Percentage
-        </span>
+        <span>Basic Percentage</span>
 
         <strong>
           (Part ÷ Whole) × 100
@@ -526,12 +266,9 @@
 
       </div>
 
-
       <div class="percentage-formula">
 
-        <span>
-          Percentage of a Number
-        </span>
+        <span>Percentage of a Number</span>
 
         <strong>
           (Percentage ÷ 100) × Number
@@ -541,25 +278,16 @@
 
     </div>
 
-
   </section>
 
 </main>
 
 
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
 <footer id="site-footer">
 
   <div class="footer-brand">
 
-    <a
-      href="../../"
-      class="footer-logo"
-    >
+    <a href="../../" class="footer-logo">
       Calvora
     </a>
 
@@ -569,56 +297,26 @@
 
   </div>
 
-
   <div class="footer-links">
 
-
     <div>
-
-      <h4>
-        Explore
-      </h4>
-
-      <a href="../">
-        Calculators
-      </a>
-
-      <a href="../../categories/">
-        Categories
-      </a>
-
+      <h4>Explore</h4>
+      <a href="../">Calculators</a>
+      <a href="../../categories/">Categories</a>
     </div>
 
-
     <div>
-
-      <h4>
-        Company
-      </h4>
-
-      <a href="../../pages/about.html">
-        About
-      </a>
-
-      <a href="../../pages/contact.html">
-        Contact
-      </a>
-
+      <h4>Company</h4>
+      <a href="../../pages/about.html">About</a>
+      <a href="../../pages/contact.html">Contact</a>
     </div>
-
 
   </div>
 
 </footer>
 
 
-
-<!-- =====================================================
-     PERCENTAGE JAVASCRIPT
-===================================================== -->
-
 <script src="./percentage.js"></script>
-
 
 </body>
 </html>
