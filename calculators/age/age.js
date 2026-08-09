@@ -4,11 +4,16 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  const birthDateInput =
+
+  // =======================================================
+  // ELEMENTS
+  // =======================================================
+
+  const birthDate =
     document.getElementById("birthDate");
 
-  const todayDateInput =
-    document.getElementById("todayDate");
+  const ageAtDate =
+    document.getElementById("ageAtDate");
 
   const calculateButton =
     document.getElementById("calculateAge");
@@ -22,143 +27,394 @@ document.addEventListener("DOMContentLoaded", function () {
   const results =
     document.getElementById("ageResults");
 
-  const ageYears =
-    document.getElementById("ageYears");
-
-  const ageMonths =
-    document.getElementById("ageMonths");
-
-  const ageDays =
-    document.getElementById("ageDays");
+  const exactAge =
+    document.getElementById("exactAge");
 
   const totalMonths =
     document.getElementById("totalMonths");
 
+  const remainingMonthDays =
+    document.getElementById("remainingMonthDays");
+
   const totalWeeks =
     document.getElementById("totalWeeks");
+
+  const remainingWeekDays =
+    document.getElementById("remainingWeekDays");
 
   const totalDays =
     document.getElementById("totalDays");
 
+  const totalHours =
+    document.getElementById("totalHours");
+
+  const totalMinutes =
+    document.getElementById("totalMinutes");
+
+  const totalSeconds =
+    document.getElementById("totalSeconds");
+
   const nextBirthday =
     document.getElementById("nextBirthday");
 
+  const birthWeekday =
+    document.getElementById("birthWeekday");
 
-  // ========================================================
+  const daysUntilBirthday =
+    document.getElementById("daysUntilBirthday");
+
+
+  // =======================================================
   // SAFETY CHECK
-  // ========================================================
+  // =======================================================
 
   if (
-    !birthDateInput ||
-    !todayDateInput ||
+    !birthDate ||
+    !ageAtDate ||
     !calculateButton ||
     !resetButton ||
     !error ||
-    !results ||
-    !ageYears ||
-    !ageMonths ||
-    !ageDays ||
-    !totalMonths ||
-    !totalWeeks ||
-    !totalDays ||
-    !nextBirthday
+    !results
   ) {
 
     console.error(
-      "Calvora Age Calculator: Required HTML element missing."
+      "Calvora Age Calculator: HTML element missing."
     );
 
     return;
+
   }
 
 
-  // ========================================================
-  // DATE HELPERS
-  // ========================================================
+  // =======================================================
+  // HELPERS
+  // =======================================================
 
-  function parseDate(dateString) {
+  function pad(number) {
 
-    if (!dateString) {
+    return String(number).padStart(2, "0");
+
+  }
+
+
+  function formatNumber(number) {
+
+    return Number(number)
+      .toLocaleString("en-US");
+
+  }
+
+
+  function parseDate(value) {
+
+    if (
+      !/^\d{4}-\d{2}-\d{2}$/.test(value)
+    ) {
+
       return null;
+
     }
+
 
     const parts =
-      dateString.split("-").map(Number);
-
-    if (parts.length !== 3) {
-      return null;
-    }
+      value.split("-").map(Number);
 
     const year = parts[0];
     const month = parts[1];
     const day = parts[2];
 
+
     const date =
-      new Date(year, month - 1, day);
+      new Date(
+        year,
+        month - 1,
+        day
+      );
+
 
     if (
       date.getFullYear() !== year ||
       date.getMonth() !== month - 1 ||
       date.getDate() !== day
     ) {
+
       return null;
+
     }
 
+
+    date.setHours(0, 0, 0, 0);
+
     return date;
+
   }
 
 
-  function formatNumber(number) {
+  function differenceInDays(start, end) {
 
-    return Number(number).toLocaleString("en-US");
+    return Math.round(
+      (end - start) /
+      86400000
+    );
+
   }
 
 
-  function daysInMonth(year, month) {
+  // =======================================================
+  // ADD YEARS
+  // =======================================================
 
-    return new Date(
-      year,
-      month + 1,
+  function addYears(date, years) {
+
+    const result =
+      new Date(date);
+
+    const originalMonth =
+      date.getMonth();
+
+    const originalDay =
+      date.getDate();
+
+
+    result.setFullYear(
+      date.getFullYear() + years
+    );
+
+
+    /*
+      Handle February 29
+    */
+
+    if (
+      originalMonth === 1 &&
+      originalDay === 29 &&
+      result.getMonth() !== 1
+    ) {
+
+      result.setMonth(1);
+      result.setDate(28);
+
+    }
+
+
+    return result;
+
+  }
+
+
+  // =======================================================
+  // ADD MONTHS
+  // =======================================================
+
+  function addMonths(date, months) {
+
+    const result =
+      new Date(date);
+
+    const originalDay =
+      date.getDate();
+
+
+    result.setDate(1);
+
+    result.setMonth(
+      result.getMonth() + months
+    );
+
+
+    const lastDay =
+      new Date(
+        result.getFullYear(),
+        result.getMonth() + 1,
+        0
+      ).getDate();
+
+
+    result.setDate(
+      Math.min(
+        originalDay,
+        lastDay
+      )
+    );
+
+
+    return result;
+
+  }
+
+
+  // =======================================================
+  // CALCULATE YEARS / MONTHS / DAYS
+  // =======================================================
+
+  function calculateAgeParts(
+    birth,
+    end
+  ) {
+
+    let years =
+      end.getFullYear() -
+      birth.getFullYear();
+
+
+    let current =
+      addYears(
+        birth,
+        years
+      );
+
+
+    if (current > end) {
+
+      years--;
+
+      current =
+        addYears(
+          birth,
+          years
+        );
+
+    }
+
+
+    let months = 0;
+
+
+    while (true) {
+
+      const next =
+        addMonths(
+          current,
+          1
+        );
+
+
+      if (next <= end) {
+
+        current = next;
+
+        months++;
+
+      }
+
+      else {
+
+        break;
+
+      }
+
+    }
+
+
+    const days =
+      differenceInDays(
+        current,
+        end
+      );
+
+
+    return {
+
+      years,
+      months,
+      days
+
+    };
+
+  }
+
+
+  // =======================================================
+  // NEXT BIRTHDAY
+  // =======================================================
+
+  function calculateNextBirthday(
+    birth,
+    currentDate
+  ) {
+
+    let birthday =
+      new Date(
+        currentDate.getFullYear(),
+        birth.getMonth(),
+        birth.getDate()
+      );
+
+
+    /*
+      Handle February 29
+    */
+
+    if (
+      birth.getMonth() === 1 &&
+      birth.getDate() === 29 &&
+      birthday.getMonth() !== 1
+    ) {
+
+      birthday =
+        new Date(
+          currentDate.getFullYear(),
+          1,
+          28
+        );
+
+    }
+
+
+    birthday.setHours(
+      0,
+      0,
+      0,
       0
-    ).getDate();
+    );
+
+
+    if (birthday < currentDate) {
+
+      birthday =
+        new Date(
+          currentDate.getFullYear() + 1,
+          birth.getMonth(),
+          birth.getDate()
+        );
+
+
+      if (
+        birth.getMonth() === 1 &&
+        birth.getDate() === 29 &&
+        birthday.getMonth() !== 1
+      ) {
+
+        birthday =
+          new Date(
+            currentDate.getFullYear() + 1,
+            1,
+            28
+          );
+
+      }
+
+
+      birthday.setHours(
+        0,
+        0,
+        0,
+        0
+      );
+
+    }
+
+
+    return birthday;
+
   }
 
 
-  function getTodayString() {
+  // =======================================================
+  // CLEAR RESULT
+  // =======================================================
 
-    const today = new Date();
-
-    const year =
-      today.getFullYear();
-
-    const month =
-      String(today.getMonth() + 1)
-        .padStart(2, "0");
-
-    const day =
-      String(today.getDate())
-        .padStart(2, "0");
-
-    return `${year}-${month}-${day}`;
-  }
-
-
-  // ========================================================
-  // SET TODAY
-  // ========================================================
-
-  todayDateInput.value =
-    getTodayString();
-
-  todayDateInput.max =
-    getTodayString();
-
-
-  // ========================================================
-  // CLEAR OUTPUT
-  // ========================================================
-
-  function clearOutput() {
+  function clearResults() {
 
     error.hidden = true;
 
@@ -166,318 +422,371 @@ document.addEventListener("DOMContentLoaded", function () {
 
     results.hidden = true;
 
-    ageYears.textContent = "0";
-    ageMonths.textContent = "0";
-    ageDays.textContent = "0";
+
+    exactAge.textContent = "—";
 
     totalMonths.textContent = "—";
+
+    remainingMonthDays.textContent = "—";
+
     totalWeeks.textContent = "—";
+
+    remainingWeekDays.textContent = "—";
+
     totalDays.textContent = "—";
+
+    totalHours.textContent = "—";
+
+    totalMinutes.textContent = "—";
+
+    totalSeconds.textContent = "—";
+
     nextBirthday.textContent = "—";
+
+    birthWeekday.textContent = "—";
+
+    daysUntilBirthday.textContent = "—";
+
   }
 
 
-  // ========================================================
-  // CALCULATE EXACT AGE
-  // ========================================================
+  // =======================================================
+  // ERROR
+  // =======================================================
+
+  function showError(message) {
+
+    error.textContent =
+      message;
+
+    error.hidden =
+      false;
+
+    results.hidden =
+      true;
+
+  }
+
+
+  // =======================================================
+  // CALCULATE
+  // =======================================================
+
+  function calculate() {
+
+    clearResults();
+
+
+    const birth =
+      parseDate(
+        birthDate.value
+      );
+
+
+    const end =
+      parseDate(
+        ageAtDate.value
+      );
+
+
+    // Missing date
+
+    if (
+      !birth ||
+      !end
+    ) {
+
+      showError(
+        "Please select both dates."
+      );
+
+      return;
+
+    }
+
+
+    // Invalid order
+
+    if (birth > end) {
+
+      showError(
+        "The date of birth cannot be after the calculation date."
+      );
+
+      return;
+
+    }
+
+
+    // =====================================================
+    // AGE
+    // =====================================================
+
+    const age =
+      calculateAgeParts(
+        birth,
+        end
+      );
+
+
+    const days =
+      differenceInDays(
+        birth,
+        end
+      );
+
+
+    // =====================================================
+    // EXACT AGE
+    // =====================================================
+
+    exactAge.textContent =
+      `${age.years} ${
+        age.years === 1
+          ? "year"
+          : "years"
+      } ${
+        age.months
+      } ${
+        age.months === 1
+          ? "month"
+          : "months"
+      } ${
+        age.days
+      } ${
+        age.days === 1
+          ? "day"
+          : "days"
+      }`;
+
+
+    // =====================================================
+    // TOTAL MONTHS
+    // =====================================================
+
+    totalMonths.textContent =
+      formatNumber(
+        age.years * 12 +
+        age.months
+      );
+
+
+    remainingMonthDays.textContent =
+      formatNumber(
+        age.days
+      );
+
+
+    // =====================================================
+    // TOTAL WEEKS
+    // =====================================================
+
+    totalWeeks.textContent =
+      formatNumber(
+        Math.floor(days / 7)
+      );
+
+
+    remainingWeekDays.textContent =
+      formatNumber(
+        days % 7
+      );
+
+
+    // =====================================================
+    // TOTAL DAYS
+    // =====================================================
+
+    totalDays.textContent =
+      formatNumber(
+        days
+      );
+
+
+    // =====================================================
+    // HOURS
+    // =====================================================
+
+    totalHours.textContent =
+      formatNumber(
+        days * 24
+      );
+
+
+    // =====================================================
+    // MINUTES
+    // =====================================================
+
+    totalMinutes.textContent =
+      formatNumber(
+        days * 1440
+      );
+
+
+    // =====================================================
+    // SECONDS
+    // =====================================================
+
+    totalSeconds.textContent =
+      formatNumber(
+        days * 86400
+      );
+
+
+    // =====================================================
+    // NEXT BIRTHDAY
+    // =====================================================
+
+    const birthday =
+      calculateNextBirthday(
+        birth,
+        end
+      );
+
+
+    nextBirthday.textContent =
+      birthday.toLocaleDateString(
+        "en-US",
+        {
+          year: "numeric",
+          month: "long",
+          day: "numeric"
+        }
+      );
+
+
+    // =====================================================
+    // BIRTHDAY WEEKDAY
+    // =====================================================
+
+    birthWeekday.textContent =
+      birth.toLocaleDateString(
+        "en-US",
+        {
+          weekday: "long"
+        }
+      );
+
+
+    // =====================================================
+    // DAYS UNTIL BIRTHDAY
+    // =====================================================
+
+    daysUntilBirthday.textContent =
+      formatNumber(
+        differenceInDays(
+          end,
+          birthday
+        )
+      );
+
+
+    // =====================================================
+    // SHOW
+    // =====================================================
+
+    results.hidden =
+      false;
+
+  }
+
+
+  // =======================================================
+  // TODAY
+  // =======================================================
+
+  function setToday() {
+
+    const today =
+      new Date();
+
+
+    ageAtDate.value =
+      `${today.getFullYear()}-${
+        pad(today.getMonth() + 1)
+      }-${
+        pad(today.getDate())
+      }`;
+
+  }
+
+
+  // =======================================================
+  // CALCULATE BUTTON
+  // =======================================================
 
   calculateButton.addEventListener(
     "click",
-    function () {
-
-      clearOutput();
-
-
-      const birthDate =
-        parseDate(birthDateInput.value);
-
-      const endDate =
-        parseDate(todayDateInput.value);
-
-
-      // ----------------------------------------------------
-      // VALIDATION
-      // ----------------------------------------------------
-
-      if (!birthDate || !endDate) {
-
-        error.textContent =
-          "Please select both dates.";
-
-        error.hidden = false;
-
-        return;
-      }
-
-
-      if (birthDate > endDate) {
-
-        error.textContent =
-          "Date of birth cannot be after the calculation date.";
-
-        error.hidden = false;
-
-        return;
-      }
-
-
-      // ----------------------------------------------------
-      // EXACT YEARS
-      // ----------------------------------------------------
-
-      let years =
-        endDate.getFullYear() -
-        birthDate.getFullYear();
-
-
-      let months =
-        endDate.getMonth() -
-        birthDate.getMonth();
-
-
-      let days =
-        endDate.getDate() -
-        birthDate.getDate();
-
-
-      // ----------------------------------------------------
-      // BORROW DAYS
-      // ----------------------------------------------------
-
-      if (days < 0) {
-
-        months--;
-
-        const previousMonthDays =
-          daysInMonth(
-            endDate.getFullYear(),
-            endDate.getMonth() - 1
-          );
-
-        days += previousMonthDays;
-      }
-
-
-      // ----------------------------------------------------
-      // BORROW MONTHS
-      // ----------------------------------------------------
-
-      if (months < 0) {
-
-        years--;
-
-        months += 12;
-      }
-
-
-      // ----------------------------------------------------
-      // SAFETY
-      // ----------------------------------------------------
-
-      if (years < 0) {
-        years = 0;
-      }
-
-
-      // ----------------------------------------------------
-      // TOTAL DAYS
-      // ----------------------------------------------------
-
-      const millisecondsPerDay =
-        1000 * 60 * 60 * 24;
-
-
-      const differenceMilliseconds =
-        endDate.getTime() -
-        birthDate.getTime();
-
-
-      const totalDaysValue =
-        Math.floor(
-          differenceMilliseconds /
-          millisecondsPerDay
-        );
-
-
-      // ----------------------------------------------------
-      // TOTAL WEEKS
-      // ----------------------------------------------------
-
-      const totalWeeksValue =
-        Math.floor(
-          totalDaysValue / 7
-        );
-
-
-      // ----------------------------------------------------
-      // TOTAL MONTHS
-      // ----------------------------------------------------
-
-      const totalMonthsValue =
-        years * 12 + months;
-
-
-      // ----------------------------------------------------
-      // DISPLAY AGE
-      // ----------------------------------------------------
-
-      ageYears.textContent =
-        formatNumber(years);
-
-      ageMonths.textContent =
-        formatNumber(months);
-
-      ageDays.textContent =
-        formatNumber(days);
-
-
-      totalMonths.textContent =
-        formatNumber(totalMonthsValue);
-
-
-      totalWeeks.textContent =
-        formatNumber(totalWeeksValue);
-
-
-      totalDays.textContent =
-        formatNumber(totalDaysValue);
-
-
-      // ----------------------------------------------------
-      // NEXT BIRTHDAY
-      // ----------------------------------------------------
-
-      const birthMonth =
-        birthDate.getMonth();
-
-      const birthDay =
-        birthDate.getDate();
-
-      let nextBirthdayDate =
-        new Date(
-          endDate.getFullYear(),
-          birthMonth,
-          birthDay
-        );
-
-
-      /*
-        Special handling for February 29.
-        If the current year is not a leap year,
-        birthday is treated as February 28.
-      */
-
-      if (
-        birthMonth === 1 &&
-        birthDay === 29 &&
-        nextBirthdayDate.getDate() !== 29
-      ) {
-
-        nextBirthdayDate =
-          new Date(
-            endDate.getFullYear(),
-            1,
-            28
-          );
-      }
-
-
-      if (nextBirthdayDate < endDate) {
-
-        nextBirthdayDate =
-          new Date(
-            endDate.getFullYear() + 1,
-            birthMonth,
-            birthDay
-          );
-
-
-        if (
-          birthMonth === 1 &&
-          birthDay === 29 &&
-          nextBirthdayDate.getDate() !== 29
-        ) {
-
-          nextBirthdayDate =
-            new Date(
-              endDate.getFullYear() + 1,
-              1,
-              28
-            );
-        }
-      }
-
-
-      const birthdayDifference =
-        Math.ceil(
-          (
-            nextBirthdayDate.getTime() -
-            endDate.getTime()
-          ) /
-          millisecondsPerDay
-        );
-
-
-      if (birthdayDifference === 0) {
-
-        nextBirthday.textContent =
-          "Today! 🎉";
-
-      } else {
-
-        nextBirthday.textContent =
-          `${formatNumber(birthdayDifference)} days`;
-      }
-
-
-      // ----------------------------------------------------
-      // SHOW RESULTS
-      // ----------------------------------------------------
-
-      results.hidden = false;
-
-    }
+    calculate
   );
 
 
-  // ========================================================
+  // =======================================================
   // RESET
-  // ========================================================
+  // =======================================================
 
   resetButton.addEventListener(
     "click",
     function () {
 
-      birthDateInput.value = "";
+      birthDate.value = "";
 
-      todayDateInput.value =
-        getTodayString();
+      setToday();
 
-      clearOutput();
+      clearResults();
+
+      birthDate.focus();
 
     }
   );
 
 
-  // ========================================================
-  // AUTO CLEAR ERROR WHEN USER CHANGES DATE
-  // ========================================================
+  // =======================================================
+  // ENTER KEY
+  // =======================================================
 
-  birthDateInput.addEventListener(
-    "change",
-    function () {
+  birthDate.addEventListener(
+    "keydown",
+    function (event) {
 
-      error.hidden = true;
+      if (
+        event.key === "Enter"
+      ) {
+
+        event.preventDefault();
+
+        calculate();
+
+      }
+
     }
   );
 
 
-  todayDateInput.addEventListener(
-    "change",
-    function () {
+  ageAtDate.addEventListener(
+    "keydown",
+    function (event) {
 
-      error.hidden = true;
+      if (
+        event.key === "Enter"
+      ) {
+
+        event.preventDefault();
+
+        calculate();
+
+      }
+
     }
   );
+
+
+  // =======================================================
+  // INITIAL STATE
+  // =======================================================
+
+  setToday();
+
+  clearResults();
 
 });
