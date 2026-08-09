@@ -1,322 +1,426 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Age Calculator – Calvora</title>
 
   <meta
     name="description"
-    content="Free online age calculator. Calculate your exact age in years, months, and days."
+    content="Free online age calculator. Calculate exact age in years, months, days, weeks, hours, minutes and seconds."
   >
 
-  <!-- Global Calvora CSS -->
-  <link rel="stylesheet" href="../../assets/css/style.css">
+  <!-- Calvora Global CSS -->
+  <link
+    rel="stylesheet"
+    href="../../assets/css/style.css"
+  >
 
   <!-- Age Calculator CSS -->
-  <link rel="stylesheet" href="./age.css">
+  <link
+    rel="stylesheet"
+    href="./age.css"
+  >
+
 </head>
 
+
 <body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header id="site-header">
 
   <div class="logo">
-    <a href="../../">Calvora</a>
+    <a href="../../">
+      Calvora
+    </a>
   </div>
 
+
   <nav class="main-nav">
-    <a href="../../">Home</a>
-    <a href="../">Calculators</a>
-    <a href="../../categories/">Categories</a>
-    <a href="../../pages/about.html">About</a>
-    <a href="../../pages/contact.html">Contact</a>
+
+    <a href="../../">
+      Home
+    </a>
+
+    <a href="../">
+      Calculators
+    </a>
+
+    <a href="../../categories/">
+      Categories
+    </a>
+
+    <a href="../../pages/about.html">
+      About
+    </a>
+
+    <a href="../../pages/contact.html">
+      Contact
+    </a>
+
   </nav>
 
 </header>
 
 
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
 <main class="age-page">
 
-  <section class="age-calculator">
 
-    <!-- HEADER -->
+<section class="age-calculator">
 
-    <div class="age-header">
 
-      <div class="age-icon-box">
+  <!-- HEADER -->
 
-        <svg
-          viewBox="0 0 48 48"
-          fill="none"
-          aria-hidden="true"
+  <div class="age-header">
+
+    <div class="age-icon">
+      🎂
+    </div>
+
+
+    <div>
+
+      <span class="calculator-label">
+        DATE & TIME CALCULATOR
+      </span>
+
+      <h1>
+        Age Calculator
+      </h1>
+
+      <p>
+        Calculate your exact age quickly and accurately.
+      </p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- ===================================================
+       INPUTS
+  ==================================================== -->
+
+  <div class="age-form">
+
+
+    <div class="date-field">
+
+      <label for="birthDate">
+        Date of Birth
+      </label>
+
+      <div class="date-input-wrap">
+
+        <span>
+          🎂
+        </span>
+
+        <input
+          type="date"
+          id="birthDate"
+          autocomplete="bday"
         >
-          <circle
-            cx="24"
-            cy="24"
-            r="18"
-            stroke="currentColor"
-            stroke-width="3"
-          />
 
-          <path
-            d="M24 13V24L31 29"
-            stroke="currentColor"
-            stroke-width="3"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
+      </div>
 
-          <path
-            d="M17 5L13 9"
-            stroke="currentColor"
-            stroke-width="3"
-            stroke-linecap="round"
-          />
+    </div>
 
-          <path
-            d="M31 5L35 9"
-            stroke="currentColor"
-            stroke-width="3"
-            stroke-linecap="round"
-          />
-        </svg>
+
+
+    <div class="date-field">
+
+      <label for="ageAtDate">
+        Age at the Date of
+      </label>
+
+      <div class="date-input-wrap">
+
+        <span>
+          📅
+        </span>
+
+        <input
+          type="date"
+          id="ageAtDate"
+        >
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- ERROR -->
+
+  <div
+    id="ageError"
+    class="age-error"
+    hidden
+    role="alert"
+  ></div>
+
+
+
+  <!-- ===================================================
+       BUTTONS
+  ==================================================== -->
+
+  <div class="age-actions">
+
+    <button
+      type="button"
+      id="calculateAge"
+      class="age-btn calculate-btn"
+    >
+      Calculate Age
+    </button>
+
+
+    <button
+      type="button"
+      id="resetAge"
+      class="age-btn reset-btn"
+    >
+      Reset
+    </button>
+
+  </div>
+
+
+
+  <!-- ===================================================
+       RESULTS
+  ==================================================== -->
+
+  <section
+    id="ageResults"
+    class="age-results"
+    hidden
+    aria-live="polite"
+  >
+
+
+    <div class="result-heading">
+      Result
+    </div>
+
+
+
+    <div class="age-main-result">
+
+
+      <div class="result-kicker">
+        Age:
+      </div>
+
+
+      <strong id="exactAge">
+        —
+      </strong>
+
+
+
+      <div class="age-lines">
+
+
+        <div>
+          <span>or</span>
+          <strong id="totalMonths">—</strong>
+          months
+          <strong id="remainingMonthDays">—</strong>
+          days
+        </div>
+
+
+        <div>
+          <span>or</span>
+          <strong id="totalWeeks">—</strong>
+          weeks
+          <strong id="remainingWeekDays">—</strong>
+          days
+        </div>
+
+
+        <div>
+          <span>or</span>
+          <strong id="totalDays">—</strong>
+          days
+        </div>
+
+
+        <div>
+          <span>or</span>
+          <strong id="totalHours">—</strong>
+          hours
+        </div>
+
+
+        <div>
+          <span>or</span>
+          <strong id="totalMinutes">—</strong>
+          minutes
+        </div>
+
+
+        <div>
+          <span>or</span>
+          <strong id="totalSeconds">—</strong>
+          seconds
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+
+    <!-- EXTRA INFORMATION -->
+
+    <div class="birthday-card">
+
+
+      <div>
+
+        <span>
+          Next Birthday
+        </span>
+
+        <strong id="nextBirthday">
+          —
+        </strong>
 
       </div>
 
 
       <div>
 
-        <span class="calculator-label">
-          DATE & TIME CALCULATOR
-        </span>
-
-        <h1>Age Calculator</h1>
-
-        <p>
-          Calculate your exact age in years, months, and days.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <!-- FORM -->
-
-    <div class="age-form">
-
-      <div class="age-input-group">
-
-        <label for="birthDate">
-          Date of Birth
-        </label>
-
-        <input
-          type="date"
-          id="birthDate"
-          autocomplete="off"
-        >
-
-      </div>
-
-
-      <div class="age-input-group">
-
-        <label for="todayDate">
-          Calculate Age On
-        </label>
-
-        <input
-          type="date"
-          id="todayDate"
-          autocomplete="off"
-        >
-
-      </div>
-
-    </div>
-
-
-    <!-- ERROR -->
-
-    <div
-      id="ageError"
-      class="age-error"
-      hidden
-      role="alert">
-    </div>
-
-
-    <!-- BUTTONS -->
-
-    <div class="age-actions">
-
-      <button
-        type="button"
-        id="calculateAge"
-        class="age-button calculate-age-button"
-      >
-        Calculate Age
-      </button>
-
-
-      <button
-        type="button"
-        id="resetAge"
-        class="age-button reset-age-button"
-      >
-        Reset
-      </button>
-
-    </div>
-
-
-    <!-- RESULTS -->
-
-    <section
-      id="ageResults"
-      class="age-results"
-      hidden
-    >
-
-      <div class="age-result-main">
-
-        <span class="result-label">
-          Your Age
-        </span>
-
-        <div class="age-main-value">
-
-          <div>
-            <strong id="ageYears">0</strong>
-            <span>Years</span>
-          </div>
-
-          <div>
-            <strong id="ageMonths">0</strong>
-            <span>Months</span>
-          </div>
-
-          <div>
-            <strong id="ageDays">0</strong>
-            <span>Days</span>
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="age-result-grid">
-
-        <div class="age-result-card">
-
-          <span class="result-label">
-            Total Months
-          </span>
-
-          <strong id="totalMonths">
-            —
-          </strong>
-
-        </div>
-
-
-        <div class="age-result-card">
-
-          <span class="result-label">
-            Total Weeks
-          </span>
-
-          <strong id="totalWeeks">
-            —
-          </strong>
-
-        </div>
-
-
-        <div class="age-result-card">
-
-          <span class="result-label">
-            Total Days
-          </span>
-
-          <strong id="totalDays">
-            —
-          </strong>
-
-        </div>
-
-
-        <div class="age-result-card">
-
-          <span class="result-label">
-            Next Birthday
-          </span>
-
-          <strong id="nextBirthday">
-            —
-          </strong>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- INFORMATION -->
-
-    <div class="age-info">
-
-      <h2>
-        How Age Is Calculated
-      </h2>
-
-      <p>
-        Enter your date of birth and the date you want to
-        calculate your age on. Calvora calculates your age
-        using complete years, months, and days.
-      </p>
-
-      <div class="age-formula">
-
         <span>
-          Age
+          Day of Birth
         </span>
 
-        <strong>
-          Current Date − Date of Birth
+        <strong id="birthWeekday">
+          —
         </strong>
 
       </div>
 
-      <div class="age-formula">
+
+      <div>
 
         <span>
-          Result
+          Days Until Birthday
         </span>
 
-        <strong>
-          Years + Months + Days
+        <strong id="daysUntilBirthday">
+          —
         </strong>
 
       </div>
 
+
     </div>
+
 
   </section>
+
+
+
+  <!-- ===================================================
+       INFORMATION
+  ==================================================== -->
+
+  <section class="age-info">
+
+
+    <h2>
+      How Age Is Calculated
+    </h2>
+
+
+    <p>
+
+      Your age is calculated from your date of birth
+      to the selected "Age at the Date of" date.
+      Calvora shows your exact age in years, months
+      and days, along with total months, weeks,
+      days, hours, minutes and seconds.
+
+    </p>
+
+
+
+    <div class="formula-box">
+
+      <span>
+        Exact Age
+      </span>
+
+      <strong>
+        Years + Months + Days
+      </strong>
+
+    </div>
+
+
+
+    <div class="formula-box">
+
+      <span>
+        Total Days
+      </span>
+
+      <strong>
+        End Date − Birth Date
+      </strong>
+
+    </div>
+
+
+  </section>
+
+
+</section>
 
 </main>
 
 
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer id="site-footer">
+
 
   <div class="footer-brand">
 
-    <a href="../../" class="footer-logo">
+    <a
+      href="../../"
+      class="footer-logo"
+    >
       Calvora
     </a>
 
@@ -327,11 +431,15 @@
   </div>
 
 
+
   <div class="footer-links">
+
 
     <div>
 
-      <h4>Explore</h4>
+      <h4>
+        Explore
+      </h4>
 
       <a href="../">
         Calculators
@@ -344,9 +452,12 @@
     </div>
 
 
+
     <div>
 
-      <h4>Company</h4>
+      <h4>
+        Company
+      </h4>
 
       <a href="../../pages/about.html">
         About
@@ -358,13 +469,20 @@
 
     </div>
 
+
   </div>
+
 
 </footer>
 
 
-<!-- Age Calculator JavaScript -->
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script src="./age.js"></script>
 
 </body>
+
 </html>
