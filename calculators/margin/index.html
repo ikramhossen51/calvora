@@ -3,6 +3,10 @@
 
 <head>
 
+  <!-- =====================================================
+       BASIC SEO
+  ====================================================== -->
+
   <meta charset="UTF-8">
 
   <meta
@@ -10,42 +14,38 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <!-- =====================================================
-       SEO TITLE
-  ====================================================== -->
-
   <title>
     Margin Calculator – Profit Margin & Markup Calculator | Calvora
   </title>
 
-
-  <!-- =====================================================
-       SEO DESCRIPTION
-  ====================================================== -->
-
   <meta
     name="description"
-    content="Use Calvora's free Margin Calculator to calculate profit, profit margin, and markup from your cost price and selling price. Fast, simple, and accurate."
+    content="Calculate profit, profit margin, and markup from cost and selling price with Calvora's free Margin Calculator. Fast, simple, and accurate."
   >
-
-
-  <!-- =====================================================
-       SEO KEYWORDS
-  ====================================================== -->
 
   <meta
     name="keywords"
-    content="margin calculator, profit margin calculator, markup calculator, gross margin calculator, profit calculator, calculate profit margin, selling price calculator"
+    content="margin calculator, profit margin calculator, markup calculator, gross margin calculator, profit calculator, calculate profit margin, selling price calculator, business margin calculator"
   >
-
-
-  <!-- =====================================================
-       ROBOTS
-  ====================================================== -->
 
   <meta
     name="robots"
-    content="index, follow, max-image-preview:large"
+    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+  >
+
+  <meta
+    name="googlebot"
+    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+  >
+
+  <meta
+    name="author"
+    content="Calvora"
+  >
+
+  <meta
+    name="theme-color"
+    content="#0f172a"
   >
 
 
@@ -88,6 +88,11 @@
     content="Calvora"
   >
 
+  <meta
+    property="og:locale"
+    content="en_US"
+  >
+
 
   <!-- =====================================================
        TWITTER CARD
@@ -108,9 +113,14 @@
     content="Calculate profit, profit margin, and markup quickly with Calvora's free Margin Calculator."
   >
 
+  <meta
+    name="twitter:url"
+    content="https://calvora.net/calculators/margin/"
+  >
+
 
   <!-- =====================================================
-       GLOBAL CSS
+       CALVORA GLOBAL CSS
   ====================================================== -->
 
   <link
@@ -130,18 +140,24 @@
 
 
   <!-- =====================================================
-       STRUCTURED DATA — WEBPAGE
+       STRUCTURED DATA
+       WebApplication
   ====================================================== -->
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Margin Calculator – Profit Margin & Markup Calculator",
+    "@type": "WebApplication",
+    "name": "Margin Calculator",
+    "alternateName": "Profit Margin Calculator",
     "url": "https://calvora.net/calculators/margin/",
-    "description": "Free online margin calculator for calculating profit, profit margin, and markup.",
-    "isPartOf": {
-      "@type": "WebSite",
+    "description": "Free online margin calculator for calculating profit, profit margin, and markup from cost and selling price.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "isAccessibleForFree": true,
+    "publisher": {
+      "@type": "Organization",
       "name": "Calvora",
       "url": "https://calvora.net/"
     }
@@ -150,7 +166,39 @@
 
 
   <!-- =====================================================
-       STRUCTURED DATA — FAQ
+       BREADCRUMB STRUCTURED DATA
+  ====================================================== -->
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://calvora.net/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Calculators",
+        "item": "https://calvora.net/calculators/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Margin Calculator",
+        "item": "https://calvora.net/calculators/margin/"
+      }
+    ]
+  }
+  </script>
+
+
+  <!-- =====================================================
+       FAQ STRUCTURED DATA
   ====================================================== -->
 
   <script type="application/ld+json">
@@ -158,7 +206,6 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-
       {
         "@type": "Question",
         "name": "What is a profit margin?",
@@ -167,43 +214,30 @@
           "text": "Profit margin is the percentage of the selling price that remains as profit after the cost is subtracted."
         }
       },
-
       {
         "@type": "Question",
         "name": "How do I calculate profit margin?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Subtract the cost from the selling price to find the profit. Then divide the profit by the selling price and multiply by 100."
+          "text": "Subtract the cost from the selling price to find profit. Then divide the profit by the selling price and multiply by 100."
         }
       },
-
+      {
+        "@type": "Question",
+        "name": "What is markup?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Markup is the percentage of profit compared with the original cost. It is calculated by dividing profit by cost and multiplying by 100."
+        }
+      },
       {
         "@type": "Question",
         "name": "What is the difference between margin and markup?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Margin measures profit as a percentage of selling price, while markup measures profit as a percentage of cost."
-        }
-      },
-
-      {
-        "@type": "Question",
-        "name": "Can a margin be negative?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. A negative margin occurs when the selling price is lower than the cost price, resulting in a loss."
-        }
-      },
-
-      {
-        "@type": "Question",
-        "name": "Who can use a margin calculator?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Businesses, retailers, ecommerce sellers, freelancers, and anyone who wants to understand the profitability of a sale can use a margin calculator."
+          "text": "Profit margin uses the selling price as the base, while markup uses the cost price as the base."
         }
       }
-
     ]
   }
   </script>
@@ -229,7 +263,10 @@
   </div>
 
 
-  <nav class="main-nav">
+  <nav
+    class="main-nav"
+    aria-label="Main navigation"
+  >
 
     <a href="../../">
       Home
@@ -258,17 +295,20 @@
 
 
 <!-- =====================================================
-     MAIN
+     MAIN CONTENT
 ===================================================== -->
 
 <main class="margin-page">
 
 
-  <!-- =====================================================
-       MARGIN CALCULATOR
-  ====================================================== -->
+  <!-- ===================================================
+       CALCULATOR
+  ==================================================== -->
 
-  <section class="margin-calculator">
+  <section
+    class="margin-calculator"
+    aria-labelledby="margin-calculator-title"
+  >
 
 
     <!-- =================================================
@@ -277,61 +317,28 @@
 
     <div class="margin-header">
 
-
-      <div class="margin-icon-box">
-
-        <svg
-          viewBox="0 0 48 48"
-          fill="none"
-          aria-hidden="true"
-        >
-
-          <circle
-            cx="24"
-            cy="24"
-            r="15"
-            stroke="currentColor"
-            stroke-width="3"
-          />
-
-          <path
-            d="M24 24L34 17"
-            stroke="currentColor"
-            stroke-width="3"
-            stroke-linecap="round"
-          />
-
-          <circle
-            cx="24"
-            cy="24"
-            r="3"
-            fill="currentColor"
-          />
-
-          <path
-            d="M13 32C16 37 20 39 24 39"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-          />
-
-        </svg>
-
+      <div
+        class="margin-icon"
+        aria-hidden="true"
+      >
+        💰
       </div>
 
 
-      <div class="margin-header-text">
+      <div>
 
         <span class="calculator-label">
           BUSINESS CALCULATOR
         </span>
 
-        <h1>
+
+        <h1 id="margin-calculator-title">
           Margin Calculator
         </h1>
 
+
         <p>
-          Calculate profit, profit margin, and markup from your cost and selling price.
+          Calculate your profit, profit margin, and markup quickly and accurately.
         </p>
 
       </div>
@@ -355,11 +362,16 @@
           Cost Price
         </label>
 
+
         <div class="input-wrapper">
 
-          <span class="currency-symbol">
+          <span
+            class="currency-symbol"
+            aria-hidden="true"
+          >
             $
           </span>
+
 
           <input
             type="number"
@@ -370,6 +382,7 @@
             step="0.01"
             inputmode="decimal"
             autocomplete="off"
+            aria-label="Cost Price"
           >
 
         </div>
@@ -386,11 +399,16 @@
           Selling Price
         </label>
 
+
         <div class="input-wrapper">
 
-          <span class="currency-symbol">
+          <span
+            class="currency-symbol"
+            aria-hidden="true"
+          >
             $
           </span>
+
 
           <input
             type="number"
@@ -401,12 +419,12 @@
             step="0.01"
             inputmode="decimal"
             autocomplete="off"
+            aria-label="Selling Price"
           >
 
         </div>
 
       </div>
-
 
     </div>
 
@@ -421,156 +439,31 @@
       class="margin-error"
       hidden
       role="alert"
-    >
-
-      Please enter valid positive numbers for both prices.
-
-    </div>
+    ></div>
 
 
 
     <!-- =================================================
-         ACTION BUTTONS
+         BUTTONS
     ================================================== -->
 
     <div class="margin-actions">
 
-
-      <!-- CALCULATE -->
-
       <button
         type="button"
         id="calculateMargin"
-        class="margin-button calculate-button"
+        class="margin-btn calculate-btn"
       >
-
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          aria-hidden="true"
-        >
-
-          <rect
-            x="4"
-            y="3"
-            width="16"
-            height="18"
-            rx="2"
-            stroke="currentColor"
-            stroke-width="2"
-          />
-
-          <path
-            d="M8 7H16"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-          />
-
-          <path
-            d="M8 11H8.01"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-          />
-
-          <path
-            d="M12 11H12.01"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-          />
-
-          <path
-            d="M16 11H16.01"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-          />
-
-          <path
-            d="M8 15H8.01"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-          />
-
-          <path
-            d="M12 15H12.01"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-          />
-
-          <path
-            d="M16 15H16.01"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-          />
-
-        </svg>
-
-        <span>
-          Calculate Margin
-        </span>
-
+        Calculate Margin
       </button>
 
-
-
-      <!-- RESET -->
 
       <button
         type="button"
         id="resetMargin"
-        class="margin-button reset-button"
+        class="margin-btn reset-btn"
       >
-
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          aria-hidden="true"
-        >
-
-          <path
-            d="M20 11A8 8 0 0 0 6.2 5.4L4 8"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-
-          <path
-            d="M4 4V8H8"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-
-          <path
-            d="M4 13A8 8 0 0 0 17.8 18.6L20 16"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-
-          <path
-            d="M20 20V16H16"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-
-        </svg>
-
-        <span>
-          Reset
-        </span>
-
+        Reset
       </button>
 
     </div>
@@ -585,7 +478,14 @@
       id="marginResults"
       class="margin-results"
       hidden
+      aria-live="polite"
+      aria-label="Margin calculation result"
     >
+
+
+      <div class="result-heading">
+        Margin Calculation Result
+      </div>
 
 
       <!-- PROFIT / LOSS -->
@@ -646,42 +546,59 @@
 
     </section>
 
+
   </section>
 
 
 
   <!-- =====================================================
-       SEO / SEARCH INTENT CONTENT
+       SEO CONTENT
   ====================================================== -->
 
-  <section class="margin-info">
+  <section
+    class="margin-info"
+    aria-labelledby="margin-seo-title"
+  >
 
 
-    <h2>
-      Margin Calculator
+    <h2 id="margin-seo-title">
+      Margin Calculator – Calculate Profit Margin and Markup
     </h2>
 
+
     <p>
-      A margin calculator helps you quickly determine your profit,
-      profit margin, and markup based on the cost of a product and
-      its selling price. It is useful for businesses, retailers,
-      ecommerce sellers, freelancers, and anyone who wants to
-      understand the profitability of a sale.
+      Use this free online margin calculator to calculate profit,
+      profit margin, and markup from your cost price and selling price.
+      The tool is useful for business owners, retailers, ecommerce
+      sellers, freelancers, and anyone who wants to understand the
+      profitability of a product or service.
     </p>
 
 
-    <h2>
-      How to Calculate Profit Margin
-    </h2>
-
     <p>
-      To calculate profit margin, first subtract the cost price
-      from the selling price. This gives you the profit. Then divide
-      the profit by the selling price and multiply by 100.
+      Enter your cost and selling price to instantly see how much profit
+      you make, your profit margin percentage, and your markup percentage.
+      This makes it easier to check pricing and understand the difference
+      between margin and markup.
     </p>
 
 
-    <!-- PROFIT FORMULA -->
+
+    <!-- =================================================
+         FORMULA
+    ================================================== -->
+
+    <h2>
+      Margin Calculator Formula
+    </h2>
+
+
+    <p>
+      Profit margin is calculated using the profit divided by the selling
+      price. Markup is calculated using the profit divided by the original
+      cost price.
+    </p>
+
 
     <div class="formula-box">
 
@@ -696,7 +613,6 @@
     </div>
 
 
-    <!-- PROFIT MARGIN FORMULA -->
 
     <div class="formula-box">
 
@@ -711,7 +627,6 @@
     </div>
 
 
-    <!-- MARKUP FORMULA -->
 
     <div class="formula-box">
 
@@ -726,29 +641,60 @@
     </div>
 
 
+
+    <!-- =================================================
+         MARGIN VS MARKUP
+    ================================================== -->
+
     <h2>
       Margin vs. Markup
     </h2>
 
+
     <p>
-      Margin and markup are related, but they are not the same.
-      Profit margin measures profit as a percentage of the selling
-      price, while markup measures profit as a percentage of the
-      original cost. Understanding both numbers can help you make
-      better pricing decisions.
+      Margin and markup both describe profitability, but they use different
+      reference values. Profit margin measures profit as a percentage of
+      the selling price, while markup measures profit as a percentage of
+      the cost price.
     </p>
+
+
+
+    <!-- =================================================
+         SEARCH INTENT CONTENT
+    ================================================== -->
+
+    <h2>
+      How to Use a Margin Calculator
+    </h2>
+
+
+    <p>
+      To calculate your margin, enter the amount you paid for a product or
+      service in the Cost Price field. Then enter the amount you plan to
+      receive from the sale in the Selling Price field. Select Calculate
+      Margin to see your profit, profit margin, and markup.
+    </p>
+
+
+    <p>
+      A margin calculator can help when setting product prices, checking
+      ecommerce profitability, comparing selling prices, planning retail
+      pricing, or reviewing business revenue and costs.
+    </p>
+
 
 
     <h2>
       When Should You Use a Margin Calculator?
     </h2>
 
+
     <p>
-      Use a margin calculator when you want to check the profitability
-      of a product, compare pricing strategies, estimate profit from
-      a sale, or understand how much of your selling price remains
-      after costs. The calculator can be useful for ecommerce stores,
-      small businesses, retailers, freelancers, and service providers.
+      You can use a margin calculator whenever you need to quickly determine
+      how profitable a sale is. It can be useful for online stores,
+      retailers, small businesses, freelancers, service providers, and
+      entrepreneurs.
     </p>
 
 
@@ -757,103 +703,95 @@
 
 
   <!-- =====================================================
-       MARGIN CALCULATOR FAQ
+       FAQ
   ====================================================== -->
 
-  <section class="margin-faq">
+  <section
+    class="margin-info"
+    aria-labelledby="margin-faq-title"
+  >
 
 
-    <h2>
+    <h2 id="margin-faq-title">
       Margin Calculator FAQ
     </h2>
 
 
-    <div class="faq-list">
+    <div class="formula-box">
 
+      <div>
 
-      <!-- FAQ 1 -->
-
-      <div class="faq-item">
-
-        <h3>
+        <strong>
           What is a profit margin?
-        </h3>
+        </strong>
 
         <p>
-          Profit margin is the percentage of the selling price
-          that remains as profit after subtracting the cost.
+          Profit margin is the percentage of the selling price that
+          remains as profit after the cost has been deducted.
         </p>
 
       </div>
 
+    </div>
 
-      <!-- FAQ 2 -->
 
-      <div class="faq-item">
 
-        <h3>
+    <div class="formula-box">
+
+      <div>
+
+        <strong>
           How do I calculate profit margin?
-        </h3>
+        </strong>
 
         <p>
           Subtract the cost from the selling price to find profit.
-          Then divide the profit by the selling price and multiply
+          Then divide profit by selling price and multiply by 100.
+        </p>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="formula-box">
+
+      <div>
+
+        <strong>
+          What is markup?
+        </strong>
+
+        <p>
+          Markup measures profit relative to the original cost price.
+          It is calculated by dividing profit by cost and multiplying
           by 100.
         </p>
 
       </div>
 
+    </div>
 
-      <!-- FAQ 3 -->
 
-      <div class="faq-item">
 
-        <h3>
+    <div class="formula-box">
+
+      <div>
+
+        <strong>
           What is the difference between margin and markup?
-        </h3>
+        </strong>
 
         <p>
-          Margin is based on the selling price, while markup is
-          based on the original cost price.
+          Margin uses the selling price as the base, while markup uses
+          the cost price as the base.
         </p>
 
       </div>
-
-
-      <!-- FAQ 4 -->
-
-      <div class="faq-item">
-
-        <h3>
-          Can a margin be negative?
-        </h3>
-
-        <p>
-          Yes. A negative margin occurs when the selling price is
-          lower than the cost price, resulting in a loss.
-        </p>
-
-      </div>
-
-
-      <!-- FAQ 5 -->
-
-      <div class="faq-item">
-
-        <h3>
-          Who can use a margin calculator?
-        </h3>
-
-        <p>
-          Businesses, retailers, ecommerce sellers, freelancers,
-          and anyone who wants to understand the profitability of
-          a sale can use a margin calculator.
-        </p>
-
-      </div>
-
 
     </div>
+
 
   </section>
 
@@ -863,145 +801,101 @@
        RELATED CALCULATORS
   ====================================================== -->
 
-  <section class="related-calculators">
+  <section
+    class="margin-info"
+    aria-labelledby="related-calculators-title"
+  >
 
 
-    <h2>
+    <h2 id="related-calculators-title">
       Related Calculators
     </h2>
 
+
     <p>
-      Explore other useful calculators from Calvora.
+      Explore more free online calculators from Calvora.
     </p>
 
 
-    <div class="related-calculator-grid">
 
+    <!-- RELATED CALCULATOR BOX -->
 
-      <!-- PERCENTAGE -->
+    <div class="formula-box">
 
-      <a
-        href="../percentage/"
-        class="related-calculator-card"
-      >
-
-        <span class="related-icon">
-          %
-        </span>
-
-        <span class="related-card-content">
-
-          <strong>
-            Percentage Calculator
-          </strong>
-
-          <small>
-            Calculate percentages quickly and easily.
-          </small>
-
-        </span>
-
-        <span class="related-arrow">
-          →
-        </span>
-
+      <a href="../percentage/">
+        Percentage Calculator
       </a>
 
-
-
-      <!-- DISCOUNT -->
-
-      <a
-        href="../discount/"
-        class="related-calculator-card"
-      >
-
-        <span class="related-icon">
-          %
-        </span>
-
-        <span class="related-card-content">
-
-          <strong>
-            Discount Calculator
-          </strong>
-
-          <small>
-            Calculate discounts and final prices.
-          </small>
-
-        </span>
-
-        <span class="related-arrow">
-          →
-        </span>
-
-      </a>
-
-
-
-      <!-- PROFIT -->
-
-      <a
-        href="../profit/"
-        class="related-calculator-card"
-      >
-
-        <span class="related-icon">
-          $
-        </span>
-
-        <span class="related-card-content">
-
-          <strong>
-            Profit Calculator
-          </strong>
-
-          <small>
-            Calculate profit and selling price.
-          </small>
-
-        </span>
-
-        <span class="related-arrow">
-          →
-        </span>
-
-      </a>
-
-
-
-      <!-- ALL CALCULATORS -->
-
-      <a
-        href="../"
-        class="related-calculator-card"
-      >
-
-        <span class="related-icon">
-          ▦
-        </span>
-
-        <span class="related-card-content">
-
-          <strong>
-            All Calculators
-          </strong>
-
-          <small>
-            Explore all Calvora calculators.
-          </small>
-
-        </span>
-
-        <span class="related-arrow">
-          →
-        </span>
-
-      </a>
-
+      <span>
+        Calculate percentages quickly and accurately.
+      </span>
 
     </div>
+
+
+
+    <!-- RELATED CALCULATOR BOX -->
+
+    <div class="formula-box">
+
+      <a href="../discount/">
+        Discount Calculator
+      </a>
+
+      <span>
+        Calculate discounts, sale prices, and savings.
+      </span>
+
+    </div>
+
+
+
+    <!-- RELATED CALCULATOR BOX -->
+
+    <div class="formula-box">
+
+      <a href="../profit/">
+        Profit Calculator
+      </a>
+
+      <span>
+        Calculate profit and understand your earnings.
+      </span>
+
+    </div>
+
+
+
+    <!-- RELATED CALCULATOR BOX -->
+
+    <div class="formula-box">
+
+      <a href="../tax/">
+        Sales Tax Calculator
+      </a>
+
+      <span>
+        Calculate sales tax and the final price.
+      </span>
+
+    </div>
+
+
+
+    <!-- ALL CALCULATORS -->
+
+    <div class="formula-box">
+
+      <a href="../">
+        All Calculators
+      </a>
+
+      <span>
+        Explore all free calculators available on Calvora.
+      </span>
+
+    </div>
+
 
   </section>
 
@@ -1026,6 +920,7 @@
       Calvora
     </a>
 
+
     <p>
       Simple, fast, and free online calculators.
     </p>
@@ -1033,13 +928,63 @@
   </div>
 
 
+
   <div class="footer-links">
 
-
-    <!-- EXPLORE -->
 
     <div>
 
       <h4>
         Explore
       </h4>
+
+
+      <a href="../">
+        Calculators
+      </a>
+
+
+      <a href="../../categories/">
+        Categories
+      </a>
+
+    </div>
+
+
+
+    <div>
+
+      <h4>
+        Company
+      </h4>
+
+
+      <a href="../../pages/about.html">
+        About
+      </a>
+
+
+      <a href="../../pages/contact.html">
+        Contact
+      </a>
+
+    </div>
+
+
+  </div>
+
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="./margin.js"></script>
+
+
+</body>
+
+</html>
