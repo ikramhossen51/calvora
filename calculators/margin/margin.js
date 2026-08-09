@@ -4,6 +4,10 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
+  // =======================================================
+  // ELEMENTS
+  // =======================================================
+
   const calculateButton =
     document.getElementById("calculateMargin");
 
@@ -57,233 +61,204 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // =======================================================
-  // FORMAT NUMBER
-  // =======================================================
-
-  function formatNumber(number) {
-
-    if (!Number.isFinite(number)) {
-      return "0.00";
-    }
-
-    return Number(number.toFixed(2)).toLocaleString("en-US", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    });
-
-  }
-
-
-  // =======================================================
   // CALCULATE MARGIN
   // =======================================================
 
-  calculateButton.addEventListener("click", function () {
+  calculateButton.addEventListener(
+    "click",
+    function () {
 
-    error.hidden = true;
-    results.hidden = true;
+      const cost =
+        parseFloat(costInput.value);
 
-
-    const cost =
-      parseFloat(costInput.value);
-
-    const price =
-      parseFloat(priceInput.value);
+      const price =
+        parseFloat(priceInput.value);
 
 
-    // =====================================================
-    // VALIDATION
-    // =====================================================
+      // ---------------------------------------------------
+      // VALIDATION
+      // ---------------------------------------------------
 
-    if (
-      !Number.isFinite(cost) ||
-      !Number.isFinite(price) ||
-      cost < 0 ||
-      price < 0
-    ) {
+      if (
+        isNaN(cost) ||
+        isNaN(price) ||
+        cost <= 0 ||
+        price <= 0
+      ) {
 
-      error.textContent =
-        "Please enter valid positive numbers for both prices.";
+        results.hidden = true;
 
-      error.hidden = false;
+        error.textContent =
+          "Please enter valid positive numbers for both prices.";
 
-      return;
-    }
+        error.hidden = false;
 
-
-    if (cost === 0 && price === 0) {
-
-      error.textContent =
-        "Please enter a value greater than zero.";
-
-      error.hidden = false;
-
-      return;
-    }
+        return;
+      }
 
 
-    if (price === 0) {
+      // ---------------------------------------------------
+      // HIDE ERROR
+      // ---------------------------------------------------
 
-      error.textContent =
-        "Selling Price must be greater than zero.";
-
-      error.hidden = false;
-
-      return;
-    }
+      error.hidden = true;
 
 
-    // =====================================================
-    // CALCULATIONS
-    // =====================================================
+      // ---------------------------------------------------
+      // CALCULATIONS
+      // ---------------------------------------------------
 
-    const profit =
-      price - cost;
+      const profit =
+        price - cost;
 
-    const margin =
-      (profit / price) * 100;
+      const margin =
+        (profit / price) * 100;
 
-    let markup = 0;
-
-    if (cost !== 0) {
-
-      markup =
+      const markup =
         (profit / cost) * 100;
 
+
+      // ---------------------------------------------------
+      // DISPLAY RESULTS
+      // ---------------------------------------------------
+
+      profitResult.textContent =
+        formatMoney(profit);
+
+      marginResult.textContent =
+        formatPercent(margin);
+
+      markupResult.textContent =
+        formatPercent(markup);
+
+
+      // ---------------------------------------------------
+      // RESULT CARDS
+      // ---------------------------------------------------
+
+      const resultCards =
+        document.querySelectorAll(
+          ".margin-results .result-card"
+        );
+
+
+      resultCards.forEach(function (card) {
+
+        card.classList.remove(
+          "profit",
+          "loss",
+          "neutral"
+        );
+
+      });
+
+
+      // ---------------------------------------------------
+      // PROFIT / LOSS / NEUTRAL
+      // ---------------------------------------------------
+
+      let resultClass =
+        "neutral";
+
+      if (profit > 0) {
+
+        resultClass =
+          "profit";
+
+      } else if (profit < 0) {
+
+        resultClass =
+          "loss";
+
+      }
+
+
+      resultCards.forEach(function (card) {
+
+        card.classList.add(
+          resultClass
+        );
+
+      });
+
+
+      // ---------------------------------------------------
+      // SHOW RESULTS
+      // ---------------------------------------------------
+
+      results.hidden = false;
+
     }
-
-
-    // =====================================================
-    // DISPLAY RESULTS
-    // =====================================================
-
-    profitResult.textContent =
-      "$" + formatNumber(profit);
-
-    marginResult.textContent =
-      formatNumber(margin) + "%";
-
-    markupResult.textContent =
-      formatNumber(markup) + "%";
-
-
-    // =====================================================
-    // RESULT CARD STATUS
-    // =====================================================
-
-    const resultCards =
-      document.querySelectorAll(
-        ".margin-results .result-card"
-      );
-
-
-    resultCards.forEach(function (card) {
-
-      card.classList.remove(
-        "profit",
-        "loss",
-        "neutral"
-      );
-
-    });
-
-
-    let resultClass =
-      "neutral";
-
-
-    if (profit > 0) {
-
-      resultClass =
-        "profit";
-
-    }
-
-    else if (profit < 0) {
-
-      resultClass =
-        "loss";
-
-    }
-
-
-    resultCards.forEach(function (card) {
-
-      card.classList.add(resultClass);
-
-    });
-
-
-    // =====================================================
-    // SHOW RESULTS
-    // =====================================================
-
-    results.hidden = false;
-
-  });
+  );
 
 
   // =======================================================
   // RESET
   // =======================================================
 
-  resetButton.addEventListener("click", function () {
+  resetButton.addEventListener(
+    "click",
+    function () {
 
-    costInput.value = "";
-    priceInput.value = "";
+      costInput.value = "";
+      priceInput.value = "";
 
-    results.hidden = true;
-    error.hidden = true;
+      results.hidden = true;
+      error.hidden = true;
 
-    error.textContent = "";
+      profitResult.textContent =
+        "—";
 
-    profitResult.textContent = "—";
-    marginResult.textContent = "—";
-    markupResult.textContent = "—";
+      marginResult.textContent =
+        "—";
 
-
-    const resultCards =
-      document.querySelectorAll(
-        ".margin-results .result-card"
-      );
+      markupResult.textContent =
+        "—";
 
 
-    resultCards.forEach(function (card) {
+      const resultCards =
+        document.querySelectorAll(
+          ".margin-results .result-card"
+        );
 
-      card.classList.remove(
-        "profit",
-        "loss",
-        "neutral"
-      );
 
-    });
+      resultCards.forEach(function (card) {
 
-  });
+        card.classList.remove(
+          "profit",
+          "loss",
+          "neutral"
+        );
+
+      });
+
+    }
+  );
 
 
   // =======================================================
-  // ENTER KEY SUPPORT
+  // FORMAT MONEY
   // =======================================================
 
-  costInput.addEventListener("keydown", function (event) {
+  function formatMoney(value) {
 
-    if (event.key === "Enter") {
+    return "$" + Number(
+      value.toFixed(2)
+    ).toLocaleString("en-US");
 
-      calculateButton.click();
-
-    }
-
-  });
+  }
 
 
-  priceInput.addEventListener("keydown", function (event) {
+  // =======================================================
+  // FORMAT PERCENT
+  // =======================================================
 
-    if (event.key === "Enter") {
+  function formatPercent(value) {
 
-      calculateButton.click();
+    return Number(
+      value.toFixed(2)
+    ).toLocaleString("en-US") + "%";
 
-    }
-
-  });
+  }
 
 });
