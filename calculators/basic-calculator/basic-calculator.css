@@ -1,94 +1,93 @@
-/* =========================================================
-   CALVORA — BASIC CALCULATOR
-   Clean / Mobile First / Dark Theme
-========================================================= */
+/* =====================================================
+   BASIC CALCULATOR PAGE
+===================================================== */
 
 .basic-calculator-page {
   width: 100%;
-  max-width: 1180px;
+  max-width: 760px;
   margin: 0 auto;
-  padding: 24px 12px 70px;
+  padding: 40px 20px 80px;
 }
+
+
+/* =====================================================
+   CALCULATOR CARD
+===================================================== */
 
 .basic-calculator {
   width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
+  max-width: 520px;
+  margin: 0 auto 40px;
+  padding: 28px;
+  background: #111b2e;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 22px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
 }
 
 
-/* =========================================================
-   HEADER
-========================================================= */
+/* =====================================================
+   CALCULATOR HEADER
+===================================================== */
 
 .basic-header {
   display: flex;
   align-items: center;
-  gap: 13px;
-  margin-bottom: 18px;
+  gap: 16px;
+  margin-bottom: 24px;
 }
 
-.calculator-label {
+
+.basic-icon {
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(14, 165, 233, 0.10);
+  border: 1px solid rgba(14, 165, 233, 0.18);
+  border-radius: 16px;
+
+  font-size: 28px;
+}
+
+
+.basic-header .calculator-label {
   display: block;
   margin-bottom: 5px;
 
   color: #38bdf8;
-
   font-size: 10px;
   font-weight: 800;
-  letter-spacing: 1.4px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
 }
+
 
 .basic-header h1 {
-  margin: 0 0 5px;
-
-  color: #f8fafc;
-
-  font-size: 27px;
-  line-height: 1.2;
-  font-weight: 800;
-}
-
-.basic-header p {
   margin: 0;
 
-  color: #94a3b8;
+  color: #f8fafc;
+  font-size: 30px;
+  line-height: 1.15;
+}
 
-  font-size: 12px;
+
+.basic-header p {
+  margin: 7px 0 0;
+
+  color: #94a3b8;
+  font-size: 14px;
   line-height: 1.5;
 }
 
 
-/* =========================================================
-   CALCULATOR BOX
-========================================================= */
-
-.calculator-box {
-  width: 100%;
-  max-width: 520px;
-  margin: 0 auto;
-
-  padding: 18px 14px 16px;
-
-  background:
-    radial-gradient(
-      circle at 15% 0%,
-      rgba(56,189,248,.07),
-      transparent 34%
-    ),
-    #111827;
-
-  border: 1px solid #1f2937;
-  border-radius: 17px;
-
-  box-shadow:
-    0 18px 55px rgba(0,0,0,.25);
-}
-
-
-/* =========================================================
-   DISPLAY
-========================================================= */
+/* =====================================================
+   CALCULATOR DISPLAY
+===================================================== */
 
 .calculator-display {
   width: 100%;
@@ -96,32 +95,27 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: flex-end;
+  justify-content: flex-end;
 
-  padding: 15px;
-
-  margin-bottom: 12px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
 
   background: #0b1220;
-
-  border: 1px solid #1f2937;
-  border-radius: 13px;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 16px;
 
   overflow: hidden;
+  box-sizing: border-box;
 }
+
 
 .calculator-expression {
   width: 100%;
   min-height: 20px;
 
-  margin-bottom: 5px;
-
   color: #64748b;
-
-  font-size: 13px;
-  line-height: 1.4;
-
+  font-size: 14px;
   text-align: right;
 
   white-space: nowrap;
@@ -129,15 +123,15 @@
   text-overflow: ellipsis;
 }
 
+
 .calculator-result {
+  display: block;
   width: 100%;
 
   color: #f8fafc;
-
-  font-size: 34px;
+  font-size: 38px;
+  font-weight: 700;
   line-height: 1.2;
-  font-weight: 750;
-
   text-align: right;
 
   white-space: nowrap;
@@ -146,397 +140,348 @@
 }
 
 
-/* =========================================================
-   KEYPAD
-========================================================= */
+/* =====================================================
+   CALCULATOR KEYS
+===================================================== */
 
-.calculator-keypad {
+.calculator-keys {
   display: grid;
 
   grid-template-columns:
     repeat(4, minmax(0, 1fr));
 
-  gap: 9px;
+  gap: 10px;
 }
 
 
-/* =========================================================
-   BUTTONS
-========================================================= */
-
-.calc-btn {
+.calc-key {
   min-height: 62px;
 
-  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.10);
+  border-radius: 14px;
 
-  border: 1px solid #263449;
+  background: #182338;
+  color: #e2e8f0;
 
   font-family: inherit;
-
-  font-size: 19px;
-  font-weight: 800;
+  font-size: 20px;
+  font-weight: 700;
 
   cursor: pointer;
 
-  touch-action: manipulation;
-
-  -webkit-tap-highlight-color: transparent;
-
   transition:
-    background .15s ease,
-    border-color .15s ease,
-    transform .08s ease;
-}
-
-.calc-btn:active {
-  transform: scale(.96);
+    transform 0.15s ease,
+    background 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 
-/* =========================================================
-   NUMBER BUTTONS
-========================================================= */
-
-.number-btn {
-  background: #0f172a;
-
-  color: #e2e8f0;
-}
-
-.number-btn:hover {
-  background: #172235;
-
-  border-color: #334155;
+.calc-key:hover {
+  background: #21304a;
+  border-color: rgba(56, 189, 248, 0.25);
 }
 
 
-/* =========================================================
+.calc-key:active {
+  transform: scale(0.95);
+}
+
+
+/* =====================================================
    FUNCTION BUTTONS
-========================================================= */
+===================================================== */
 
-.function-btn {
-  background: #172235;
-
-  color: #94a3b8;
-}
-
-.function-btn:hover {
+.function-key {
+  color: #cbd5e1;
   background: #1e293b;
-
-  color: #e2e8f0;
-
-  border-color: #475569;
 }
 
 
-/* =========================================================
+.function-key:hover {
+  background: #27364d;
+}
+
+
+/* =====================================================
    OPERATOR BUTTONS
-========================================================= */
+===================================================== */
 
-.operator-btn {
-  background: rgba(56,189,248,.10);
-
-  border-color: rgba(56,189,248,.22);
-
+.operator-key {
   color: #38bdf8;
-}
-
-.operator-btn:hover {
-  background: rgba(56,189,248,.17);
-
-  border-color: #38bdf8;
+  background: rgba(14, 165, 233, 0.10);
+  border-color: rgba(14, 165, 233, 0.18);
 }
 
 
-/* =========================================================
+.operator-key:hover {
+  background: rgba(14, 165, 233, 0.18);
+}
+
+
+/* =====================================================
    EQUALS BUTTON
-========================================================= */
+===================================================== */
 
-.equals-btn {
-  background: #38bdf8;
-
-  border-color: #38bdf8;
-
-  color: #082f49;
-}
-
-.equals-btn:hover {
-  background: #7dd3fc;
-
-  border-color: #7dd3fc;
+.calc-key[data-action="equals"] {
+  color: #ffffff;
+  background: #0284c7;
+  border-color: #0284c7;
 }
 
 
-/* =========================================================
-   KEYBOARD FOCUS
-========================================================= */
-
-.calc-btn:focus-visible {
-  outline: 2px solid #38bdf8;
-
-  outline-offset: 2px;
+.calc-key[data-action="equals"]:hover {
+  background: #0369a1;
 }
 
 
-/* =========================================================
-   INFORMATION
-========================================================= */
+/* =====================================================
+   ZERO BUTTON
+===================================================== */
+
+.calc-key[data-number="0"] {
+  grid-column: span 2;
+}
+
+
+/* =====================================================
+   SEO CONTENT
+===================================================== */
 
 .basic-info {
-  margin-top: 30px;
-  padding-top: 25px;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto 35px;
+  padding: 28px;
 
-  border-top: 1px solid #1f2937;
+  background: #111b2e;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 20px;
 }
 
-.basic-info h2,
-.basic-faq h2,
-.related-calculators h2 {
-  margin: 0 0 11px;
+
+.basic-info h2 {
+  margin: 0 0 16px;
 
   color: #f8fafc;
-
-  font-size: 20px;
-  line-height: 1.35;
+  font-size: 24px;
+  line-height: 1.3;
 }
 
-.basic-info p,
-.faq-card p {
-  margin: 0 0 17px;
+
+.basic-info h2:not(:first-child) {
+  margin-top: 30px;
+}
+
+
+.basic-info p {
+  margin: 0 0 16px;
 
   color: #94a3b8;
-
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.75;
 }
 
 
-/* =========================================================
+.basic-info p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =====================================================
    FORMULA BOX
-========================================================= */
+===================================================== */
 
 .formula-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 18px;
 
-  gap: 15px;
+  margin-top: 12px;
+  padding: 16px 18px;
 
-  margin-top: 9px;
-  padding: 14px;
-
-  background: #0f172a;
-
-  border: 1px solid #1f2937;
-
-  border-radius: 10px;
+  background: #0f192b;
+  border: 1px solid rgba(148, 163, 184, 0.10);
+  border-radius: 14px;
 }
+
 
 .formula-box span {
   color: #94a3b8;
-
-  font-size: 12px;
-  font-weight: 650;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
+
 .formula-box strong {
-  color: #38bdf8;
-
-  font-size: 12px;
-
+  color: #e2e8f0;
+  font-size: 15px;
   text-align: right;
 }
 
 
-/* =========================================================
-   FAQ
-========================================================= */
-
-.basic-faq {
-  margin-top: 32px;
-  padding-top: 25px;
-
-  border-top: 1px solid #1f2937;
-}
-
-.faq-card {
-  padding: 15px 0;
-
-  border-bottom: 1px solid #1f2937;
-}
-
-.faq-card h3 {
-  margin: 0 0 7px;
-
-  color: #e2e8f0;
-
-  font-size: 15px;
-  line-height: 1.45;
-}
-
-.faq-card p {
-  margin-bottom: 0;
-}
-
-
-/* =========================================================
-   RELATED CALCULATORS
-========================================================= */
-
-.related-calculators {
-  margin-top: 32px;
-  padding-top: 25px;
-
-  border-top: 1px solid #1f2937;
-}
-
-.related-grid {
-  display: grid;
-
-  gap: 10px;
-}
-
-.related-card {
-  display: block;
-
-  padding: 16px;
-
-  background: #0f172a;
-
-  border: 1px solid #1f2937;
-
-  border-radius: 11px;
-
-  text-decoration: none;
-
-  transition:
-    border-color .2s ease,
-    transform .2s ease;
-}
-
-.related-card:hover {
-  border-color: #38bdf8;
-
-  transform: translateY(-2px);
-}
-
-.related-card strong {
-  display: block;
-
-  margin-bottom: 5px;
-
+.formula-box a {
   color: #38bdf8;
-
-  font-size: 14px;
-}
-
-.related-card span {
-  color: #94a3b8;
-
-  font-size: 12px;
-  line-height: 1.5;
-}
-
-.all-calculators-link {
-  display: inline-block;
-
-  margin-top: 15px;
-
-  color: #38bdf8;
-
-  font-size: 13px;
-  font-weight: 800;
-
+  font-size: 16px;
+  font-weight: 700;
   text-decoration: none;
 }
 
-.all-calculators-link:hover {
-  text-decoration: underline;
+
+.formula-box a:hover {
+  color: #7dd3fc;
 }
 
 
-/* =========================================================
-   TABLET
-========================================================= */
+/* =====================================================
+   MOBILE
+===================================================== */
 
-@media (min-width: 600px) {
+@media (max-width: 600px) {
 
   .basic-calculator-page {
-    padding: 45px 20px 80px;
+    padding: 28px 14px 60px;
   }
+
+
+  .basic-calculator {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
 
   .basic-header {
-    gap: 18px;
-
-    margin-bottom: 20px;
+    gap: 12px;
   }
+
+
+  .basic-icon {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 14px;
+
+    font-size: 24px;
+  }
+
 
   .basic-header h1 {
-    font-size: 34px;
+    font-size: 25px;
   }
+
 
   .basic-header p {
-    font-size: 14px;
+    font-size: 13px;
   }
 
-  .calculator-box {
-    padding: 24px;
-
-    border-radius: 20px;
-  }
 
   .calculator-display {
-    min-height: 125px;
-
-    padding: 20px;
+    min-height: 95px;
+    padding: 15px;
   }
+
 
   .calculator-result {
-    font-size: 42px;
+    font-size: 32px;
   }
 
-  .calc-btn {
-    min-height: 68px;
 
+  .calculator-keys {
+    gap: 8px;
+  }
+
+
+  .calc-key {
+    min-height: 58px;
+    border-radius: 12px;
+    font-size: 18px;
+  }
+
+
+  .basic-info {
+    padding: 21px 18px;
+    border-radius: 17px;
+  }
+
+
+  .basic-info h2 {
     font-size: 21px;
   }
 
-  .calculator-keypad {
-    gap: 10px;
+
+  .basic-info p {
+    font-size: 14px;
   }
 
-  .related-grid {
-    grid-template-columns:
-      repeat(3, 1fr);
+
+  .formula-box {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+
+  .formula-box strong {
+    text-align: left;
   }
 
 }
 
 
-/* =========================================================
-   DESKTOP
-========================================================= */
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
 
-@media (min-width: 900px) {
-
-  .basic-calculator-page {
-    padding-top: 55px;
-  }
+@media (max-width: 380px) {
 
   .basic-calculator {
-    max-width: 920px;
+    padding: 16px;
   }
+
 
   .basic-header h1 {
-    font-size: 38px;
+    font-size: 22px;
   }
+
 
   .basic-header p {
-    font-size: 15px;
+    font-size: 12px;
   }
 
-  .calculator-box {
-    max-width: 540px;
+
+  .calc-key {
+    min-height: 53px;
+    font-size: 17px;
+  }
+
+
+  .calculator-result {
+    font-size: 28px;
+  }
+
+}
+
+
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
+
+.calc-key:focus-visible,
+.formula-box a:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 3px;
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .calc-key {
+    transition: none;
   }
 
 }
