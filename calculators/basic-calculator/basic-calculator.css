@@ -1,1 +1,542 @@
-.
+/* =========================================================
+   CALVORA — BASIC CALCULATOR
+   Clean / Mobile First / Dark Theme
+========================================================= */
+
+.basic-calculator-page {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 24px 12px 70px;
+}
+
+.basic-calculator {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.basic-header {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 18px;
+}
+
+.calculator-label {
+  display: block;
+  margin-bottom: 5px;
+
+  color: #38bdf8;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.basic-header h1 {
+  margin: 0 0 5px;
+
+  color: #f8fafc;
+
+  font-size: 27px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.basic-header p {
+  margin: 0;
+
+  color: #94a3b8;
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   CALCULATOR BOX
+========================================================= */
+
+.calculator-box {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+
+  padding: 18px 14px 16px;
+
+  background:
+    radial-gradient(
+      circle at 15% 0%,
+      rgba(56,189,248,.07),
+      transparent 34%
+    ),
+    #111827;
+
+  border: 1px solid #1f2937;
+  border-radius: 17px;
+
+  box-shadow:
+    0 18px 55px rgba(0,0,0,.25);
+}
+
+
+/* =========================================================
+   DISPLAY
+========================================================= */
+
+.calculator-display {
+  width: 100%;
+  min-height: 105px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  padding: 15px;
+
+  margin-bottom: 12px;
+
+  background: #0b1220;
+
+  border: 1px solid #1f2937;
+  border-radius: 13px;
+
+  overflow: hidden;
+}
+
+.calculator-expression {
+  width: 100%;
+  min-height: 20px;
+
+  margin-bottom: 5px;
+
+  color: #64748b;
+
+  font-size: 13px;
+  line-height: 1.4;
+
+  text-align: right;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.calculator-result {
+  width: 100%;
+
+  color: #f8fafc;
+
+  font-size: 34px;
+  line-height: 1.2;
+  font-weight: 750;
+
+  text-align: right;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   KEYPAD
+========================================================= */
+
+.calculator-keypad {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 9px;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.calc-btn {
+  min-height: 62px;
+
+  border-radius: 12px;
+
+  border: 1px solid #263449;
+
+  font-family: inherit;
+
+  font-size: 19px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  touch-action: manipulation;
+
+  -webkit-tap-highlight-color: transparent;
+
+  transition:
+    background .15s ease,
+    border-color .15s ease,
+    transform .08s ease;
+}
+
+.calc-btn:active {
+  transform: scale(.96);
+}
+
+
+/* =========================================================
+   NUMBER BUTTONS
+========================================================= */
+
+.number-btn {
+  background: #0f172a;
+
+  color: #e2e8f0;
+}
+
+.number-btn:hover {
+  background: #172235;
+
+  border-color: #334155;
+}
+
+
+/* =========================================================
+   FUNCTION BUTTONS
+========================================================= */
+
+.function-btn {
+  background: #172235;
+
+  color: #94a3b8;
+}
+
+.function-btn:hover {
+  background: #1e293b;
+
+  color: #e2e8f0;
+
+  border-color: #475569;
+}
+
+
+/* =========================================================
+   OPERATOR BUTTONS
+========================================================= */
+
+.operator-btn {
+  background: rgba(56,189,248,.10);
+
+  border-color: rgba(56,189,248,.22);
+
+  color: #38bdf8;
+}
+
+.operator-btn:hover {
+  background: rgba(56,189,248,.17);
+
+  border-color: #38bdf8;
+}
+
+
+/* =========================================================
+   EQUALS BUTTON
+========================================================= */
+
+.equals-btn {
+  background: #38bdf8;
+
+  border-color: #38bdf8;
+
+  color: #082f49;
+}
+
+.equals-btn:hover {
+  background: #7dd3fc;
+
+  border-color: #7dd3fc;
+}
+
+
+/* =========================================================
+   KEYBOARD FOCUS
+========================================================= */
+
+.calc-btn:focus-visible {
+  outline: 2px solid #38bdf8;
+
+  outline-offset: 2px;
+}
+
+
+/* =========================================================
+   INFORMATION
+========================================================= */
+
+.basic-info {
+  margin-top: 30px;
+  padding-top: 25px;
+
+  border-top: 1px solid #1f2937;
+}
+
+.basic-info h2,
+.basic-faq h2,
+.related-calculators h2 {
+  margin: 0 0 11px;
+
+  color: #f8fafc;
+
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+.basic-info p,
+.faq-card p {
+  margin: 0 0 17px;
+
+  color: #94a3b8;
+
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   FORMULA BOX
+========================================================= */
+
+.formula-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-top: 9px;
+  padding: 14px;
+
+  background: #0f172a;
+
+  border: 1px solid #1f2937;
+
+  border-radius: 10px;
+}
+
+.formula-box span {
+  color: #94a3b8;
+
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.formula-box strong {
+  color: #38bdf8;
+
+  font-size: 12px;
+
+  text-align: right;
+}
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.basic-faq {
+  margin-top: 32px;
+  padding-top: 25px;
+
+  border-top: 1px solid #1f2937;
+}
+
+.faq-card {
+  padding: 15px 0;
+
+  border-bottom: 1px solid #1f2937;
+}
+
+.faq-card h3 {
+  margin: 0 0 7px;
+
+  color: #e2e8f0;
+
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.faq-card p {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   RELATED CALCULATORS
+========================================================= */
+
+.related-calculators {
+  margin-top: 32px;
+  padding-top: 25px;
+
+  border-top: 1px solid #1f2937;
+}
+
+.related-grid {
+  display: grid;
+
+  gap: 10px;
+}
+
+.related-card {
+  display: block;
+
+  padding: 16px;
+
+  background: #0f172a;
+
+  border: 1px solid #1f2937;
+
+  border-radius: 11px;
+
+  text-decoration: none;
+
+  transition:
+    border-color .2s ease,
+    transform .2s ease;
+}
+
+.related-card:hover {
+  border-color: #38bdf8;
+
+  transform: translateY(-2px);
+}
+
+.related-card strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #38bdf8;
+
+  font-size: 14px;
+}
+
+.related-card span {
+  color: #94a3b8;
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.all-calculators-link {
+  display: inline-block;
+
+  margin-top: 15px;
+
+  color: #38bdf8;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  text-decoration: none;
+}
+
+.all-calculators-link:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 600px) {
+
+  .basic-calculator-page {
+    padding: 45px 20px 80px;
+  }
+
+  .basic-header {
+    gap: 18px;
+
+    margin-bottom: 20px;
+  }
+
+  .basic-header h1 {
+    font-size: 34px;
+  }
+
+  .basic-header p {
+    font-size: 14px;
+  }
+
+  .calculator-box {
+    padding: 24px;
+
+    border-radius: 20px;
+  }
+
+  .calculator-display {
+    min-height: 125px;
+
+    padding: 20px;
+  }
+
+  .calculator-result {
+    font-size: 42px;
+  }
+
+  .calc-btn {
+    min-height: 68px;
+
+    font-size: 21px;
+  }
+
+  .calculator-keypad {
+    gap: 10px;
+  }
+
+  .related-grid {
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 900px) {
+
+  .basic-calculator-page {
+    padding-top: 55px;
+  }
+
+  .basic-calculator {
+    max-width: 920px;
+  }
+
+  .basic-header h1 {
+    font-size: 38px;
+  }
+
+  .basic-header p {
+    font-size: 15px;
+  }
+
+  .calculator-box {
+    max-width: 540px;
+  }
+
+}
