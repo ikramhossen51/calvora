@@ -1,50 +1,27 @@
 /* =========================================================
    CALVORA — SCIENTIFIC CALCULATOR
-   Premium Scientific Calculator
-   Mobile / Tablet / Desktop
+   Fully Functional / Mobile / Keyboard Support
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  /* =====================================================
-     ELEMENTS
-  ====================================================== */
-
-  const display =
-    document.getElementById("scientificDisplay");
-
-  const expressionDisplay =
-    document.getElementById("scientificExpression");
-
-  const keypad =
-    document.querySelector(".scientific-keypad");
-
-  const angleModeButton =
-    document.getElementById("angleMode");
+  const display = document.getElementById("scientificDisplay");
+  const expressionDisplay = document.getElementById("scientificExpression");
+  const keypad = document.querySelector(".scientific-keypad");
 
   if (!display || !keypad) {
-
-    console.error(
-      "Calvora Scientific Calculator: Required element missing."
-    );
-
+    console.error("Calvora Scientific Calculator: Required element missing.");
     return;
   }
 
 
   /* =====================================================
-     CALCULATOR STATE
+     STATE
   ====================================================== */
 
-  let currentValue = "0";
-
   let expression = "";
-
-  let angleMode = "DEG";
-
+  let lastAnswer = 0;
   let justCalculated = false;
-
-  let errorState = false;
 
 
   /* =====================================================
@@ -53,183 +30,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateDisplay() {
 
-    display.textContent =
-      formatDisplayValue(currentValue);
+    display.textContent = expression || "0";
 
     if (expressionDisplay) {
-
-      expressionDisplay.textContent =
-        expression;
-
+      expressionDisplay.textContent = "";
     }
-
   }
 
 
   /* =====================================================
-     FORMAT DISPLAY
+     INPUT
   ====================================================== */
 
-  function formatDisplayValue(value) {
-
-    if (value === "Error") {
-      return "Error";
-    }
-
-    if (value === "Infinity") {
-      return "Error";
-    }
-
-    if (
-      typeof value !== "string" &&
-      typeof value !== "number"
-    ) {
-      return "Error";
-    }
-
-    const stringValue = String(value);
-
-    if (stringValue.length <= 16) {
-      return stringValue;
-    }
-
-    const number =
-      Number(stringValue);
-
-    if (!Number.isFinite(number)) {
-      return "Error";
-    }
-
-    return number.toPrecision(12);
-
-  }
-
-
-  /* =====================================================
-     FORMAT RESULT
-  ====================================================== */
-
-  function formatResult(value) {
-
-    if (!Number.isFinite(value)) {
-      return "Error";
-    }
-
-    if (Math.abs(value) < 1e-12) {
-      value = 0;
-    }
-
-    return Number(
-      value.toPrecision(12)
-    ).toString();
-
-  }
-
-
-  /* =====================================================
-     INPUT NUMBER
-  ====================================================== */
-
-  function inputNumber(number) {
-
-    if (errorState) {
-      clearCalculator();
-    }
+  function append(value) {
 
     if (justCalculated) {
-
-      currentValue = number;
       expression = "";
       justCalculated = false;
-
-      updateDisplay();
-      return;
     }
 
-    if (currentValue === "0") {
-
-      currentValue = number;
-
-    } else {
-
-      if (currentValue.length >= 16) {
-        return;
-      }
-
-      currentValue += number;
-
-    }
+    expression += value;
 
     updateDisplay();
-
-  }
-
-
-  /* =====================================================
-     DECIMAL
-  ====================================================== */
-
-  function inputDecimal() {
-
-    if (errorState) {
-      clearCalculator();
-    }
-
-    if (justCalculated) {
-
-      currentValue = "0.";
-      expression = "";
-      justCalculated = false;
-
-      updateDisplay();
-      return;
-    }
-
-    if (!currentValue.includes(".")) {
-
-      currentValue += ".";
-
-    }
-
-    updateDisplay();
-
-  }
-
-
-  /* =====================================================
-     DELETE
-  ====================================================== */
-
-  function deleteLastDigit() {
-
-    if (errorState) {
-      clearCalculator();
-      return;
-    }
-
-    if (justCalculated) {
-      return;
-    }
-
-    if (
-      currentValue.length <= 1 ||
-      (
-        currentValue.length === 2 &&
-        currentValue.startsWith("-")
-      )
-    ) {
-
-      currentValue = "0";
-
-    } else {
-
-      currentValue =
-        currentValue.slice(0, -1);
-
-    }
-
-    updateDisplay();
-
   }
 
 
@@ -239,242 +61,158 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function clearCalculator() {
 
-    currentValue = "0";
-
     expression = "";
-
     justCalculated = false;
 
-    errorState = false;
-
     updateDisplay();
-
   }
 
 
   /* =====================================================
-     TOGGLE SIGN
+     DELETE
   ====================================================== */
 
-  function toggleSign() {
-
-    if (errorState) {
-      return;
-    }
-
-    const value =
-      Number(currentValue);
-
-    if (!Number.isFinite(value)) {
-      showError();
-      return;
-    }
-
-    currentValue =
-      formatResult(-value);
-
-    updateDisplay();
-
-  }
-
-
-  /* =====================================================
-     PERCENT
-  ====================================================== */
-
-  function calculatePercentage() {
-
-    if (errorState) {
-      return;
-    }
-
-    const value =
-      Number(currentValue);
-
-    if (!Number.isFinite(value)) {
-      showError();
-      return;
-    }
-
-    currentValue =
-      formatResult(value / 100);
-
-    updateDisplay();
-
-  }
-
-
-  /* =====================================================
-     PI
-  ====================================================== */
-
-  function insertPi() {
-
-    if (errorState) {
-      clearCalculator();
-    }
+  function deleteLast() {
 
     if (justCalculated) {
-
-      expression = "";
-      justCalculated = false;
-
-    }
-
-    currentValue =
-      formatResult(Math.PI);
-
-    updateDisplay();
-
-  }
-
-
-  /* =====================================================
-     EULER NUMBER
-  ====================================================== */
-
-  function insertEuler() {
-
-    if (errorState) {
       clearCalculator();
-    }
-
-    if (justCalculated) {
-
-      expression = "";
-      justCalculated = false;
-
-    }
-
-    currentValue =
-      formatResult(Math.E);
-
-    updateDisplay();
-
-  }
-
-
-  /* =====================================================
-     SQUARE ROOT
-  ====================================================== */
-
-  function calculateSquareRoot() {
-
-    const value =
-      Number(currentValue);
-
-    if (
-      !Number.isFinite(value) ||
-      value < 0
-    ) {
-
-      showError();
       return;
-
     }
 
-    expression =
-      "√(" + formatDisplayValue(currentValue) + ")";
-
-    currentValue =
-      formatResult(Math.sqrt(value));
-
-    justCalculated = true;
+    expression = expression.slice(0, -1);
 
     updateDisplay();
-
   }
 
 
   /* =====================================================
-     SQUARE
+     FORMAT
   ====================================================== */
 
-  function calculateSquare() {
-
-    const value =
-      Number(currentValue);
+  function formatNumber(value) {
 
     if (!Number.isFinite(value)) {
-      showError();
-      return;
+      return "Error";
     }
 
-    expression =
-      "(" +
-      formatDisplayValue(currentValue) +
-      ")²";
+    if (Math.abs(value) < 1e-12) {
+      value = 0;
+    }
 
-    currentValue =
-      formatResult(value * value);
-
-    justCalculated = true;
-
-    updateDisplay();
-
+    return Number(value.toPrecision(12)).toString();
   }
 
 
   /* =====================================================
-     CUBE
+     SAFE EVALUATION
   ====================================================== */
 
-  function calculateCube() {
+  function evaluateExpression(input) {
 
-    const value =
-      Number(currentValue);
+    let exp = input;
 
-    if (!Number.isFinite(value)) {
-      showError();
-      return;
+    /* Constants */
+
+    exp = exp.replace(/π/g, "Math.PI");
+    exp = exp.replace(/\be\b/g, "Math.E");
+
+    /* Powers */
+
+    exp = exp.replace(/\^/g, "**");
+
+    /* Square root */
+
+    exp = exp.replace(
+      /√\s*\(/g,
+      "Math.sqrt("
+    );
+
+    exp = exp.replace(
+      /√\s*([0-9.]+)/g,
+      "Math.sqrt($1)"
+    );
+
+    /* Functions */
+
+    exp = exp.replace(
+      /sin\(/g,
+      "Math.sin("
+    );
+
+    exp = exp.replace(
+      /cos\(/g,
+      "Math.cos("
+    );
+
+    exp = exp.replace(
+      /tan\(/g,
+      "Math.tan("
+    );
+
+    exp = exp.replace(
+      /asin\(/g,
+      "Math.asin("
+    );
+
+    exp = exp.replace(
+      /acos\(/g,
+      "Math.acos("
+    );
+
+    exp = exp.replace(
+      /atan\(/g,
+      "Math.atan("
+    );
+
+    exp = exp.replace(
+      /log\(/g,
+      "Math.log10("
+    );
+
+    exp = exp.replace(
+      /ln\(/g,
+      "Math.log("
+    );
+
+    exp = exp.replace(
+      /abs\(/g,
+      "Math.abs("
+    );
+
+
+    /* Factorial */
+
+    exp = exp.replace(
+      /(\d+(?:\.\d+)?)!/g,
+      "factorial($1)"
+    );
+
+
+    /*
+      Safety:
+      Only allow calculator characters.
+    */
+
+    if (!/^[0-9+\-*/().,\sA-Za-z_π√*]+$/.test(exp)) {
+      throw new Error("Invalid expression");
     }
 
-    expression =
-      "(" +
-      formatDisplayValue(currentValue) +
-      ")³";
 
-    currentValue =
-      formatResult(value * value * value);
+    /*
+      Evaluate only calculator-generated expression.
+    */
 
-    justCalculated = true;
-
-    updateDisplay();
-
-  }
+    const result = Function(
+      "factorial",
+      '"use strict"; return (' + exp + ');'
+    )(factorial);
 
 
-  /* =====================================================
-     RECIPROCAL
-  ====================================================== */
-
-  function calculateReciprocal() {
-
-    const value =
-      Number(currentValue);
-
-    if (
-      !Number.isFinite(value) ||
-      value === 0
-    ) {
-
-      showError();
-      return;
-
+    if (!Number.isFinite(result)) {
+      throw new Error("Invalid result");
     }
 
-    expression =
-      "1 / (" +
-      formatDisplayValue(currentValue) +
-      ")";
-
-    currentValue =
-      formatResult(1 / value);
-
-    justCalculated = true;
-
-    updateDisplay();
-
+    return result;
   }
 
 
@@ -482,831 +220,550 @@ document.addEventListener("DOMContentLoaded", function () {
      FACTORIAL
   ====================================================== */
 
-  function calculateFactorial() {
-
-    const value =
-      Number(currentValue);
+  function factorial(number) {
 
     if (
-      !Number.isFinite(value) ||
-      value < 0 ||
-      !Number.isInteger(value) ||
-      value > 170
+      !Number.isFinite(number) ||
+      number < 0 ||
+      !Number.isInteger(number)
     ) {
+      throw new Error("Invalid factorial");
+    }
 
-      showError();
-      return;
-
+    if (number > 170) {
+      throw new Error("Number too large");
     }
 
     let result = 1;
 
-    for (let i = 2; i <= value; i++) {
+    for (let i = 2; i <= number; i++) {
       result *= i;
     }
 
-    expression =
-      formatDisplayValue(currentValue) + "!";
-
-    currentValue =
-      formatResult(result);
-
-    justCalculated = true;
-
-    updateDisplay();
-
+    return result;
   }
 
 
   /* =====================================================
-     TRIGONOMETRY
+     CALCULATE
   ====================================================== */
 
-  function toRadians(value) {
+  function calculate() {
 
-    if (angleMode === "DEG") {
-      return value * Math.PI / 180;
-    }
-
-    return value;
-
-  }
-
-
-  function fromRadians(value) {
-
-    if (angleMode === "DEG") {
-      return value * 180 / Math.PI;
-    }
-
-    return value;
-
-  }
-
-
-  function calculateSin() {
-
-    const value =
-      Number(currentValue);
-
-    if (!Number.isFinite(value)) {
-      showError();
+    if (!expression) {
       return;
     }
 
-    expression =
-      "sin(" +
-      formatDisplayValue(currentValue) +
-      ")";
+    try {
 
-    currentValue =
-      formatResult(
-        Math.sin(toRadians(value))
-      );
+      const result = evaluateExpression(expression);
 
-    justCalculated = true;
+      lastAnswer = result;
 
-    updateDisplay();
-
-  }
-
-
-  function calculateCos() {
-
-    const value =
-      Number(currentValue);
-
-    if (!Number.isFinite(value)) {
-      showError();
-      return;
-    }
-
-    expression =
-      "cos(" +
-      formatDisplayValue(currentValue) +
-      ")";
-
-    currentValue =
-      formatResult(
-        Math.cos(toRadians(value))
-      );
-
-    justCalculated = true;
-
-    updateDisplay();
-
-  }
-
-
-  function calculateTan() {
-
-    const value =
-      Number(currentValue);
-
-    if (!Number.isFinite(value)) {
-      showError();
-      return;
-    }
-
-    const radians =
-      toRadians(value);
-
-    const cosine =
-      Math.cos(radians);
-
-    if (Math.abs(cosine) < 1e-12) {
-      showError();
-      return;
-    }
-
-    expression =
-      "tan(" +
-      formatDisplayValue(currentValue) +
-      ")";
-
-    currentValue =
-      formatResult(
-        Math.tan(radians)
-      );
-
-    justCalculated = true;
-
-    updateDisplay();
-
-  }
-
-
-  /* =====================================================
-     INVERSE TRIGONOMETRY
-  ====================================================== */
-
-  function calculateAsin() {
-
-    const value =
-      Number(currentValue);
-
-    if (
-      !Number.isFinite(value) ||
-      value < -1 ||
-      value > 1
-    ) {
-
-      showError();
-      return;
-
-    }
-
-    expression =
-      "sin⁻¹(" +
-      formatDisplayValue(currentValue) +
-      ")";
-
-    currentValue =
-      formatResult(
-        fromRadians(Math.asin(value))
-      );
-
-    justCalculated = true;
-
-    updateDisplay();
-
-  }
-
-
-  function calculateAcos() {
-
-    const value =
-      Number(currentValue);
-
-    if (
-      !Number.isFinite(value) ||
-      value < -1 ||
-      value > 1
-    ) {
-
-      showError();
-      return;
-
-    }
-
-    expression =
-      "cos⁻¹(" +
-      formatDisplayValue(currentValue) +
-      ")";
-
-    currentValue =
-      formatResult(
-        fromRadians(Math.acos(value))
-      );
-
-    justCalculated = true;
-
-    updateDisplay();
-
-  }
-
-
-  function calculateAtan() {
-
-    const value =
-      Number(currentValue);
-
-    if (!Number.isFinite(value)) {
-      showError();
-      return;
-    }
-
-    expression =
-      "tan⁻¹(" +
-      formatDisplayValue(currentValue) +
-      ")";
-
-    currentValue =
-      formatResult(
-        fromRadians(Math.atan(value))
-      );
-
-    justCalculated = true;
-
-    updateDisplay();
-
-  }
-
-
-  /* =====================================================
-     LOGARITHMS
-  ====================================================== */
-
-  function calculateLog() {
-
-    const value =
-      Number(currentValue);
-
-    if (
-      !Number.isFinite(value) ||
-      value <= 0
-    ) {
-
-      showError();
-      return;
-
-    }
-
-    expression =
-      "log(" +
-      formatDisplayValue(currentValue) +
-      ")";
-
-    currentValue =
-      formatResult(Math.log10(value));
-
-    justCalculated = true;
-
-    updateDisplay();
-
-  }
-
-
-  function calculateLn() {
-
-    const value =
-      Number(currentValue);
-
-    if (
-      !Number.isFinite(value) ||
-      value <= 0
-    ) {
-
-      showError();
-      return;
-
-    }
-
-    expression =
-      "ln(" +
-      formatDisplayValue(currentValue) +
-      ")";
-
-    currentValue =
-      formatResult(Math.log(value));
-
-    justCalculated = true;
-
-    updateDisplay();
-
-  }
-
-
-  /* =====================================================
-     EXPONENTIAL
-  ====================================================== */
-
-  function calculateExp() {
-
-    const value =
-      Number(currentValue);
-
-    if (!Number.isFinite(value)) {
-      showError();
-      return;
-    }
-
-    const result =
-      Math.exp(value);
-
-    if (!Number.isFinite(result)) {
-      showError();
-      return;
-    }
-
-    expression =
-      "e^(" +
-      formatDisplayValue(currentValue) +
-      ")";
-
-    currentValue =
-      formatResult(result);
-
-    justCalculated = true;
-
-    updateDisplay();
-
-  }
-
-
-  /* =====================================================
-     POWER OF 10
-  ====================================================== */
-
-  function calculatePowerOfTen() {
-
-    const value =
-      Number(currentValue);
-
-    if (!Number.isFinite(value)) {
-      showError();
-      return;
-    }
-
-    const result =
-      Math.pow(10, value);
-
-    if (!Number.isFinite(result)) {
-      showError();
-      return;
-    }
-
-    expression =
-      "10^(" +
-      formatDisplayValue(currentValue) +
-      ")";
-
-    currentValue =
-      formatResult(result);
-
-    justCalculated = true;
-
-    updateDisplay();
-
-  }
-
-
-  /* =====================================================
-     BINARY OPERATION
-  ====================================================== */
-
-  function binaryOperation(operatorSymbol) {
-
-    if (errorState) {
-      return;
-    }
-
-    /*
-      For scientific calculator we keep the operation
-      in a JavaScript-safe expression string.
-    */
-
-    const value =
-      Number(currentValue);
-
-    if (!Number.isFinite(value)) {
-      showError();
-      return;
-    }
-
-    expression =
-      formatDisplayValue(currentValue) +
-      " " +
-      operatorSymbol;
-
-    currentValue = "0";
-
-    justCalculated = false;
-
-    updateDisplay();
-
-  }
-
-
-  /* =====================================================
-     POWER
-  ====================================================== */
-
-  function powerOperation() {
-
-    const base =
-      Number(currentValue);
-
-    if (!Number.isFinite(base)) {
-      showError();
-      return;
-    }
-
-    const exponent =
-      window.prompt(
-        "Enter exponent:"
-      );
-
-    if (exponent === null) {
-      return;
-    }
-
-    const power =
-      Number(exponent);
-
-    if (!Number.isFinite(power)) {
-      showError();
-      return;
-    }
-
-    const result =
-      Math.pow(base, power);
-
-    if (!Number.isFinite(result)) {
-      showError();
-      return;
-    }
-
-    expression =
-      formatDisplayValue(currentValue) +
-      "^" +
-      exponent;
-
-    currentValue =
-      formatResult(result);
-
-    justCalculated = true;
-
-    updateDisplay();
-
-  }
-
-
-  /* =====================================================
-     CALCULATE BASIC EXPRESSION
-  ====================================================== */
-
-  function evaluateExpression() {
-
-    /*
-      This calculator intentionally avoids eval().
-      Only the supported operation currently stored
-      in expression is evaluated through controlled logic.
-    */
-
-    if (errorState) {
-      return;
-    }
-
-    /*
-      If no binary expression exists,
-      keep the current number.
-    */
-
-    if (
-      !expression ||
-      !/[+\-×÷]/.test(expression)
-    ) {
+      expression = formatNumber(result);
 
       justCalculated = true;
+
       updateDisplay();
-      return;
 
+    } catch (error) {
+
+      expression = "Error";
+
+      justCalculated = true;
+
+      updateDisplay();
+
+      console.error(
+        "Scientific Calculator:",
+        error
+      );
+    }
+  }
+
+
+  /* =====================================================
+     PERCENT
+  ====================================================== */
+
+  function percentage() {
+
+    if (!expression) {
+      return;
     }
 
-    const match =
-      expression.match(
-        /^(-?\d+(?:\.\d+)?)\s*([+\-×÷])$/
-      );
+    try {
 
-    if (!match) {
+      const result =
+        evaluateExpression(expression) / 100;
+
+      expression = formatNumber(result);
+
+      updateDisplay();
+
+    } catch {
+
+      expression = "Error";
+
       justCalculated = true;
+
+      updateDisplay();
+    }
+  }
+
+
+  /* =====================================================
+     PLUS / MINUS
+  ====================================================== */
+
+  function toggleSign() {
+
+    if (!expression) {
+      expression = "-";
       updateDisplay();
       return;
     }
 
-    const first =
-      Number(match[1]);
+    try {
 
-    const operatorSymbol =
-      match[2];
+      const value =
+        evaluateExpression(expression);
 
-    const second =
-      Number(currentValue);
+      expression =
+        formatNumber(-value);
 
-    if (
-      !Number.isFinite(first) ||
-      !Number.isFinite(second)
-    ) {
+      updateDisplay();
 
-      showError();
-      return;
+    } catch {
 
+      if (expression.startsWith("-")) {
+        expression = expression.slice(1);
+      } else {
+        expression = "-" + expression;
+      }
+
+      updateDisplay();
     }
+  }
 
-    let result;
 
-    switch (operatorSymbol) {
+  /* =====================================================
+     FUNCTION
+  ====================================================== */
 
-      case "+":
-        result = first + second;
-        break;
+  function applyFunction(type) {
 
-      case "-":
-        result = first - second;
-        break;
+    try {
 
-      case "×":
-        result = first * second;
-        break;
+      let value;
 
-      case "÷":
+      if (expression) {
+        value = evaluateExpression(expression);
+      } else {
+        value = lastAnswer;
+      }
 
-        if (second === 0) {
-          showError();
+
+      let result;
+
+
+      switch (type) {
+
+        case "sqrt":
+          result = Math.sqrt(value);
+          break;
+
+        case "square":
+          result = value * value;
+          break;
+
+        case "cube":
+          result = value * value * value;
+          break;
+
+        case "sin":
+          result = Math.sin(value);
+          break;
+
+        case "cos":
+          result = Math.cos(value);
+          break;
+
+        case "tan":
+          result = Math.tan(value);
+          break;
+
+        case "asin":
+          result = Math.asin(value);
+          break;
+
+        case "acos":
+          result = Math.acos(value);
+          break;
+
+        case "atan":
+          result = Math.atan(value);
+          break;
+
+        case "log":
+          result = Math.log10(value);
+          break;
+
+        case "ln":
+          result = Math.log(value);
+          break;
+
+        case "factorial":
+          result = factorial(value);
+          break;
+
+        case "inverse":
+
+          if (value === 0) {
+            throw new Error("Cannot divide by zero");
+          }
+
+          result = 1 / value;
+          break;
+
+        default:
           return;
-        }
+      }
 
-        result = first / second;
-        break;
 
-      default:
-        showError();
-        return;
+      if (!Number.isFinite(result)) {
+        throw new Error("Invalid result");
+      }
 
+
+      expression = formatNumber(result);
+
+      lastAnswer = result;
+
+      justCalculated = true;
+
+      updateDisplay();
+
+    } catch {
+
+      expression = "Error";
+
+      justCalculated = true;
+
+      updateDisplay();
     }
+  }
 
-    if (!Number.isFinite(result)) {
-      showError();
+
+  /* =====================================================
+     BUTTON CLICK
+  ====================================================== */
+
+  keypad.addEventListener("click", function (event) {
+
+    const button =
+      event.target.closest(".scientific-key");
+
+    if (!button) {
       return;
     }
 
-    expression =
-      expression +
-      " " +
-      formatDisplayValue(currentValue) +
-      " =";
 
-    currentValue =
-      formatResult(result);
+    const value =
+      button.dataset.value;
 
-    justCalculated = true;
-
-    updateDisplay();
-
-  }
+    const action =
+      button.dataset.action;
 
 
-  /* =====================================================
-     ERROR
-  ====================================================== */
+    /* ---------------------------------------------
+       NUMBER / SYMBOL
+    ---------------------------------------------- */
 
-  function showError() {
+    if (value !== undefined) {
 
-    currentValue = "Error";
+      append(value);
 
-    expression = "Cannot calculate";
-
-    errorState = true;
-
-    justCalculated = true;
-
-    updateDisplay();
-
-  }
-
-
-  /* =====================================================
-     ANGLE MODE
-  ====================================================== */
-
-  function toggleAngleMode() {
-
-    if (angleMode === "DEG") {
-
-      angleMode = "RAD";
-
-    } else {
-
-      angleMode = "DEG";
-
+      return;
     }
 
-    if (angleModeButton) {
 
-      angleModeButton.textContent =
-        angleMode;
-
-      angleModeButton.setAttribute(
-        "aria-label",
-        "Angle mode: " + angleMode
-      );
-
-    }
-
-  }
-
-
-  /* =====================================================
-     ACTION HANDLER
-  ====================================================== */
-
-  function handleAction(action, value) {
+    /* ---------------------------------------------
+       ACTIONS
+    ---------------------------------------------- */
 
     switch (action) {
 
       case "clear":
-      case "all-clear":
 
         clearCalculator();
-        return;
+
+        break;
 
 
       case "delete":
 
-        deleteLastDigit();
-        return;
+        deleteLast();
+
+        break;
 
 
       case "equals":
 
-        evaluateExpression();
-        return;
+        calculate();
+
+        break;
 
 
       case "percent":
 
-        calculatePercentage();
-        return;
+        percentage();
+
+        break;
 
 
       case "sign":
 
-      case "plus-minus":
-
         toggleSign();
-        return;
 
-
-      case "pi":
-
-        insertPi();
-        return;
-
-
-      case "e":
-
-      case "euler":
-
-        insertEuler();
-        return;
+        break;
 
 
       case "sqrt":
 
-      case "square-root":
+        applyFunction("sqrt");
 
-        calculateSquareRoot();
-        return;
+        break;
 
 
       case "square":
 
-      case "square-x":
+        applyFunction("square");
 
-        calculateSquare();
-        return;
+        break;
 
 
       case "cube":
 
-      case "cube-x":
+        applyFunction("cube");
 
-        calculateCube();
-        return;
-
-
-      case "reciprocal":
-
-      case "one-over-x":
-
-        calculateReciprocal();
-        return;
-
-
-      case "factorial":
-
-      case "fact":
-
-        calculateFactorial();
-        return;
+        break;
 
 
       case "sin":
 
-        calculateSin();
-        return;
+        append("sin(");
+
+        break;
 
 
       case "cos":
 
-        calculateCos();
-        return;
+        append("cos(");
+
+        break;
 
 
       case "tan":
 
-        calculateTan();
-        return;
+        append("tan(");
+
+        break;
 
 
       case "asin":
 
-      case "sin-inverse":
+        append("asin(");
 
-        calculateAsin();
-        return;
+        break;
 
 
       case "acos":
 
-      case "cos-inverse":
+        append("acos(");
 
-        calculateAcos();
-        return;
+        break;
 
 
       case "atan":
 
-      case "tan-inverse":
+        append("atan(");
 
-        calculateAtan();
-        return;
+        break;
 
 
       case "log":
 
-        calculateLog();
-        return;
+        append("log(");
+
+        break;
 
 
       case "ln":
 
-        calculateLn();
-        return;
+        append("ln(");
+
+        break;
 
 
-      case "exp":
+      case "factorial":
 
-        calculateExp();
-        return;
+        append("!");
 
-
-      case "10x":
-
-      case "power-ten":
-
-        calculatePowerOfTen();
-        return;
+        break;
 
 
-      case "power":
+      case "inverse":
 
-      case "x-power-y":
+        applyFunction("inverse");
 
-        powerOperation();
-        return;
-
-
-      case "angle":
-
-      case "angle-mode":
-
-        toggleAngleMode();
-        return;
+        break;
 
     }
 
+  });
 
-    /*
-      Operator
+
+  /* =====================================================
+     KEYBOARD
+  ====================================================== */
+
+  document.addEventListener("keydown", function (event) {
+
+    const key = event.key;
+
+
+    /* Numbers */
+
+    if (/^[0-9]$/.test(key)) {
+
+      append(key);
+
+      return;
+    }
+
+
+    /* Decimal */
+
+    if (key === ".") {
+
+      append(".");
+
+      return;
+    }
+
+
+    /* Operators */
+
+    if (key === "+") {
+
+      append("+");
+
+      return;
+    }
+
+
+    if (key === "-") {
+
+      append("-");
+
+      return;
+    }
+
+
+    if (key === "*") {
+
+      append("*");
+
+      return;
+    }
+
+
+    if (key === "/") {
+
+      event.preventDefault();
+
+      append("/");
+
+      return;
+    }
+
+
+    /* Power */
+
+    if (key === "^") {
+
+      append("^");
+
+      return;
+    }
+
+
+    /* Parentheses */
+
+    if (key === "(" || key === ")") {
+
+      append(key);
+
+      return;
+    }
+
+
+    /* Enter */
+
+    if (
+      key === "Enter" ||
+      key === "="
+    ) {
+
+      event.preventDefault();
+
+      calculate();
+
+      return;
+    }
+
+
+    /* Backspace */
+
+    if (key === "Backspace") {
+
+      event.preventDefault();
+
+      deleteLast();
+
+      return;
+    }
+
+
+    /* Escape */
+
+    if (key === "Escape") {
+
+      clearCalculator();
+
+      return;
+    }
+
+
+    /* Percent */
+
+    if (key === "%") {
+
+      event.preventDefault();
+
+      percentage();
+
+      return;
+    }
+
+  });
+
+
+  /* =====================================================
+     INITIAL DISPLAY
+  ====================================================== */
+
+  updateDisplay();
+
+});
