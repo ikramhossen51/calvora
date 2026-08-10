@@ -1,0 +1,1025 @@
+/* =========================================================
+   CALVORA — SCIENTIFIC CALCULATOR
+   Dark Premium / Mobile First / Responsive
+========================================================= */
+
+.scientific-page {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 24px 12px 70px;
+}
+
+.scientific-calculator {
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   CALCULATOR HEADER
+========================================================= */
+
+.scientific-header {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 18px;
+}
+
+.scientific-icon {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: rgba(56, 189, 248, 0.09);
+  border: 1px solid rgba(56, 189, 248, 0.16);
+
+  color: #38bdf8;
+
+  font-size: 25px;
+  font-weight: 900;
+
+  box-shadow:
+    inset 0 0 20px rgba(56, 189, 248, 0.03);
+}
+
+.scientific-header .calculator-label {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #38bdf8;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.4px;
+}
+
+.scientific-header h1 {
+  margin: 0 0 5px;
+
+  color: #f8fafc;
+
+  font-size: 27px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.scientific-header p {
+  margin: 0;
+
+  color: #94a3b8;
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   SCIENTIFIC CALCULATOR BOX
+========================================================= */
+
+.scientific-box {
+  width: 100%;
+
+  padding: 14px;
+
+  background:
+    radial-gradient(
+      circle at 15% 0%,
+      rgba(56, 189, 248, 0.07),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 90% 100%,
+      rgba(14, 165, 233, 0.035),
+      transparent 30%
+    ),
+    #111827;
+
+  border: 1px solid #1f2937;
+  border-radius: 17px;
+
+  box-shadow:
+    0 18px 55px rgba(0, 0, 0, 0.28);
+}
+
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.scientific-toolbar {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  margin-bottom: 12px;
+}
+
+.mode-btn,
+.history-toggle {
+  min-height: 34px;
+
+  padding: 0 12px;
+
+  border-radius: 8px;
+
+  border: 1px solid #334155;
+
+  background: #0f172a;
+
+  color: #94a3b8;
+
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  touch-action: manipulation;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.mode-btn:active,
+.history-toggle:active {
+  transform: scale(0.97);
+}
+
+.mode-btn.active {
+  background: rgba(56, 189, 248, 0.12);
+
+  border-color: #38bdf8;
+
+  color: #38bdf8;
+}
+
+.mode-btn:hover,
+.history-toggle:hover {
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
+
+.history-toggle {
+  margin-left: auto;
+}
+
+
+/* =========================================================
+   DISPLAY
+========================================================= */
+
+.scientific-display {
+  min-height: 128px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-end;
+
+  padding: 15px;
+
+  margin-bottom: 12px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #0b1220,
+      #0f172a
+    );
+
+  border: 1px solid #263449;
+  border-radius: 13px;
+
+  overflow: hidden;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+.scientific-expression {
+  min-height: 22px;
+
+  margin-bottom: 8px;
+
+  color: #64748b;
+
+  font-size: 12px;
+  line-height: 1.4;
+
+  text-align: right;
+
+  overflow-x: auto;
+  white-space: nowrap;
+
+  scrollbar-width: none;
+}
+
+.scientific-expression::-webkit-scrollbar {
+  display: none;
+}
+
+.scientific-result {
+  color: #f8fafc;
+
+  font-size: 32px;
+  line-height: 1.15;
+
+  font-weight: 800;
+
+  text-align: right;
+
+  overflow-x: auto;
+  white-space: nowrap;
+
+  scrollbar-width: none;
+}
+
+.scientific-result::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* =========================================================
+   HISTORY
+========================================================= */
+
+.scientific-history {
+  margin-bottom: 12px;
+
+  background: #0b1220;
+
+  border: 1px solid #1f2937;
+
+  border-radius: 11px;
+
+  overflow: hidden;
+}
+
+.history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 11px 13px;
+
+  background: #0f172a;
+
+  border-bottom: 1px solid #1f2937;
+}
+
+.history-header strong {
+  color: #e2e8f0;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.history-header button {
+  border: none;
+
+  background: transparent;
+
+  color: #38bdf8;
+
+  font-family: inherit;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.history-header button:hover {
+  color: #7dd3fc;
+}
+
+.history-list {
+  max-height: 180px;
+
+  overflow-y: auto;
+}
+
+.history-empty {
+  padding: 16px;
+
+  color: #64748b;
+
+  font-size: 12px;
+
+  text-align: center;
+}
+
+.history-item {
+  padding: 11px 13px;
+
+  border-bottom: 1px solid #1f2937;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease;
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.history-item:hover {
+  background: #111c2f;
+}
+
+.history-expression {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #64748b;
+
+  font-size: 11px;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+.history-result {
+  display: block;
+
+  color: #38bdf8;
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   KEYPAD
+========================================================= */
+
+.scientific-keypad {
+  display: grid;
+
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  gap: 7px;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   ALL KEYS
+========================================================= */
+
+.scientific-key {
+  min-width: 0;
+
+  min-height: 52px;
+
+  padding: 0 5px;
+
+  border-radius: 10px;
+
+  border: 1px solid #263449;
+
+  background: #0f172a;
+
+  color: #e2e8f0;
+
+  font-family: inherit;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  user-select: none;
+
+  -webkit-tap-highlight-color: transparent;
+
+  touch-action: manipulation;
+
+  transition:
+    background 0.16s ease,
+    border-color 0.16s ease,
+    color 0.16s ease,
+    transform 0.1s ease,
+    box-shadow 0.16s ease;
+}
+
+.scientific-key:hover {
+  background: #172235;
+
+  border-color: #334155;
+
+  color: #f8fafc;
+}
+
+.scientific-key:active {
+  transform: scale(0.95);
+
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =========================================================
+   NUMBER KEYS
+========================================================= */
+
+.number-key {
+  background: #111c2f;
+
+  border-color: #263449;
+
+  color: #f8fafc;
+
+  font-size: 17px;
+}
+
+.number-key:hover {
+  background: #17263c;
+
+  border-color: #38bdf8;
+}
+
+
+/* =========================================================
+   FUNCTION KEYS
+========================================================= */
+
+.function-key {
+  background: #0d1727;
+
+  color: #94a3b8;
+
+  font-size: 12px;
+}
+
+.function-key:hover {
+  color: #38bdf8;
+
+  border-color: rgba(56, 189, 248, 0.45);
+
+  background: #111c2f;
+}
+
+
+/* =========================================================
+   CONSTANT KEYS
+========================================================= */
+
+.constant-key {
+  background: rgba(56, 189, 248, 0.055);
+
+  border-color: rgba(56, 189, 248, 0.18);
+
+  color: #7dd3fc;
+}
+
+.constant-key:hover {
+  background: rgba(56, 189, 248, 0.11);
+
+  border-color: #38bdf8;
+
+  color: #bae6fd;
+}
+
+
+/* =========================================================
+   OPERATOR KEYS
+========================================================= */
+
+.operator-key {
+  background: #172235;
+
+  border-color: #334155;
+
+  color: #7dd3fc;
+
+  font-size: 18px;
+}
+
+.operator-key:hover {
+  background: #1d2d44;
+
+  border-color: #38bdf8;
+
+  color: #bae6fd;
+}
+
+
+/* =========================================================
+   CONTROL KEYS
+========================================================= */
+
+.control-key {
+  background: rgba(239, 68, 68, 0.07);
+
+  border-color: rgba(239, 68, 68, 0.2);
+
+  color: #fca5a5;
+
+  font-size: 12px;
+}
+
+.control-key:hover {
+  background: rgba(239, 68, 68, 0.12);
+
+  border-color: rgba(239, 68, 68, 0.4);
+
+  color: #fecaca;
+}
+
+
+/* =========================================================
+   BRACKET KEYS
+========================================================= */
+
+.bracket-key {
+  color: #cbd5e1;
+
+  background: #111c2f;
+}
+
+
+/* =========================================================
+   EQUALS
+========================================================= */
+
+.equals-key {
+  background: #38bdf8;
+
+  border-color: #38bdf8;
+
+  color: #082f49;
+
+  font-size: 19px;
+}
+
+.equals-key:hover {
+  background: #7dd3fc;
+
+  border-color: #7dd3fc;
+
+  color: #082f49;
+}
+
+
+/* =========================================================
+   ZERO
+========================================================= */
+
+.zero-key {
+  grid-column: span 2;
+}
+
+
+/* =========================================================
+   SEO INFORMATION
+========================================================= */
+
+.scientific-info {
+  margin-top: 30px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid #1f2937;
+}
+
+.scientific-info h2,
+.scientific-faq h2,
+.related-calculators h2 {
+  margin: 0 0 11px;
+
+  color: #f8fafc;
+
+  font-size: 20px;
+
+  line-height: 1.35;
+}
+
+.scientific-info p,
+.scientific-faq p,
+.related-calculators > p {
+  margin: 0 0 17px;
+
+  color: #94a3b8;
+
+  font-size: 13px;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   FORMULA BOX
+========================================================= */
+
+.formula-box {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-top: 9px;
+
+  padding: 14px;
+
+  background: #0f172a;
+
+  border: 1px solid #1f2937;
+
+  border-radius: 10px;
+}
+
+.formula-box span {
+  color: #94a3b8;
+
+  font-size: 12px;
+
+  font-weight: 650;
+}
+
+.formula-box strong {
+  color: #38bdf8;
+
+  font-size: 12px;
+
+  text-align: right;
+}
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.scientific-faq {
+  margin-top: 32px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid #1f2937;
+}
+
+.faq-card {
+  padding: 15px 0;
+
+  border-bottom: 1px solid #1f2937;
+}
+
+.faq-card:last-child {
+  border-bottom: none;
+}
+
+.faq-card h3 {
+  margin: 0 0 7px;
+
+  color: #38bdf8;
+
+  font-size: 15px;
+
+  line-height: 1.45;
+}
+
+.faq-card p {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   RELATED CALCULATORS
+========================================================= */
+
+.related-calculators {
+  margin-top: 32px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid #1f2937;
+}
+
+.related-grid {
+  display: grid;
+
+  gap: 10px;
+}
+
+.related-card {
+  display: block;
+
+  padding: 16px;
+
+  background: #0f172a;
+
+  border: 1px solid #1f2937;
+
+  border-radius: 11px;
+
+  text-decoration: none;
+
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.related-card:hover {
+  border-color: #38bdf8;
+
+  background: #111c2f;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+.related-card strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #38bdf8;
+
+  font-size: 14px;
+}
+
+.related-card span {
+  color: #94a3b8;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+.all-calculators-link {
+  display: inline-block;
+
+  margin-top: 15px;
+
+  color: #38bdf8;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  text-decoration: none;
+}
+
+.all-calculators-link:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 600px) {
+
+  .scientific-page {
+    padding: 45px 20px 80px;
+  }
+
+  .scientific-header {
+    gap: 18px;
+
+    margin-bottom: 20px;
+  }
+
+  .scientific-icon {
+    width: 64px;
+    height: 64px;
+
+    flex-basis: 64px;
+
+    font-size: 30px;
+  }
+
+  .scientific-header h1 {
+    font-size: 34px;
+  }
+
+  .scientific-header p {
+    font-size: 14px;
+  }
+
+  .scientific-box {
+    padding: 22px;
+
+    border-radius: 20px;
+  }
+
+  .scientific-display {
+    min-height: 145px;
+
+    padding: 20px;
+
+    border-radius: 15px;
+  }
+
+  .scientific-result {
+    font-size: 38px;
+  }
+
+  .scientific-keypad {
+    gap: 9px;
+  }
+
+  .scientific-key {
+    min-height: 58px;
+
+    border-radius: 11px;
+
+    font-size: 15px;
+  }
+
+  .number-key {
+    font-size: 18px;
+  }
+
+  .function-key {
+    font-size: 13px;
+  }
+
+  .operator-key {
+    font-size: 20px;
+  }
+
+  .equals-key {
+    font-size: 21px;
+  }
+
+  .related-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 900px) {
+
+  .scientific-page {
+    padding-top: 55px;
+  }
+
+  .scientific-calculator {
+    max-width: 920px;
+  }
+
+  .scientific-header h1 {
+    font-size: 38px;
+  }
+
+  .scientific-header p {
+    font-size: 15px;
+  }
+
+  .scientific-box {
+    padding: 28px;
+  }
+
+  .scientific-keypad {
+    gap: 10px;
+  }
+
+  .scientific-key {
+    min-height: 62px;
+
+    border-radius: 12px;
+  }
+
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1200px) {
+
+  .scientific-page {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .scientific-key {
+    min-height: 66px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .scientific-page {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .scientific-box {
+    padding: 10px;
+  }
+
+  .scientific-header {
+    gap: 10px;
+  }
+
+  .scientific-icon {
+    width: 46px;
+    height: 46px;
+
+    flex-basis: 46px;
+
+    border-radius: 12px;
+
+    font-size: 22px;
+  }
+
+  .scientific-header h1 {
+    font-size: 23px;
+  }
+
+  .scientific-header p {
+    font-size: 11px;
+  }
+
+  .scientific-display {
+    min-height: 115px;
+
+    padding: 12px;
+  }
+
+  .scientific-result {
+    font-size: 27px;
+  }
+
+  .scientific-keypad {
+    gap: 5px;
+  }
+
+  .scientific-key {
+    min-height: 46px;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+  }
+
+  .number-key {
+    font-size: 15px;
+  }
+
+  .operator-key {
+    font-size: 16px;
+  }
+
+  .equals-key {
+    font-size: 17px;
+  }
+
+  .function-key {
+    font-size: 10px;
+  }
+
+  .mode-btn,
+  .history-toggle {
+    min-height: 31px;
+
+    padding: 0 9px;
+
+    font-size: 10px;
+  }
+
+}
