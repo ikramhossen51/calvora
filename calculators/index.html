@@ -3,24 +3,23 @@
 <head>
 
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Calvora – Free Online Calculators</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Calculators – Calvora</title>
 
   <meta
     name="description"
-    content="Calvora provides fast, accurate, and free online calculators for finance, business, math, health, and everyday calculations."
+    content="Explore Calvora's free online calculators for finance, business, math, health, and everyday calculations."
   >
 
-  <meta name="robots" content="index, follow">
-
-  <meta name="author" content="Calvora">
-
-  <meta name="theme-color" content="#0f172a">
-
+  <!-- GLOBAL CSS -->
   <link
-    rel="canonical"
-    href="https://calvora.net/"
+    rel="stylesheet"
+    href="../assets/css/style.css"
   >
 
 </head>
@@ -28,15 +27,15 @@
 <body>
 
 
-<!-- =====================================================
+<!-- =========================================================
      HEADER
-===================================================== -->
+========================================================= -->
 
 <header id="site-header">
 
   <div class="logo">
 
-    <a href="./">
+    <a href="../">
       Calvora
     </a>
 
@@ -45,27 +44,27 @@
 
   <nav class="main-nav">
 
-    <a href="./">
+    <a href="../">
       Home
     </a>
 
-    <a href="./calculators/">
+    <a href="./">
       Calculators
     </a>
 
-    <a href="./categories/">
+    <a href="../categories/">
       Categories
     </a>
 
-    <a href="./pages/about.html">
+    <a href="../pages/about.html">
       About
     </a>
 
-    <a href="./pages/contact.html">
+    <a href="../pages/contact.html">
       Contact
     </a>
 
-    <a href="./search.html">
+    <a href="../search.html">
       Search
     </a>
 
@@ -75,16 +74,16 @@
 
 
 
-<!-- =====================================================
-     PREMIUM HERO SECTION
-===================================================== -->
+<!-- =========================================================
+     CALCULATORS HERO
+========================================================= -->
 
-<section class="hero">
+<section class="calculators-hero">
 
-  <div class="hero-content">
+  <div class="calculators-hero-content">
 
-    <span class="hero-badge">
-      FREE • FAST • ACCURATE
+    <span class="section-label">
+      CALVORA CALCULATORS
     </span>
 
     <h1>
@@ -93,27 +92,10 @@
     </h1>
 
     <p>
-      Calculate finance, business, math, health, and everyday problems
-      quickly with Calvora's free online calculators.
+      Explore our growing collection of free,
+      fast, and accurate online calculators
+      designed for everyday use.
     </p>
-
-    <div class="hero-actions">
-
-      <a
-        href="./calculators/"
-        class="hero-btn"
-      >
-        Explore Calculators
-      </a>
-
-      <a
-        href="#popular"
-        class="hero-secondary-btn"
-      >
-        Popular Tools
-      </a>
-
-    </div>
 
   </div>
 
@@ -121,15 +103,18 @@
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      CALCULATOR SEARCH
-===================================================== -->
+========================================================= -->
 
-<section class="calculator-search">
+<section class="calculator-search calculators-search-page">
 
   <div class="search-box">
 
-    <span class="search-icon">
+    <span
+      class="search-icon"
+      aria-hidden="true"
+    >
       ⌕
     </span>
 
@@ -138,6 +123,7 @@
       id="calculatorSearch"
       placeholder="Search calculators..."
       aria-label="Search calculators"
+      autocomplete="off"
     >
 
   </div>
@@ -146,665 +132,699 @@
 
 
 
-<!-- =====================================================
-     POPULAR CALCULATORS
-===================================================== -->
+<!-- =========================================================
+     CALCULATORS
+========================================================= -->
 
-<section
-  class="section"
-  id="popular"
->
+<main class="calculators-page">
 
-  <div class="section-heading">
+  <section class="section">
 
-    <div>
+    <div class="section-heading">
 
-      <span class="section-label">
-        POPULAR TOOLS
-      </span>
+      <div>
 
-      <h2>
-        Calculators people use most
-      </h2>
+        <span class="section-label">
+          ALL CALCULATORS
+        </span>
 
-      <p>
-        Quick access to some of Calvora's most useful calculators.
-      </p>
-
-    </div>
-
-
-    <a
-      href="./calculators/"
-      class="view-all"
-    >
-      View All →
-    </a>
-
-  </div>
-
-
-
-  <div class="calculator-grid">
-
-
-    <!-- =================================================
-         MARGIN CALCULATOR
-    ================================================== -->
-
-    <a
-      href="./calculators/margin/"
-      class="calculator-card"
-    >
-
-      <div
-        class="calculator-icon margin-icon"
-        aria-hidden="true"
-      >
-
-        <svg
-          viewBox="0 0 48 48"
-          fill="none"
-        >
-
-          <circle
-            cx="24"
-            cy="24"
-            r="15"
-            stroke="currentColor"
-            stroke-width="3"
-          />
-
-          <path
-            d="M24 24L34 17"
-            stroke="currentColor"
-            stroke-width="3"
-            stroke-linecap="round"
-          />
-
-          <circle
-            cx="24"
-            cy="24"
-            r="3"
-            fill="currentColor"
-          />
-
-          <path
-            d="M13 32C16 37 20 39 24 39"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-          />
-
-        </svg>
-
-      </div>
-
-
-      <div class="calculator-card-content">
-
-        <h3>
-          Margin Calculator
-        </h3>
+        <h2>
+          Choose a calculator
+        </h2>
 
         <p>
-          Calculate profit, margin, and markup instantly.
+          Select the tool you need and get
+          accurate results instantly.
         </p>
 
       </div>
 
-
-      <span class="card-arrow">
-        →
-      </span>
-
-    </a>
+    </div>
 
 
+    <div class="calculator-grid">
 
-    <!-- =================================================
-         SCIENTIFIC CALCULATOR
-    ================================================== -->
 
-    <a
-      href="./calculators/scientific/"
-      class="calculator-card"
-    >
+      <!-- =================================================
+           MARGIN CALCULATOR
+      ================================================== -->
 
-      <div
-        class="calculator-icon scientific-icon"
-        aria-hidden="true"
+      <a
+        href="./margin/"
+        class="calculator-card"
       >
 
-        <svg
-          viewBox="0 0 48 48"
-          fill="none"
+        <div
+          class="calculator-icon calculator-icon-margin"
+          aria-hidden="true"
         >
 
-          <rect
-            x="7"
-            y="7"
-            width="34"
-            height="34"
-            rx="6"
-            stroke="currentColor"
-            stroke-width="3"
-          />
+          <svg
+            viewBox="0 0 48 48"
+            fill="none"
+          >
 
-          <path
-            d="M13 15H35"
-            stroke="currentColor"
-            stroke-width="3"
-            stroke-linecap="round"
-          />
+            <circle
+              cx="24"
+              cy="24"
+              r="15"
+              stroke="currentColor"
+              stroke-width="3"
+            />
 
-          <circle
-            cx="16"
-            cy="23"
-            r="2"
-            fill="currentColor"
-          />
+            <path
+              d="M24 24L34 17"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
 
-          <circle
-            cx="24"
-            cy="23"
-            r="2"
-            fill="currentColor"
-          />
+            <circle
+              cx="24"
+              cy="24"
+              r="3"
+              fill="currentColor"
+            />
 
-          <circle
-            cx="32"
-            cy="23"
-            r="2"
-            fill="currentColor"
-          />
+            <path
+              d="M13 32C16 37 20 39 24 39"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
 
-          <circle
-            cx="16"
-            cy="31"
-            r="2"
-            fill="currentColor"
-          />
+          </svg>
 
-          <circle
-            cx="24"
-            cy="31"
-            r="2"
-            fill="currentColor"
-          />
-
-          <circle
-            cx="32"
-            cy="31"
-            r="2"
-            fill="currentColor"
-          />
-
-        </svg>
-
-      </div>
+        </div>
 
 
-      <div class="calculator-card-content">
+        <div class="calculator-card-content">
 
-        <h3>
-          Scientific Calculator
-        </h3>
+          <span class="calculator-category">
+            BUSINESS
+          </span>
 
-        <p>
-          Perform advanced mathematical calculations quickly and accurately.
-        </p>
+          <h3>
+            Margin Calculator
+          </h3>
 
-      </div>
+          <p>
+            Calculate profit, margin, and markup
+            instantly.
+          </p>
+
+        </div>
 
 
-      <span class="card-arrow">
-        →
-      </span>
+        <span class="card-arrow">
+          →
+        </span>
 
-    </a>
+      </a>
 
 
 
-    <!-- =================================================
-         DISCOUNT CALCULATOR
-    ================================================== -->
+      <!-- =================================================
+           PERCENTAGE CALCULATOR
+      ================================================== -->
 
-    <a
-      href="./calculators/discount/"
-      class="calculator-card"
-    >
-
-      <div
-        class="calculator-icon discount-icon"
-        aria-hidden="true"
+      <a
+        href="./percentage/"
+        class="calculator-card"
       >
 
-        <svg
-          viewBox="0 0 48 48"
-          fill="none"
+        <div
+          class="calculator-icon calculator-icon-percentage"
+          aria-hidden="true"
         >
 
-          <path
-            d="M9 18L18 9H34L39 14V30L30 39H14L9 34V18Z"
-            stroke="currentColor"
-            stroke-width="3"
-            stroke-linejoin="round"
-          />
+          <svg
+            viewBox="0 0 48 48"
+            fill="none"
+          >
 
-          <circle
-            cx="19"
-            cy="19"
-            r="2.5"
-            fill="currentColor"
-          />
+            <circle
+              cx="15"
+              cy="15"
+              r="5"
+              stroke="currentColor"
+              stroke-width="3"
+            />
 
-          <path
-            d="M20 30H31"
-            stroke="currentColor"
-            stroke-width="3"
-            stroke-linecap="round"
-          />
+            <circle
+              cx="33"
+              cy="33"
+              r="5"
+              stroke="currentColor"
+              stroke-width="3"
+            />
 
-          <path
-            d="M25.5 24.5V35.5"
-            stroke="currentColor"
-            stroke-width="3"
-            stroke-linecap="round"
-          />
+            <path
+              d="M35 13L13 35"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
 
-        </svg>
+          </svg>
 
-      </div>
-
-
-      <div class="calculator-card-content">
-
-        <h3>
-          Discount Calculator
-        </h3>
-
-        <p>
-          Find sale prices and savings instantly.
-        </p>
-
-      </div>
+        </div>
 
 
-      <span class="card-arrow">
-        →
-      </span>
+        <div class="calculator-card-content">
 
-    </a>
+          <span class="calculator-category">
+            MATH
+          </span>
+
+          <h3>
+            Percentage Calculator
+          </h3>
+
+          <p>
+            Calculate percentages quickly
+            and accurately.
+          </p>
+
+        </div>
+
+
+        <span class="card-arrow">
+          →
+        </span>
+
+      </a>
 
 
 
-    <!-- =================================================
-         PROFIT CALCULATOR
-    ================================================== -->
+      <!-- =================================================
+           DISCOUNT CALCULATOR
+      ================================================== -->
 
-    <a
-      href="./calculators/profit/"
-      class="calculator-card"
-    >
-
-      <div
-        class="calculator-icon profit-icon"
-        aria-hidden="true"
+      <a
+        href="./discount/"
+        class="calculator-card"
       >
 
-        <svg
-          viewBox="0 0 48 48"
-          fill="none"
+        <div
+          class="calculator-icon calculator-icon-discount"
+          aria-hidden="true"
         >
 
-          <rect
-            x="9"
-            y="27"
-            width="6"
-            height="12"
-            rx="2"
-            fill="currentColor"
-          />
+          <svg
+            viewBox="0 0 48 48"
+            fill="none"
+          >
 
-          <rect
-            x="21"
-            y="21"
-            width="6"
-            height="18"
-            rx="2"
-            fill="currentColor"
-          />
+            <path
+              d="M9 18L18 9H34L39 14V30L30 39H14L9 34V18Z"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linejoin="round"
+            />
 
-          <rect
-            x="33"
-            y="13"
-            width="6"
-            height="26"
-            rx="2"
-            fill="currentColor"
-          />
+            <circle
+              cx="19"
+              cy="19"
+              r="2.5"
+              fill="currentColor"
+            />
 
-          <path
-            d="M9 20L18 17L25 19L38 8"
-            stroke="currentColor"
-            stroke-width="3"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
+            <path
+              d="M20 30H31"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
 
-          <path
-            d="M31 8H38V15"
-            stroke="currentColor"
-            stroke-width="3"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
+            <path
+              d="M25.5 24.5V35.5"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
 
-        </svg>
+          </svg>
 
-      </div>
+        </div>
 
 
-      <div class="calculator-card-content">
+        <div class="calculator-card-content">
 
-        <h3>
-          Profit Calculator
-        </h3>
+          <span class="calculator-category">
+            FINANCE
+          </span>
 
-        <p>
-          Calculate revenue, cost, and profit.
-        </p>
+          <h3>
+            Discount Calculator
+          </h3>
 
-      </div>
+          <p>
+            Find sale prices and savings
+            instantly.
+          </p>
 
-
-      <span class="card-arrow">
-        →
-      </span>
-
-    </a>
+        </div>
 
 
-  </div>
+        <span class="card-arrow">
+          →
+        </span>
 
-</section>
+      </a>
 
 
 
-<!-- =====================================================
-     CATEGORIES
-===================================================== -->
+      <!-- =================================================
+           PROFIT CALCULATOR
+      ================================================== -->
 
-<section class="section categories-section">
+      <a
+        href="./profit/"
+        class="calculator-card"
+      >
 
-  <div class="section-heading">
+        <div
+          class="calculator-icon calculator-icon-profit"
+          aria-hidden="true"
+        >
 
-    <div>
+          <svg
+            viewBox="0 0 48 48"
+            fill="none"
+          >
 
-      <span class="section-label">
-        CATEGORIES
-      </span>
+            <rect
+              x="9"
+              y="27"
+              width="6"
+              height="12"
+              rx="2"
+              fill="currentColor"
+            />
 
-      <h2>
-        Calculate anything
-      </h2>
+            <rect
+              x="21"
+              y="21"
+              width="6"
+              height="18"
+              rx="2"
+              fill="currentColor"
+            />
 
-      <p>
-        Explore calculators organized by category.
-      </p>
+            <rect
+              x="33"
+              y="13"
+              width="6"
+              height="26"
+              rx="2"
+              fill="currentColor"
+            />
+
+            <path
+              d="M9 20L18 17L25 19L38 8"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+
+            <path
+              d="M31 8H38V15"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+
+          </svg>
+
+        </div>
+
+
+        <div class="calculator-card-content">
+
+          <span class="calculator-category">
+            BUSINESS
+          </span>
+
+          <h3>
+            Profit Calculator
+          </h3>
+
+          <p>
+            Calculate revenue, cost,
+            and profit.
+          </p>
+
+        </div>
+
+
+        <span class="card-arrow">
+          →
+        </span>
+
+      </a>
+
+
+
+      <!-- =================================================
+           BMI CALCULATOR
+      ================================================== -->
+
+      <a
+        href="./bmi/"
+        class="calculator-card"
+      >
+
+        <div
+          class="calculator-icon calculator-icon-bmi"
+          aria-hidden="true"
+        >
+
+          <svg
+            viewBox="0 0 48 48"
+            fill="none"
+          >
+
+            <circle
+              cx="24"
+              cy="24"
+              r="16"
+              stroke="currentColor"
+              stroke-width="3"
+            />
+
+            <path
+              d="M24 24L32 17"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+
+            <path
+              d="M16 31H32"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+
+          </svg>
+
+        </div>
+
+
+        <div class="calculator-card-content">
+
+          <span class="calculator-category">
+            HEALTH
+          </span>
+
+          <h3>
+            BMI Calculator
+          </h3>
+
+          <p>
+            Calculate your body mass index
+            quickly and easily.
+          </p>
+
+        </div>
+
+
+        <span class="card-arrow">
+          →
+        </span>
+
+      </a>
+
+
+
+      <!-- =================================================
+           AGE CALCULATOR
+      ================================================== -->
+
+      <a
+        href="./age/"
+        class="calculator-card"
+      >
+
+        <div
+          class="calculator-icon calculator-icon-age"
+          aria-hidden="true"
+        >
+
+          <svg
+            viewBox="0 0 48 48"
+            fill="none"
+          >
+
+            <rect
+              x="9"
+              y="11"
+              width="30"
+              height="27"
+              rx="4"
+              stroke="currentColor"
+              stroke-width="3"
+            />
+
+            <path
+              d="M16 8V15"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+
+            <path
+              d="M32 8V15"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+
+            <path
+              d="M15 22H33"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+
+            <circle
+              cx="24"
+              cy="29"
+              r="3"
+              fill="currentColor"
+            />
+
+          </svg>
+
+        </div>
+
+
+        <div class="calculator-card-content">
+
+          <span class="calculator-category">
+            EVERYDAY
+          </span>
+
+          <h3>
+            Age Calculator
+          </h3>
+
+          <p>
+            Calculate your exact age from
+            your date of birth.
+          </p>
+
+        </div>
+
+
+        <span class="card-arrow">
+          →
+        </span>
+
+      </a>
+
+
+
+      <!-- =================================================
+           LOAN CALCULATOR
+      ================================================== -->
+
+      <a
+        href="./loan/"
+        class="calculator-card"
+      >
+
+        <div
+          class="calculator-icon calculator-icon-loan"
+          aria-hidden="true"
+        >
+
+          <svg
+            viewBox="0 0 48 48"
+            fill="none"
+          >
+
+            <path
+              d="M8 21L24 10L40 21"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+
+            <path
+              d="M12 21V36H36V21"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linejoin="round"
+            />
+
+            <path
+              d="M18 36V27H30V36"
+              stroke="currentColor"
+              stroke-width="3"
+            />
+
+          </svg>
+
+        </div>
+
+
+        <div class="calculator-card-content">
+
+          <span class="calculator-category">
+            FINANCE
+          </span>
+
+          <h3>
+            Loan Calculator
+          </h3>
+
+          <p>
+            Estimate monthly payments,
+            interest, and loan costs.
+          </p>
+
+        </div>
+
+
+        <span class="card-arrow">
+          →
+        </span>
+
+      </a>
+
+
+
+      <!-- =================================================
+           INTEREST CALCULATOR
+      ================================================== -->
+
+      <a
+        href="./interest/"
+        class="calculator-card"
+      >
+
+        <div
+          class="calculator-icon calculator-icon-interest"
+          aria-hidden="true"
+        >
+
+          <svg
+            viewBox="0 0 48 48"
+            fill="none"
+          >
+
+            <circle
+              cx="24"
+              cy="24"
+              r="16"
+              stroke="currentColor"
+              stroke-width="3"
+            />
+
+            <path
+              d="M29 17C27.5 15.5 25.5 15 23.5 15C20.5 15 18 17 18 19.5C18 22 20 23 24 24C28 25 30 26 30 28.5C30 31 27.5 33 24.5 33C22 33 19.5 32 18 30"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            />
+
+            <path
+              d="M24 12V36"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            />
+
+          </svg>
+
+        </div>
+
+
+        <div class="calculator-card-content">
+
+          <span class="calculator-category">
+            FINANCE
+          </span>
+
+          <h3>
+            Interest Calculator
+          </h3>
+
+          <p>
+            Calculate interest and understand
+            your money growth.
+          </p>
+
+        </div>
+
+
+        <span class="card-arrow">
+          →
+        </span>
+
+      </a>
+
 
     </div>
 
-  </div>
+  </section>
 
+</main>
 
-  <div class="category-grid">
 
 
-    <a
-      href="./categories/finance/"
-      class="category-card"
-    >
-
-      <span class="category-icon">
-        ₿
-      </span>
-
-      <h3>
-        Finance
-      </h3>
-
-      <p>
-        Loans, interest, investments, and money.
-      </p>
-
-      <span class="category-link">
-        Explore →
-      </span>
-
-    </a>
-
-
-
-    <a
-      href="./categories/business/"
-      class="category-card"
-    >
-
-      <span class="category-icon">
-        ▣
-      </span>
-
-      <h3>
-        Business
-      </h3>
-
-      <p>
-        Profit, margin, pricing, and business tools.
-      </p>
-
-      <span class="category-link">
-        Explore →
-      </span>
-
-    </a>
-
-
-
-    <a
-      href="./categories/math/"
-      class="category-card"
-    >
-
-      <span class="category-icon">
-        ∑
-      </span>
-
-      <h3>
-        Math
-      </h3>
-
-      <p>
-        Percentages, numbers, equations, and more.
-      </p>
-
-      <span class="category-link">
-        Explore →
-      </span>
-
-    </a>
-
-
-
-    <a
-      href="./categories/health/"
-      class="category-card"
-    >
-
-      <span class="category-icon">
-        ♥
-      </span>
-
-      <h3>
-        Health
-      </h3>
-
-      <p>
-        BMI, age, health, and fitness calculations.
-      </p>
-
-      <span class="category-link">
-        Explore →
-      </span>
-
-    </a>
-
-
-
-    <a
-      href="./categories/everyday/"
-      class="category-card"
-    >
-
-      <span class="category-icon">
-        ◈
-      </span>
-
-      <h3>
-        Everyday
-      </h3>
-
-      <p>
-        Useful tools for everyday calculations.
-      </p>
-
-      <span class="category-link">
-        Explore →
-      </span>
-
-    </a>
-
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     WHY CALVORA
-===================================================== -->
-
-<section class="why-calvora">
-
-  <div class="why-content">
-
-    <span class="section-label">
-      WHY CALVORA
-    </span>
-
-    <h2>
-      Simple tools.<br>
-      Reliable results.
-    </h2>
-
-    <p>
-      Calvora is designed to make everyday calculations easier,
-      faster, and more accessible.
-    </p>
-
-  </div>
-
-
-  <div class="features-grid">
-
-
-    <div class="feature">
-
-      <strong>
-        01
-      </strong>
-
-      <h3>
-        Fast
-      </h3>
-
-      <p>
-        Get results instantly without complicated steps.
-      </p>
-
-    </div>
-
-
-
-    <div class="feature">
-
-      <strong>
-        02
-      </strong>
-
-      <h3>
-        Accurate
-      </h3>
-
-      <p>
-        Built with clear formulas and reliable calculations.
-      </p>
-
-    </div>
-
-
-
-    <div class="feature">
-
-      <strong>
-        03
-      </strong>
-
-      <h3>
-        Free
-      </h3>
-
-      <p>
-        Use Calvora's calculators without paying anything.
-      </p>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     CTA
-===================================================== -->
+<!-- =========================================================
+     FINAL CTA
+========================================================= -->
 
 <section class="final-cta">
 
   <div>
 
     <span class="section-label">
-      START CALCULATING
+      CALVORA
     </span>
 
     <h2>
-      Find the calculator<br>
-      you need.
+      Calculate smarter.<br>
+      Get results faster.
     </h2>
 
     <p>
-      Explore our growing collection of free online calculators.
+      Free, simple, and accurate calculators
+      for everyday needs.
     </p>
 
     <a
-      href="./calculators/"
+      href="../"
       class="hero-btn"
     >
-      Browse All Calculators →
+      Back to Home →
     </a>
 
   </div>
@@ -813,16 +833,16 @@
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      FOOTER
-===================================================== -->
+========================================================= -->
 
 <footer id="site-footer">
 
   <div class="footer-brand">
 
     <a
-      href="./"
+      href="../"
       class="footer-logo"
     >
       Calvora
@@ -837,22 +857,21 @@
 
   <div class="footer-links">
 
-
     <div>
 
       <h4>
         Explore
       </h4>
 
-      <a href="./calculators/">
+      <a href="./">
         Calculators
       </a>
 
-      <a href="./categories/">
+      <a href="../categories/">
         Categories
       </a>
 
-      <a href="./search.html">
+      <a href="../search.html">
         Search
       </a>
 
@@ -865,16 +884,15 @@
         Company
       </h4>
 
-      <a href="./pages/about.html">
+      <a href="../pages/about.html">
         About
       </a>
 
-      <a href="./pages/contact.html">
+      <a href="../pages/contact.html">
         Contact
       </a>
 
     </div>
-
 
   </div>
 
@@ -882,11 +900,11 @@
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      JAVASCRIPT
-===================================================== -->
+========================================================= -->
 
-<script src="assets/js/script.js"></script>
+<script src="../assets/js/script.js"></script>
 
 </body>
 </html>
