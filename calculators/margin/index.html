@@ -3,10 +3,6 @@
 
 <head>
 
-  <!-- =====================================================
-       BASIC SEO
-  ====================================================== -->
-
   <meta charset="UTF-8">
 
   <meta
@@ -14,9 +10,7 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>
-    Margin Calculator – Profit Margin & Markup Calculator | Calvora
-  </title>
+  <title>Margin Calculator – Profit Margin & Markup Calculator | Calvora</title>
 
   <meta
     name="description"
@@ -49,9 +43,7 @@
   >
 
 
-  <!-- =====================================================
-       CANONICAL
-  ====================================================== -->
+  <!-- CANONICAL -->
 
   <link
     rel="canonical"
@@ -59,9 +51,7 @@
   >
 
 
-  <!-- =====================================================
-       OPEN GRAPH
-  ====================================================== -->
+  <!-- OPEN GRAPH -->
 
   <meta
     property="og:type"
@@ -94,9 +84,7 @@
   >
 
 
-  <!-- =====================================================
-       TWITTER CARD
-  ====================================================== -->
+  <!-- TWITTER -->
 
   <meta
     name="twitter:card"
@@ -119,19 +107,14 @@
   >
 
 
-  <!-- =====================================================
-       GLOBAL CSS
-  ====================================================== -->
+  <!-- GLOBAL CSS -->
 
   <link
     rel="stylesheet"
     href="../../assets/css/style.css"
   >
 
-
-  <!-- =====================================================
-       MARGIN CSS
-  ====================================================== -->
+  <!-- MARGIN CSS -->
 
   <link
     rel="stylesheet"
@@ -139,9 +122,7 @@
   >
 
 
-  <!-- =====================================================
-       WEB APPLICATION SCHEMA
-  ====================================================== -->
+  <!-- WEB APPLICATION SCHEMA -->
 
   <script type="application/ld+json">
   {
@@ -164,9 +145,7 @@
   </script>
 
 
-  <!-- =====================================================
-       BREADCRUMB SCHEMA
-  ====================================================== -->
+  <!-- BREADCRUMB SCHEMA -->
 
   <script type="application/ld+json">
   {
@@ -196,9 +175,7 @@
   </script>
 
 
-  <!-- =====================================================
-       FAQ SCHEMA
-  ====================================================== -->
+  <!-- FAQ SCHEMA -->
 
   <script type="application/ld+json">
   {
@@ -247,62 +224,33 @@
 <body>
 
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
 <header id="site-header">
 
   <div class="logo">
-
-    <a href="../../">
-      Calvora
-    </a>
-
+    <a href="../../">Calvora</a>
   </div>
-
 
   <nav
     class="main-nav"
     aria-label="Main navigation"
   >
-
-    <a href="../../">
-      Home
-    </a>
-
-    <a href="../">
-      Calculators
-    </a>
-
-    <a href="../../categories/">
-      Categories
-    </a>
-
-    <a href="../../pages/about.html">
-      About
-    </a>
-
-    <a href="../../pages/contact.html">
-      Contact
-    </a>
-
+    <a href="../../">Home</a>
+    <a href="../">Calculators</a>
+    <a href="../../categories/">Categories</a>
+    <a href="../../pages/about.html">About</a>
+    <a href="../../pages/contact.html">Contact</a>
   </nav>
 
 </header>
 
 
 
-<!-- =====================================================
-     MAIN
-===================================================== -->
-
 <main class="margin-page">
 
 
-  <!-- ===================================================
+  <!-- =====================================================
        CALCULATOR
-  ==================================================== -->
+  ====================================================== -->
 
   <section
     class="margin-calculator"
@@ -310,16 +258,52 @@
   >
 
 
-    <!-- HEADER -->
-
     <div class="margin-header">
 
+
+      <!-- MARGIN SVG ICON -->
 
       <div
         class="margin-icon"
         aria-hidden="true"
       >
-        %
+
+        <svg
+          viewBox="0 0 48 48"
+          fill="none"
+        >
+
+          <circle
+            cx="24"
+            cy="24"
+            r="15"
+            stroke="currentColor"
+            stroke-width="3"
+          />
+
+          <path
+            d="M24 24L34 17"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"
+          />
+
+          <circle
+            cx="24"
+            cy="24"
+            r="3"
+            fill="currentColor"
+          />
+
+          <path
+            d="M13 32C16 37 20 39 24 39"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+
+        </svg>
+
       </div>
 
 
@@ -329,11 +313,9 @@
           BUSINESS CALCULATOR
         </span>
 
-
         <h1 id="margin-calculator-title">
           Margin Calculator
         </h1>
-
 
         <p>
           Calculate profit, profit margin, and markup quickly and accurately.
@@ -345,19 +327,15 @@
 
 
 
-    <!-- =================================================
-         CALCULATOR BOX
-    ================================================== -->
+    <!-- CALCULATOR BOX -->
 
     <div class="calculator-box">
 
 
-      <!-- INPUTS -->
-
       <div class="margin-form">
 
 
-        <!-- COST -->
+        <!-- COST PRICE -->
 
         <div class="input-group">
 
@@ -365,13 +343,11 @@
             Cost Price
           </label>
 
-
           <div class="input-wrapper">
 
             <span class="currency-symbol">
               $
             </span>
-
 
             <input
               type="number"
@@ -389,7 +365,6 @@
         </div>
 
 
-
         <!-- SELLING PRICE -->
 
         <div class="input-group">
@@ -398,13 +373,11 @@
             Selling Price
           </label>
 
-
           <div class="input-wrapper">
 
             <span class="currency-symbol">
               $
             </span>
-
 
             <input
               type="number"
@@ -420,7 +393,6 @@
           </div>
 
         </div>
-
 
       </div>
 
@@ -441,19 +413,12 @@
 
       <div class="margin-actions">
 
-
         <button
           type="button"
           id="calculateMargin"
           class="margin-btn calculate-btn"
         >
-
-          <span aria-hidden="true">
-            🧮
-          </span>
-
           Calculate Margin
-
         </button>
 
 
@@ -462,23 +427,15 @@
           id="resetMargin"
           class="margin-btn reset-btn"
         >
-
-          <span aria-hidden="true">
-            ↻
-          </span>
-
+          <span aria-hidden="true">↻</span>
           Reset
-
         </button>
-
 
       </div>
 
 
 
-      <!-- =================================================
-           RESULTS
-      ================================================== -->
+      <!-- RESULTS -->
 
       <section
         id="marginResults"
@@ -488,17 +445,13 @@
         aria-label="Margin calculation result"
       >
 
-
         <div class="result-heading">
           Margin Calculation Results
         </div>
 
 
-
         <div class="result-grid">
 
-
-          <!-- PROFIT -->
 
           <div class="result-card">
 
@@ -516,9 +469,6 @@
           </div>
 
 
-
-          <!-- MARGIN -->
-
           <div class="result-card">
 
             <span class="result-label">
@@ -534,9 +484,6 @@
 
           </div>
 
-
-
-          <!-- MARKUP -->
 
           <div class="result-card">
 
@@ -556,12 +503,10 @@
 
         </div>
 
-
       </section>
 
 
     </div>
-
 
   </section>
 
@@ -576,11 +521,9 @@
     aria-labelledby="margin-seo-title"
   >
 
-
     <h2 id="margin-seo-title">
       Margin Calculator – Calculate Profit Margin and Markup
     </h2>
-
 
     <p>
       Use Calvora's free Margin Calculator to calculate profit,
@@ -589,7 +532,6 @@
       retailers, ecommerce sellers, freelancers, and service providers.
     </p>
 
-
     <p>
       Simply enter your cost price and selling price to instantly see
       how much profit you make, your profit margin percentage, and your
@@ -597,13 +539,9 @@
     </p>
 
 
-
-    <!-- FORMULA -->
-
     <h2>
       How to Calculate Profit Margin
     </h2>
-
 
     <p>
       Profit is the difference between the selling price and the cost price.
@@ -613,9 +551,7 @@
 
     <div class="formula-box">
 
-      <span>
-        Profit
-      </span>
+      <span>Profit</span>
 
       <strong>
         Selling Price − Cost Price
@@ -626,9 +562,7 @@
 
     <div class="formula-box">
 
-      <span>
-        Profit Margin
-      </span>
+      <span>Profit Margin</span>
 
       <strong>
         (Profit ÷ Selling Price) × 100
@@ -639,9 +573,7 @@
 
     <div class="formula-box">
 
-      <span>
-        Markup
-      </span>
+      <span>Markup</span>
 
       <strong>
         (Profit ÷ Cost Price) × 100
@@ -650,13 +582,9 @@
     </div>
 
 
-
-    <!-- SEARCH INTENT -->
-
     <h2>
       When Should You Use a Margin Calculator?
     </h2>
-
 
     <p>
       A margin calculator can help you understand product profitability,
@@ -666,13 +594,11 @@
       service business.
     </p>
 
-
     <p>
       For example, if a product costs $40 and sells for $60, the profit
-      is $20. The profit margin is based on the $60 selling price, while
-      markup is based on the $40 cost price.
+      is $20. The profit margin is based on the $60 selling price,
+      while markup is based on the $40 cost price.
     </p>
-
 
   </section>
 
@@ -687,11 +613,9 @@
     aria-labelledby="margin-faq-title"
   >
 
-
     <h2 id="margin-faq-title">
       Margin Calculator FAQ
     </h2>
-
 
 
     <div class="faq-card">
@@ -708,7 +632,6 @@
     </div>
 
 
-
     <div class="faq-card">
 
       <h3>
@@ -721,7 +644,6 @@
       </p>
 
     </div>
-
 
 
     <div class="faq-card">
@@ -738,7 +660,6 @@
     </div>
 
 
-
     <div class="faq-card">
 
       <h3>
@@ -751,7 +672,6 @@
       </p>
 
     </div>
-
 
   </section>
 
@@ -766,16 +686,13 @@
     aria-labelledby="related-calculators-title"
   >
 
-
     <h2 id="related-calculators-title">
       Related Calculators
     </h2>
 
-
     <p>
       Explore more free online calculators from Calvora.
     </p>
-
 
 
     <div class="related-grid">
@@ -797,7 +714,6 @@
       </a>
 
 
-
       <a
         href="../discount/"
         class="related-card"
@@ -812,7 +728,6 @@
         </span>
 
       </a>
-
 
 
       <a
@@ -841,7 +756,6 @@
       View All Calculators →
     </a>
 
-
   </section>
 
 
@@ -849,12 +763,7 @@
 
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
 <footer id="site-footer">
-
 
   <div class="footer-brand">
 
@@ -865,7 +774,6 @@
       Calvora
     </a>
 
-
     <p>
       Simple, fast, and free online calculators.
     </p>
@@ -873,9 +781,7 @@
   </div>
 
 
-
   <div class="footer-links">
-
 
     <div>
 
@@ -883,11 +789,9 @@
         Explore
       </h4>
 
-
       <a href="../">
         Calculators
       </a>
-
 
       <a href="../../categories/">
         Categories
@@ -896,18 +800,15 @@
     </div>
 
 
-
     <div>
 
       <h4>
         Company
       </h4>
 
-
       <a href="../../pages/about.html">
         About
       </a>
-
 
       <a href="../../pages/contact.html">
         Contact
@@ -915,20 +816,13 @@
 
     </div>
 
-
   </div>
-
 
 </footer>
 
 
 
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
 <script src="./margin.js"></script>
-
 
 </body>
 
