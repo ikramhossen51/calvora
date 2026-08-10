@@ -1,21 +1,15 @@
-/* =====================================================
-   CALVORA BASIC CALCULATOR
-===================================================== */
-
 document.addEventListener("DOMContentLoaded", function () {
 
-  const resultDisplay = document.querySelector(".calculator-result");
-  const expressionDisplay = document.querySelector(".calculator-expression");
-  const keys = document.querySelector(".calculator-keys");
+  const display = document.getElementById("basicDisplay");
+  const expressionDisplay = document.getElementById("basicExpression");
+  const keypad = document.querySelector(".basic-keypad");
 
-  if (!resultDisplay || !keys) {
-    return;
-  }
+  if (!display || !keypad) return;
 
 
-  /* ===================================================
-     STATE
-  =================================================== */
+  /* =====================================================
+     CALCULATOR STATE
+  ====================================================== */
 
   let currentValue = "0";
   let previousValue = null;
@@ -24,32 +18,24 @@ document.addEventListener("DOMContentLoaded", function () {
   let expression = "";
 
 
-  /* ===================================================
+  /* =====================================================
      DISPLAY
-  =================================================== */
+  ====================================================== */
 
   function updateDisplay() {
 
-    resultDisplay.textContent = formatDisplayValue(currentValue);
+    display.textContent = formatNumber(currentValue);
 
     if (expressionDisplay) {
-      expressionDisplay.textContent = expression || "";
+      expressionDisplay.textContent = expression;
     }
   }
 
 
-  function formatDisplayValue(value) {
+  function formatNumber(value) {
 
     if (value === "Error") {
       return "Error";
-    }
-
-    if (value === "Infinity") {
-      return "Error";
-    }
-
-    if (value.length <= 16) {
-      return value;
     }
 
     const number = Number(value);
@@ -58,13 +44,21 @@ document.addEventListener("DOMContentLoaded", function () {
       return "Error";
     }
 
-    return number.toPrecision(10);
+    if (value.includes(".") && !value.endsWith(".")) {
+      return value;
+    }
+
+    if (value.length <= 16) {
+      return value;
+    }
+
+    return number.toPrecision(12);
   }
 
 
-  /* ===================================================
-     INPUT NUMBER
-  =================================================== */
+  /* =====================================================
+     NUMBER INPUT
+  ====================================================== */
 
   function inputNumber(number) {
 
@@ -81,7 +75,9 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
 
       if (currentValue === "0") {
+
         currentValue = number;
+
       } else {
 
         if (currentValue.length >= 16) {
@@ -96,9 +92,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-  /* ===================================================
-     DECIMAL
-  =================================================== */
+  /* =====================================================
+     DECIMAL INPUT
+  ====================================================== */
 
   function inputDecimal() {
 
@@ -122,9 +118,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-  /* ===================================================
+  /* =====================================================
      CLEAR
-  =================================================== */
+  ====================================================== */
 
   function clearCalculator() {
 
@@ -138,20 +134,26 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-  /* ===================================================
-     BACKSPACE
-  =================================================== */
+  /* =====================================================
+     DELETE
+  ====================================================== */
 
-  function backspace() {
+  function deleteLastDigit() {
 
-    if (waitingForNewValue || currentValue === "Error") {
+    if (
+      waitingForNewValue ||
+      currentValue === "Error"
+    ) {
       return;
     }
 
 
     if (
       currentValue.length <= 1 ||
-      (currentValue.length === 2 && currentValue.startsWith("-"))
+      (
+        currentValue.length === 2 &&
+        currentValue.startsWith("-")
+      )
     ) {
 
       currentValue = "0";
@@ -166,11 +168,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-  /* ===================================================
+  /* =====================================================
      PERCENTAGE
-  =================================================== */
+  ====================================================== */
 
-  function percentage() {
+  function calculatePercentage() {
 
     if (currentValue === "Error") {
       return;
@@ -191,33 +193,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-  /* ===================================================
-     PLUS / MINUS
-  =================================================== */
-
-  function toggleSign() {
-
-    if (currentValue === "0" || currentValue === "Error") {
-      return;
-    }
-
-
-    if (currentValue.startsWith("-")) {
-      currentValue = currentValue.slice(1);
-    } else {
-      currentValue = "-" + currentValue;
-    }
-
-
-    updateDisplay();
-  }
-
-
-  /* ===================================================
+  /* =====================================================
      OPERATOR
-  =================================================== */
+  ====================================================== */
 
-  function chooseOperator(nextOperator) {
+  function chooseOperator(selectedOperator) {
 
     if (currentValue === "Error") {
       return;
@@ -226,18 +206,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const inputValue = Number(currentValue);
 
-
     if (!Number.isFinite(inputValue)) {
       showError();
       return;
     }
 
 
-    if (operator && waitingForNewValue) {
+    if (
+      operator !== null &&
+      waitingForNewValue
+    ) {
 
-      operator = nextOperator;
+      operator = selectedOperator;
 
-      expression = `${formatDisplayValue(String(previousValue))} ${operatorSymbol(operator)}`;
+      expression =
+        formatNumber(String(previousValue)) +
+        " " +
+        selectedOperator;
 
       updateDisplay();
 
@@ -249,9 +234,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
       previousValue = inputValue;
 
-    } else if (operator) {
+    } else if (operator !== null) {
 
-      const result = calculate(
+      const result = performCalculation(
         previousValue,
         inputValue,
         operator
@@ -269,21 +254,23 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    operator = nextOperator;
+    operator = selectedOperator;
     waitingForNewValue = true;
 
 
     expression =
-      `${formatDisplayValue(String(previousValue))} ${operatorSymbol(operator)}`;
+      formatNumber(String(previousValue)) +
+      " " +
+      selectedOperator;
 
 
     updateDisplay();
   }
 
 
-  /* ===================================================
-     CALCULATE
-  =================================================== */
+  /* =====================================================
+     EQUALS
+  ====================================================== */
 
   function calculateResult() {
 
@@ -298,14 +285,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const inputValue = Number(currentValue);
 
-
     if (!Number.isFinite(inputValue)) {
       showError();
       return;
     }
 
 
-    const result = calculate(
+    const result = performCalculation(
       previousValue,
       inputValue,
       operator
@@ -319,9 +305,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     expression =
-      `${formatDisplayValue(String(previousValue))} ` +
-      `${operatorSymbol(operator)} ` +
-      `${formatDisplayValue(String(inputValue))} =`;
+      formatNumber(String(previousValue)) +
+      " " +
+      operator +
+      " " +
+      formatNumber(String(inputValue)) +
+      " =";
 
 
     currentValue = String(result);
@@ -335,11 +324,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-  /* ===================================================
+  /* =====================================================
      MATH ENGINE
-  =================================================== */
+  ====================================================== */
 
-  function calculate(first, second, selectedOperator) {
+  function performCalculation(first, second, selectedOperator) {
 
     let result;
 
@@ -351,16 +340,19 @@ document.addEventListener("DOMContentLoaded", function () {
         break;
 
 
+      case "−":
       case "-":
         result = first - second;
         break;
 
 
+      case "×":
       case "*":
         result = first * second;
         break;
 
 
+      case "÷":
       case "/":
 
         if (second === 0) {
@@ -385,9 +377,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-  /* ===================================================
+  /* =====================================================
      ROUNDING
-  =================================================== */
+  ====================================================== */
 
   function roundResult(value) {
 
@@ -397,35 +389,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-  /* ===================================================
-     OPERATOR SYMBOL
-  =================================================== */
-
-  function operatorSymbol(value) {
-
-    switch (value) {
-
-      case "*":
-        return "×";
-
-      case "/":
-        return "÷";
-
-      case "+":
-        return "+";
-
-      case "-":
-        return "−";
-
-      default:
-        return value;
-    }
-  }
-
-
-  /* ===================================================
+  /* =====================================================
      ERROR
-  =================================================== */
+  ====================================================== */
 
   function showError() {
 
@@ -433,43 +399,44 @@ document.addEventListener("DOMContentLoaded", function () {
     previousValue = null;
     operator = null;
     waitingForNewValue = true;
-
     expression = "Cannot calculate";
 
     updateDisplay();
   }
 
 
-  /* ===================================================
-     BUTTON CLICK
-  =================================================== */
+  /* =====================================================
+     BUTTON EVENTS
+  ====================================================== */
 
-  keys.addEventListener("click", function (event) {
+  keypad.addEventListener("click", function (event) {
 
-    const button = event.target.closest("button");
+    const button = event.target.closest(".calc-key");
 
     if (!button) {
       return;
     }
 
 
-    const number = button.dataset.number;
+    const value = button.dataset.value;
     const action = button.dataset.action;
-    const buttonOperator = button.dataset.operator;
 
 
     /* NUMBER */
 
-    if (number !== undefined) {
+    if (
+      button.classList.contains("number-key") &&
+      value !== "."
+    ) {
 
-      inputNumber(number);
+      inputNumber(value);
       return;
     }
 
 
     /* DECIMAL */
 
-    if (action === "decimal") {
+    if (value === ".") {
 
       inputDecimal();
       return;
@@ -478,69 +445,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* CLEAR */
 
-    if (
-      action === "clear" ||
-      action === "all-clear"
-    ) {
+    if (action === "clear") {
 
       clearCalculator();
       return;
     }
 
 
-    /* BACKSPACE */
+    /* DELETE */
 
-    if (
-      action === "backspace" ||
-      action === "delete"
-    ) {
+    if (action === "delete") {
 
-      backspace();
+      deleteLastDigit();
       return;
     }
 
 
     /* PERCENT */
 
-    if (
-      action === "percent" ||
-      action === "percentage"
-    ) {
+    if (action === "percent") {
 
-      percentage();
-      return;
-    }
-
-
-    /* PLUS / MINUS */
-
-    if (
-      action === "sign" ||
-      action === "plus-minus"
-    ) {
-
-      toggleSign();
+      calculatePercentage();
       return;
     }
 
 
     /* OPERATOR */
 
-    if (
-      buttonOperator !== undefined
-    ) {
+    if (action === "operator") {
 
-      chooseOperator(buttonOperator);
+      chooseOperator(value);
       return;
     }
 
 
     /* EQUALS */
 
-    if (
-      action === "equals" ||
-      action === "calculate"
-    ) {
+    if (action === "equals") {
 
       calculateResult();
       return;
@@ -549,9 +490,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-  /* ===================================================
+  /* =====================================================
      KEYBOARD SUPPORT
-  =================================================== */
+  ====================================================== */
 
   document.addEventListener("keydown", function (event) {
 
@@ -581,23 +522,51 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* OPERATORS */
+    /* ADDITION */
 
-    if (
-      key === "+" ||
-      key === "-" ||
-      key === "*" ||
-      key === "/"
-    ) {
+    if (key === "+") {
 
       event.preventDefault();
 
-      chooseOperator(key);
+      chooseOperator("+");
       return;
     }
 
 
-    /* ENTER */
+    /* SUBTRACTION */
+
+    if (key === "-") {
+
+      event.preventDefault();
+
+      chooseOperator("−");
+      return;
+    }
+
+
+    /* MULTIPLICATION */
+
+    if (key === "*") {
+
+      event.preventDefault();
+
+      chooseOperator("×");
+      return;
+    }
+
+
+    /* DIVISION */
+
+    if (key === "/") {
+
+      event.preventDefault();
+
+      chooseOperator("÷");
+      return;
+    }
+
+
+    /* EQUALS */
 
     if (
       key === "Enter" ||
@@ -611,7 +580,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* ESCAPE */
+    /* CLEAR */
 
     if (
       key === "Escape" ||
@@ -631,7 +600,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       event.preventDefault();
 
-      backspace();
+      deleteLastDigit();
       return;
     }
 
@@ -642,16 +611,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
       event.preventDefault();
 
-      percentage();
+      calculatePercentage();
       return;
     }
 
   });
 
 
-  /* ===================================================
+  /* =====================================================
      INITIAL DISPLAY
-  =================================================== */
+  ====================================================== */
 
   updateDisplay();
 
